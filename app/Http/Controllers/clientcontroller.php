@@ -1,0 +1,248 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\User;
+use App\Client;
+use App\Employer;
+use App\Spouse;
+use Illuminate\Support\Facades\DB;
+
+class clientcontroller extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return view('user_views.index');
+
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('user_views.create_account');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $user = new User;
+        $spouse = new Spouse;
+        $employer = new Employer;
+        $client = new Client;
+
+        $inputs = $request->all();
+
+        $rules = [
+            'surname' => 'required|min:2',
+            'firstname' => 'required|min:2',
+            'othername' => 'min:2',
+            'spousename' => 'required|min:2',
+            'num_children' => 'required|min:0',
+            'residential_address' => 'required|min:6',
+            'mailing_address' => 'required|min:6',
+            'telephone_mobile' => 'required|min:10',
+            'telephone_official' => 'required|min:10',
+            'email' => 'required|min:6|unique:users',
+            'occupation' => 'required|min:5',
+            'nationality' => 'required|min:5',
+            'employer_name' => 'required|min:5',
+            'employer_address' => 'required|min:5',
+            'identification_number' => 'required|min:5',
+            'issuedate' => 'required',
+            'expirydate' => 'required',
+            'hometown' => 'required|min:5',
+            'social_security' => 'required|min:5|unique:clients',
+            'numhousehold' => 'required|min:0',
+            'numdependants' => 'required|min:0',
+            'father' => 'required|min:2',
+            'mother' => 'required|min:2',
+            'kname' => 'required|min:2',
+            'kaddress' => 'required|min:5',
+            'ktel' => 'required|min:10',
+            'krel' => 'required|min:3',
+            'saddress' => 'required|min:5',
+            'stel' => 'required|min:10',
+            'username' => 'required|min:6|unique:users',
+            'password' => 'required|min:6',
+            'cpassword' => 'required|same:password',
+            'pic' => 'required'
+        ];
+
+        $messages = [
+            'surname.required' => 'The Surname field is required',
+            'surname.min' => 'The Surname field must be at least 2 characters.',
+
+            'firstname.required' => 'The First Name field is required',
+            'firstname.min' => 'The First Name field must be at least 2 characters.',
+
+            'spousename.required' => 'The Name of Spouse field is required',
+            'spousename.min' => 'The Name of Spouse field must be at least 2 characters.',
+
+            'num_children.required' => 'The Number of Children field is required',
+            'num_children.min' => 'Number of Children field cannot be negative',
+
+            'residential_address.required' => 'The Residential Address field is required',
+            'residential_address.min' => 'The Residential Address field must be at least 6 characters',
+
+            'mailing_address.required' => 'The Mailing Address field is required',
+            'mailing_address.min' => 'The Mailing Address field must be at least 6 characters',
+
+            'telephone_mobile.required' => 'The Telephone (Mobile) field is required',
+            'telephone_mobile.min' => 'A telephone number must be at least 10 characters',
+
+            'telephone_official.required' => 'The Telephone (Official) field is required',
+            'telephone_official.min' => 'A telephone number must be at least 10 characters',
+
+            'email.required' => 'The Email field is required',
+            'email.min' => 'The Email field must be at least 6 characters',
+            'email.unique' => 'This email already exists !',
+
+            'occupation.required' => 'The Occupation field is required',
+            'occupation.min' => 'The Occupation field must be at least 5 characters',
+
+            'nationality.required' => 'The Nationality field is required',
+            'nationality.min' => 'The Nationality field must be at least 5 characters',
+
+            'employer_name.required' => 'The Employer Name is required',
+            'employer_name.min' => 'The Employer Name field must be at least 5 characters',
+
+            'employer_address.required' => 'The Employer Address is required',
+            'employer_address.min' => 'The Employer Adress field must be at least 5 characters',
+
+            'identification_number.required' => 'The Identification number field is required',
+            'identification_number.min' => 'The Identification Number field must be at least 5 characters',
+
+            'issuedate.required' => 'The Date of Issue is required',
+
+            'expirydate.required' => 'The Expiry date field is required',
+//            'expirydate.min' => 'required|min:2',
+
+            'hometown.required' => 'The Hometown field is required',
+            'hometown.min' => 'The Hometown field must be at least 5 characters',
+
+            'social_security.required' => 'The Social Security Number field is required',
+            'social_security.min' => 'The Social Security field must be at least 5 characters',
+            'social_security.unique' => 'This Social Security Number already exist',
+
+            'numhousehold.required' => 'The Number of Members in Household is required ',
+            'numhousehold.min' => 'Number of Members in Household cannot be negative',
+
+            'numdependants.required' => 'The Number of Dependants is required',
+            'numdependants.min' => 'Number of Dependants field cannot be negative',
+
+            'father.required' => 'The Father field is required',
+            'father.min' => 'The Father field must be at least 2 charatcters',
+
+            'mother.required' => 'The Mother field is required',
+            'mother.min' => 'The Mother field must be at least 2 charatcters',
+
+            'kname.required' => 'The Next of Kin\'s Name field is required',
+            'kname.min' => 'The Next of Kin\'s Name field must be at least 2 characters',
+
+            'kaddress.required' => 'The Next of Kin\'s Address field is required',
+            'kaddress.min' => 'The Next of Kin\'s Address field must be at least 2 characters',
+
+            'ktel.required' => 'The Next of Kin\'s Telephone Number field is required',
+            'ktel.min' => 'A telephone number must be at least 10 characters',
+
+            'krel.required' => 'The Relationship with Next of Kin field is required',
+            'krel.min' => 'The Relationship with Next of Kin field must be at least 3 characters',
+
+            'saddress.required' => 'The Spouse Address field is required',
+            'saddress.min' => 'The Spouse Address field must be at least 5 characters',
+
+            'stel.required' => 'The Spouse\'s Telephone (Mobile) field is required',
+            'stel.min' => 'A telephone number must be at least 10 characters',
+
+            'username.required' => 'The Username field is required',
+            'username.min' => 'The Username field must be at least 6 characters',
+            'username.unique' => 'This username is already taken',
+
+
+            'password.required' => 'The Password field is required',
+            'password.min' => 'The Password field should be at least 6 characters',
+
+            'cpassword.required' => 'The Confirm Password field is required',
+            'cpassword.same' => 'Both passwords must match.',
+
+            'pic.required' => 'The Picture Field is required'
+        ];
+
+        $this->validate($request, $rules, $messages);
+
+        if ($inputs['agree'] == 1) {
+
+            $today = date("l jS \of F Y h:i:s A");
+            $user->insert($inputs['surname'], $inputs['firstname'], $inputs['othernames'], $inputs['username'], $inputs['password'], $inputs['email'], $inputs['pic'], $today);
+            $spouse->insert($inputs['email'], $inputs['spousename'], $inputs['saddress'], $inputs['stel']);
+            $employer->insert($inputs['email'], $inputs['employer_name'], $inputs['employer_address']);
+            return redirect('client')->with('status', 'Your account has been created successfully !');
+        } else {
+            return redirect('client/create')->with('status', 'You must agree with the terms and conditions !');
+        }
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public
+    function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public
+    function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public
+    function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public
+    function destroy($id)
+    {
+        //
+    }
+}
