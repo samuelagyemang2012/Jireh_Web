@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
@@ -22,9 +23,18 @@ class User extends Authenticatable
                 'password' => $password,
                 'email' => $email,
                 'pic' => $pic,
-                'last_logged_in'=>$last
+                'last_logged_in' => $last
             ]
         );
+    }
+
+    public function login($username, $password)
+    {
+        if (Auth::attempt(['username' => $username, 'password' => $password])) {
+            echo 'true';
+        } else {
+            echo 'false man';
+        }
     }
 
     /**

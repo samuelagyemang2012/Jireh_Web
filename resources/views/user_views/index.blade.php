@@ -39,8 +39,8 @@
             <div class="col-4"></div>
 
             <div class="col-4">
-                <form>
-
+                <form class="form-horizontal" method="post" action="/login">
+                    {{csrf_field()}}
                     <label>Username</label>
                     <div>
                         <input type="text" class="form-control" name="username" id="lusername" required>

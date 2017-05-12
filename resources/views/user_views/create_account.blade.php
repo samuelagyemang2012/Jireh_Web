@@ -215,7 +215,7 @@
 
                     <label>Hometown</label>
                     <div>
-                        <input type="text" class="form-control" class="form-control" name="hometown" id="hometown"
+                        <input type="text" class="form-control" name="hometown" id="hometown"
                                required>
                     </div>
                     <br>

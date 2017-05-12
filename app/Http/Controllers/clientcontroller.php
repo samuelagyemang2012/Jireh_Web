@@ -18,7 +18,7 @@ class clientcontroller extends Controller
      */
     public function index()
     {
-        return view('user_views.index');
+//        return view('user_views.index');
 
     }
 
@@ -187,11 +187,15 @@ class clientcontroller extends Controller
 
         if ($inputs['agree'] == 1) {
 
+            $npass = bcrypt($inputs['password']);
+
             $today = date("l jS \of F Y h:i:s A");
-            $user->insert($inputs['surname'], $inputs['firstname'], $inputs['othernames'], $inputs['username'], $inputs['password'], $inputs['email'], $inputs['pic'], $today);
+            $user->insert($inputs['surname'], $inputs['firstname'], $inputs['othernames'], $inputs['username'], $npass, $inputs['email'], $inputs['pic'], $today);
             $spouse->insert($inputs['email'], $inputs['spousename'], $inputs['saddress'], $inputs['stel']);
             $employer->insert($inputs['email'], $inputs['employer_name'], $inputs['employer_address']);
-            return redirect('client')->with('status', 'Your account has been created successfully !');
+            $client->insert($inputs['email'], $inputs['title'], $inputs['num_children'], $inputs['residential_address'], $inputs['mailing_address'], $inputs['telephone_mobile'], $inputs['telephone_official'], $inputs['date_of_birth'], $inputs['occupation'], $inputs['nationality'], $inputs['marital_status'], $inputs['source_of_funds'], $inputs['monthly_income'], $inputs['identification'], $inputs['identification_number'], $inputs['issuedate'], $inputs['expirydate'], $inputs['literacy'], $inputs['hometown'], $inputs['social_security'], $inputs['numhousehold'], $inputs['numdependants'], $inputs['father'], $inputs['mother'], $inputs['kname'], $inputs['kadress'], $inputs['ktel'], $inputs['krel']);
+
+            return redirect('login')->with('status', 'Your account has been created successfully !');
         } else {
             return redirect('client/create')->with('status', 'You must agree with the terms and conditions !');
         }
@@ -203,8 +207,7 @@ class clientcontroller extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public
-    function show($id)
+    public function show($id)
     {
         //
     }
@@ -228,8 +231,7 @@ class clientcontroller extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public
-    function update(Request $request, $id)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -240,8 +242,7 @@ class clientcontroller extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public
-    function destroy($id)
+    public function destroy($id)
     {
         //
     }

@@ -10,7 +10,6 @@ class Employer extends Model
 {
     public function insert($cemail, $name, $address)
     {
-
         DB::table('employers')->insert(
             ['client_email' => $cemail,
                 'name' => $name,
