@@ -7,19 +7,19 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+
 class User extends Authenticatable
 {
     use Notifiable;
 
 
-    public function insert($surname, $firstname, $othernames, $username, $password, $email, $pic, $last)
+    public function insert($surname, $firstname, $othernames, $password, $email, $pic, $last)
     {
 
         DB::table('users')->insert(
             ['surname' => $surname,
                 'firstname' => $firstname,
                 'othernames' => $othernames,
-                'username' => $username,
                 'password' => $password,
                 'email' => $email,
                 'pic' => $pic,
@@ -28,12 +28,15 @@ class User extends Authenticatable
         );
     }
 
-    public function login($username, $password)
+    public function login($email, $password)
     {
-        if (Auth::attempt(['username' => $username, 'password' => $password])) {
-            echo 'true';
+        if (Auth::attempt(['email' => $email, 'password' => $password])) {
+//            echo 'true';
+            session()->put('email', $email);
+
+            return 1;
         } else {
-            echo 'false man';
+            return 0;
         }
     }
 

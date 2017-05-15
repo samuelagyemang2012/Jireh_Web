@@ -52,9 +52,16 @@
                     </div>
                     <br>
 
+                    <label>Gender</label>
+                    <select name="gender" id="gender" class="form-control">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                    <br>
+
                     <label>Surname</label>
                     <div>
-                        <input type="text" class="form-control" name="surname" id="surname">
+                        <input type="text" class="form-control" name="surname" id="surname" required>
                     </div>
                     <br>
 
@@ -72,13 +79,31 @@
 
                     <label>Name of Spouse</label>
                     <div>
-                        <input type="text" class="form-control" name="spousename" id="spousename" required>
+                        <input type="text" class="form-control" name="spousename" id="spousename">
+                    </div>
+                    <br>
+
+                    <label>Spouse Address</label>
+                    <div>
+                        <input type="text" class="form-control" name="saddress" id="saddress">
+                    </div>
+                    <br>
+
+                    <label>Spouse Mobile Number</label>
+                    <div>
+                        <input type="tel" class="form-control" name="stel" id="stel" min="10">
+                    </div>
+                    <br>
+
+                    <label>Occupation of Spouse</label>
+                    <div>
+                        <input type="text" class="form-control" name="soccup" id="soccup" min="10">
                     </div>
                     <br>
 
                     <label>Number of Children</label>
                     <div>
-                        <input type="number" class="form-control" name="num_children" id="numchildren">
+                        <input type="number" class="form-control" name="num_children" id="numchildren" required>
                     </div>
                     <br>
 
@@ -124,9 +149,21 @@
                     </div>
                     <br>
 
+                    <label>Position Held</label>
+                    <div>
+                        <input type="text" class="form-control" name="position" id="position" required>
+                    </div>
+                    <br>
+
                     <label>Nationality</label>
                     <div>
                         <input type="text" class="form-control" name="nationality" id="nationality" required>
+                    </div>
+                    <br>
+
+                    <label>Number of Years in Current Employment</label>
+                    <div>
+                        <input type="number" class="form-control" name="numyears" id="numyears" required>
                     </div>
                     <br>
 
@@ -141,12 +178,6 @@
                         <input type="text" class="form-control" name="employer_address" id="empaddress" required>
                     </div>
                     <br>
-
-                    {{--<label>Mailing Address</label>--}}
-                    {{--<div>--}}
-                    {{--<input type="text" class="form-control" name="maddress" id="maddress" required>--}}
-                    {{--</div>--}}
-                    {{--<br>--}}
 
                     <label>Marital Status</label>
                     <select name="marital_status" id="mstatus" class="form-control">
@@ -274,23 +305,11 @@
                     </div>
                     <br>
 
-                    <label>Spouse Address</label>
-                    <div>
-                        <input type="text" class="form-control" name="saddress" id="saddress" required>
-                    </div>
-                    <br>
-
-                    <label>Spouse Mobile Number</label>
-                    <div>
-                        <input type="tel" class="form-control" name="stel" id="stel" min="10" required>
-                    </div>
-                    <br>
-
-                    <label>Username</label>
-                    <div>
-                        <input type="text" class="form-control" name="username" id="username" required>
-                    </div>
-                    <br>
+                    {{--<label>Username</label>--}}
+                    {{--<div>--}}
+                    {{--<input type="text" class="form-control" name="username" id="username" required>--}}
+                    {{--</div>--}}
+                    {{--<br>--}}
 
                     <label>Password</label>
                     <div>
@@ -324,8 +343,7 @@
                     </div>
                     <br>
                     <br>
-                    {{--<br>--}}
-                    {{--<label>Spouse Address</label>--}}
+
                     <div>
                         <select name="agree" id="agree" class="form-control">
                             <option value="1">I Agree</option>

@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\User;
+use Illuminate\Support\Facades\Session;
+
+session_start();
 
 class logincontroller extends Controller
 {
@@ -16,13 +20,18 @@ class logincontroller extends Controller
 
     public function store(Request $request)
     {
-//        echo "jack";
-//        return $request->all();
+
         $user = new User;
 
         $inputs = $request->all();
 
-        $user->login($inputs['username'],$inputs['lpassword']);
+        $res = $user->login($inputs['email'], $inputs['password']);
 
+        if ($res == 0) {
+
+            return redirect('login')->with('log', 'Invalid Login Details !');
+        } else {
+            return redirect('profile');
+        }
     }
 }

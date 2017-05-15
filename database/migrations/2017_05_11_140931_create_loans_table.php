@@ -15,15 +15,14 @@ class CreateLoansTable extends Migration
     {
         Schema::create('loans', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('client_id');
-            $table->string('position_held');
-            $table->double('net_monthly_income');
+            $table->string('client_email');
+            $table->double('net_monthly_salary');
             $table->string('other_source');
             $table->string('bank_branch');
+            $table->string('salary_date');
             $table->integer('num_cur_loans');
             $table->double('total_monthly_payments');
-            $table->string('name_of_institution');
+            $table->string('name_of_insti');
             $table->double('amount_requested');
             $table->integer('loan_period');
             $table->string('purpose_of_loan');
@@ -32,6 +31,8 @@ class CreateLoansTable extends Migration
             $table->string('witness_name');
             $table->string('witness_employer');
             $table->string('witness_tel');
+            $table->string('date_applied');
+            $table->string('status_id');
             $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
 //            $table->timestamps();

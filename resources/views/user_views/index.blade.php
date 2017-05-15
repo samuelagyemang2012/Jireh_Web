@@ -12,13 +12,19 @@
             <div class="col-4"></div>
 
             <div class="col-4">
-                <h5>JIREH MICROFINANCE LIMITED</h5>
+                <h4>JIREH MICROFINANCE LIMITED</h4>
                 <br>
                 {{--<br>--}}
 
                 @if (session('status'))
                     <div class="alert alert-success">
                         <p>{{ session('status') }}</p>
+                    </div>
+                @endif
+
+                @if (session('log'))
+                    <div class="alert alert-danger">
+                        <p>{{ session('log') }}</p>
                     </div>
                 @endif
                 <br>
@@ -41,19 +47,19 @@
             <div class="col-4">
                 <form class="form-horizontal" method="post" action="/login">
                     {{csrf_field()}}
-                    <label>Username</label>
+                    <label>Email</label>
                     <div>
-                        <input type="text" class="form-control" name="username" id="lusername" required>
+                        <input type="text" class="form-control" name="email" id="lemail" required>
                     </div>
                     <br>
 
                     <label>Password</label>
                     <div>
-                        <input type="password" class="form-control" name="lpassword" id="lpassword" required>
+                        <input type="password" class="form-control" name="password" id="lpassword" required>
                     </div>
                     <br>
 
-                    <button class="btn btn-primary" type="submit">Login</button>
+                    <button class="btn btn-primary btn-block" type="submit">Login</button>
 
                 </form>
                 <br>

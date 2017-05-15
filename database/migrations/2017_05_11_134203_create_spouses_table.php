@@ -16,9 +16,10 @@ class CreateSpousesTable extends Migration
         Schema::create('spouses', function (Blueprint $table) {
             $table->increments('id');
             $table->string('client_email');
-            $table->string('name');
-            $table->string('address');
-            $table->string('number');
+            $table->string('name')->nullable();
+            $table->string('spouse_occupation')->nullable();
+            $table->string('address')->nullable();
+            $table->string('number')->nullable();
             $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
 //            $table->timestamps();

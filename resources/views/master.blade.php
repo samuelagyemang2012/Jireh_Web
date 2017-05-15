@@ -3,18 +3,21 @@
 
 <head>
     <meta charset="utf-8"/>
-    <meta name="format-detection" content="telephone=no"/>
-    <meta name="msapplication-tap-highlight" content="no"/>
-    <meta name="viewport"
-          content="user-scalable=no, initial-scale=1.0, maximum-scale=1, minimum-scale=1, width=device-width"/>
-
+    {{--<meta name="format-detection" content="telephone=no"/>--}}
+    {{--<meta name="msapplication-tap-highlight" content="no"/>--}}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{asset('css/mycss.css')}}">
+    <link rel="stylesheet" href="{{asset('css/site.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap-grid.css')}}">
 
-    <script src="{{asset('js/bootstrap.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/jquery')}}"></script>
+    {{--    <script type="text/javascript" src="{{asset('js/bootstrap.js')}}"></script>--}}
 </head>
 
 <body>
+
+@yield('nav')
 
 <div class="container">
     <div class="header">

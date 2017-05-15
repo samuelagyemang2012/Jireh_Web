@@ -17,6 +17,7 @@ class CreateClientTable extends Migration
             $table->increments('id');
             $table->string('email')->unique();
             $table->integer('title');
+            $table->string('gender');
             $table->integer('num_children');
             $table->string('residential_address');
             $table->string('mailing_address');
@@ -24,14 +25,16 @@ class CreateClientTable extends Migration
             $table->string('telephone_official');
             $table->date('date_of_birth');
             $table->string('occupation');
+            $table->string('position_held');
             $table->string('nationality');
+            $table->integer('number_of_years');
             $table->integer('marital_status_id');
             $table->integer('source_of_funds_id');
             $table->integer('monthly_income_id');
             $table->integer('identification_number');
             $table->string('id_number');
             $table->string('date_of_issue');
-            $table->string('expiry date');
+            $table->string('expiry_date');
             $table->integer('literacy_level_id');
             $table->string('hometown');
             $table->string('social_security');

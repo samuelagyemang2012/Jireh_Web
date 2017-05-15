@@ -25,3 +25,7 @@ Route::resource('client', 'clientcontroller');
 
 Route::resource('login', 'logincontroller');
 
+Route::resource('profile', 'profilecontroller');
+
+Route::resource('loan', 'loancontroller');
+

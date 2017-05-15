@@ -51,7 +51,10 @@ class clientcontroller extends Controller
             'surname' => 'required|min:2',
             'firstname' => 'required|min:2',
             'othername' => 'min:2',
-            'spousename' => 'required|min:2',
+//            'spousename' => 'min:2',
+//            'saddress' => 'min:5',
+//            'stel' => 'min:10',
+//            'soccup' => 'min:2',
             'num_children' => 'required|min:0',
             'residential_address' => 'required|min:6',
             'mailing_address' => 'required|min:6',
@@ -59,7 +62,9 @@ class clientcontroller extends Controller
             'telephone_official' => 'required|min:10',
             'email' => 'required|min:6|unique:users',
             'occupation' => 'required|min:5',
+            'position' => 'required|min:5',
             'nationality' => 'required|min:5',
+            'numyears' => 'required|min:1',
             'employer_name' => 'required|min:5',
             'employer_address' => 'required|min:5',
             'identification_number' => 'required|min:5',
@@ -75,9 +80,7 @@ class clientcontroller extends Controller
             'kaddress' => 'required|min:5',
             'ktel' => 'required|min:10',
             'krel' => 'required|min:3',
-            'saddress' => 'required|min:5',
-            'stel' => 'required|min:10',
-            'username' => 'required|min:6|unique:users',
+//            'username' => 'required|min:6|unique:users',
             'password' => 'required|min:6',
             'cpassword' => 'required|same:password',
             'pic' => 'required'
@@ -90,8 +93,9 @@ class clientcontroller extends Controller
             'firstname.required' => 'The First Name field is required',
             'firstname.min' => 'The First Name field must be at least 2 characters.',
 
-            'spousename.required' => 'The Name of Spouse field is required',
-            'spousename.min' => 'The Name of Spouse field must be at least 2 characters.',
+//            'spousename.min' => 'The Name of Spouse field must be at least 2 characters.',
+//            'saddress.min' => 'The Spouse Address field must be at least 5 characters',
+//            'stel.min' => 'A telephone number must be at least 10 characters',
 
             'num_children.required' => 'The Number of Children field is required',
             'num_children.min' => 'Number of Children field cannot be negative',
@@ -163,17 +167,6 @@ class clientcontroller extends Controller
             'krel.required' => 'The Relationship with Next of Kin field is required',
             'krel.min' => 'The Relationship with Next of Kin field must be at least 3 characters',
 
-            'saddress.required' => 'The Spouse Address field is required',
-            'saddress.min' => 'The Spouse Address field must be at least 5 characters',
-
-            'stel.required' => 'The Spouse\'s Telephone (Mobile) field is required',
-            'stel.min' => 'A telephone number must be at least 10 characters',
-
-            'username.required' => 'The Username field is required',
-            'username.min' => 'The Username field must be at least 6 characters',
-            'username.unique' => 'This username is already taken',
-
-
             'password.required' => 'The Password field is required',
             'password.min' => 'The Password field should be at least 6 characters',
 
@@ -190,10 +183,10 @@ class clientcontroller extends Controller
             $npass = bcrypt($inputs['password']);
 
             $today = date("l jS \of F Y h:i:s A");
-            $user->insert($inputs['surname'], $inputs['firstname'], $inputs['othernames'], $inputs['username'], $npass, $inputs['email'], $inputs['pic'], $today);
+            $user->insert($inputs['surname'], $inputs['firstname'], $inputs['othernames'], $npass, $inputs['email'], $inputs['pic'], $today);
             $spouse->insert($inputs['email'], $inputs['spousename'], $inputs['saddress'], $inputs['stel']);
             $employer->insert($inputs['email'], $inputs['employer_name'], $inputs['employer_address']);
-            $client->insert($inputs['email'], $inputs['title'], $inputs['num_children'], $inputs['residential_address'], $inputs['mailing_address'], $inputs['telephone_mobile'], $inputs['telephone_official'], $inputs['date_of_birth'], $inputs['occupation'], $inputs['nationality'], $inputs['marital_status'], $inputs['source_of_funds'], $inputs['monthly_income'], $inputs['identification'], $inputs['identification_number'], $inputs['issuedate'], $inputs['expirydate'], $inputs['literacy'], $inputs['hometown'], $inputs['social_security'], $inputs['numhousehold'], $inputs['numdependants'], $inputs['father'], $inputs['mother'], $inputs['kname'], $inputs['kadress'], $inputs['ktel'], $inputs['krel']);
+            $client->insert($inputs['email'], $inputs['title'], $inputs['gender'], $inputs['num_children'], $inputs['residential_address'], $inputs['mailing_address'], $inputs['telephone_mobile'], $inputs['telephone_official'], $inputs['date_of_birth'], $inputs['occupation'], $inputs['position'], $inputs['nationality'], $inputs['numyears'], $inputs['marital_status'], $inputs['source_of_funds'], $inputs['monthly_income'], $inputs['identification'], $inputs['identification_number'], $inputs['issuedate'], $inputs['expirydate'], $inputs['literacy'], $inputs['hometown'], $inputs['social_security'], $inputs['numhousehold'], $inputs['numdependants'], $inputs['father'], $inputs['mother'], $inputs['kname'], $inputs['kaddress'], $inputs['ktel'], $inputs['krel']);
 
             return redirect('login')->with('status', 'Your account has been created successfully !');
         } else {
