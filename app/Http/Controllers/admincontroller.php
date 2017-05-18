@@ -201,6 +201,6 @@ class admincontroller extends Controller
 
     public function all_loans_excel()
     {
-        e
+
     }
 }
