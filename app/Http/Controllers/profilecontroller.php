@@ -10,7 +10,7 @@ class profilecontroller extends Controller
 {
     public function index()
     {
-        $loan = new Loan;
+        $loan = new Loan();
         $email = Session::get('email');
 
         $ploans = $loan->get_client_pending_loan_details($email);
