@@ -37,5 +37,16 @@
 
             </tbody>
         </table>
+
+        <table>
+            <thead>
+            <th>
+                <button class="btn btn-sm btn-primary">Print</button>&nbsp;
+            </th>
+            <th>
+                <button class="btn btn-sm btn-primary">Download</button>
+            </th>
+            </thead>
+        </table>
     </div>
 @stop
