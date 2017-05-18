@@ -46,7 +46,7 @@
                 &nbsp;
             </th>
             <th>
-                <a href="#" class="btn btn-sm btn-primary">Download</a>
+                <a href="{{route('all_loans_excel')}}" class="btn btn-sm btn-primary">Download</a>
             </th>
             </thead>
         </table>
