@@ -42,10 +42,11 @@
         <table>
             <thead>
             <th>
-                <button class="btn btn-sm btn-primary">Print</button>&nbsp;
+                <button class="btn btn-sm btn-primary">Print</button>
+                &nbsp;
             </th>
             <th>
-                <button class="btn btn-sm btn-primary">Download</button>
+                <a href="#" class="btn btn-sm btn-primary">Download</a>
             </th>
             </thead>
         </table>
