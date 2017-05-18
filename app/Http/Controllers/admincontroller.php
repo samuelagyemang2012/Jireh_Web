@@ -198,4 +198,9 @@ class admincontroller extends Controller
 
         return redirect('/admin/dashboard')->with('status', 'Credentials Updated successfully');
     }
+
+    public function all_loans_excel()
+    {
+        e
+    }
 }
