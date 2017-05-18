@@ -166,7 +166,9 @@ class admincontroller extends Controller
 
         $npass = bcrypt($inputs['password']);
 
-        $a->add_admin($inputs['surname'], $inputs['firstname'], $inputs['email'], $npass, 'admin');
+        $a->add_admin($inputs['surname'], $inputs['firstname'], $npass, $inputs['email'], 'admin');
+
+//        $surname, $firstname, $password, $email, $role
 
         return redirect('/admin/dashboard')->with('New Admin Created successfully');
     }
