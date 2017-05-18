@@ -42,7 +42,7 @@
         <table>
             <thead>
             <th>
-                <button class="btn btn-sm btn-primary">Print</button>
+                <a href="" class="btn btn-sm btn-primary">Print</a>
                 &nbsp;
             </th>
             <th>

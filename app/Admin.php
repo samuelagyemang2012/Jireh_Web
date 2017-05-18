@@ -46,4 +46,9 @@ class Admin extends Model
             ->where('email', $old_email)
             ->update(['password' => $password, 'email' => $new_email]);
     }
+
+    public function all_loans_excel()
+    {
+        
+    }
 }
