@@ -8,6 +8,7 @@ use App\Loan;
 use App\title;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class admincontroller extends Controller
@@ -96,6 +97,11 @@ class admincontroller extends Controller
         $input = $request->all();
 
         $l->approve_loan($input['id']);
+
+//        Mail::send(['text'=>'email_views.email'], function ($message) {
+//            $message->from('khermztest@gmail.com', 'Khermz2012');
+//            $message->to('khermz2012@gmail.com');
+//        });
 
         return redirect('/admin/dashboard');
     }
