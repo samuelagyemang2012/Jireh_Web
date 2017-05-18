@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\User;
 use Illuminate\Support\Facades\Session;
 
-session_start();
+//session_start();
 
 class logincontroller extends Controller
 {
@@ -27,11 +27,12 @@ class logincontroller extends Controller
 
         $res = $user->login($inputs['email'], $inputs['password']);
 
-        if ($res == 0) {
+        $urole = Session::get('urole');
 
-            return redirect('login')->with('log', 'Invalid Login Details !');
-        } else {
+        if ($res == 1 && $urole === 'user') {
             return redirect('profile');
+        } else {
+            return redirect('login')->with('log', 'Invalid Login Details !');
         }
     }
 }
