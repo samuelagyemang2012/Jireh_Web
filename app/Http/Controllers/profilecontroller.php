@@ -13,8 +13,26 @@ class profilecontroller extends Controller
         $loan = new Loan;
         $email = Session::get('email');
 
-        $loans = $loan->get_loan_details($email);
+        $ploans = $loan->get_client_pending_loan_details($email);
+        $aloans = $loan->get_client_approved_loan_details($email);
+        $rloans = $loan->get_client_refused_loan_details($email);
 
-        return view('user_views.profile')->with('loans', $loans);
+
+        $numloans = $loan->get_num_loans();
+        $pending = $loan->get_num_pending_loans($email);
+        $approved = $loan->get_num_approved_loans($email);
+        $refused = $loan->get_num_refused_loans($email);
+
+//        return $ploans;
+
+
+        return view('user_views.profile')
+            ->with('ploans', $ploans)
+            ->with('aloans', $aloans)
+            ->with('rloans', $rloans)
+            ->with('numloans', $numloans)
+            ->with('pending', $pending)
+            ->with('approved', $approved)
+            ->with('refused', $refused);
     }
 }

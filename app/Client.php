@@ -44,11 +44,19 @@ class Client extends Model
                 'kin_relationship' => $kin_relationship
             ]);
     }
-//        [
-//        
-//    ];
 
-//    protected $hidden = [
-//        other_source, other_status, other_identification, other_literacy
-//    ];
+    public function get_num_clients()
+    {
+        return DB::table('clients')->count();
+    }
+
+    public function get_client_details($email, $id)
+    {
+        return DB::table('clients')
+            ->join('users', 'users.email', '=', 'clients.email')
+            ->join('loans', 'loans.client_email', '=', 'clients.email')
+            ->where('clients.email', '=', $email)
+            ->where('loans.id', '=', $id)
+            ->get();
+    }
 }

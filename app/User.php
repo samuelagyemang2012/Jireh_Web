@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 
 class User extends Authenticatable
@@ -28,11 +29,26 @@ class User extends Authenticatable
         );
     }
 
+    private function get_role($email)
+    {
+        return DB::table('users')
+            ->select('role')
+            ->where('email', '=', $email)
+            ->get();
+
+    }
+
     public function login($email, $password)
     {
         if (Auth::attempt(['email' => $email, 'password' => $password])) {
 //            echo 'true';
             session()->put('email', $email);
+
+            $role = $this->get_role($email);
+
+            $nrole = $role[0]->role;
+
+            session()->put('urole', $nrole);
 
             return 1;
         } else {
@@ -40,6 +56,23 @@ class User extends Authenticatable
         }
     }
 
+    public function admin_login($email, $password)
+    {
+        if (Auth::attempt(['email' => $email, 'password' => $password])) {
+
+            session()->put('aemail', $email);
+//
+            $role = $this->get_role($email);
+
+            $nrole = $role[0]->role;
+
+            session()->put('role', $nrole);
+//
+            return 1;
+        } else {
+            return 0;
+        }
+    }
     /**
      * The attributes that are mass assignable.
      *

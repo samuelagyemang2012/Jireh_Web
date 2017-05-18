@@ -17,7 +17,7 @@
             </thead>
             <tbody>
 
-            @foreach($pending as $pend)
+            @foreach($rloans as $pend)
                 <tr>
                     <form method="post" action="{{route('details')}}">
                         {{csrf_field()}}

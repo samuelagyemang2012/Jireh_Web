@@ -17,17 +17,17 @@
             </thead>
             <tbody>
 
-            @foreach($pending as $pend)
+            @foreach($aploans as $a)
                 <tr>
                     <form method="post" action="{{route('details')}}">
                         {{csrf_field()}}
-                        <td>{{$pend->surname}}</td>
-                        <td>{{$pend->firstname}}</td>
-                        <td>{{$pend->email}}</td>
-                        <td>{{$pend->telephone_mobile}}</td>
-                        <td><span>GHC </span>{{$pend->amount_requested}}</td>
-                        <td><input name="email" value="{{$pend->email}}" hidden></td>
-                        <td><input name="id" value="{{$pend->id}}" hidden></td>
+                        <td>{{$a->surname}}</td>
+                        <td>{{$a->firstname}}</td>
+                        <td>{{$a->email}}</td>
+                        <td>{{$a->telephone_mobile}}</td>
+                        <td><span>GHC </span>{{$a->amount_requested}}</td>
+                        <td><input name="email" value="{{$a->email}}" hidden></td>
+                        <td><input name="id" value="{{$a->id}}" hidden></td>
                         <td>
                             <button type="submit" class="btn btn-sm btn-primary">More Details</button>
                         </td>

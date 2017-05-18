@@ -12,7 +12,7 @@
             <div class="col-4"></div>
 
             <div class="col-4">
-                <h4>JIREH MICROFINANCE LIMITED</h4>
+                <h4 style="color: #8A5241">JIREH MICROFINANCE LIMITED</h4>
                 <br>
                 {{--<br>--}}
 
@@ -59,7 +59,7 @@
                     </div>
                     <br>
 
-                    <button class="btn btn-primary btn-block" type="submit">Login</button>
+                    <button class="btn btn-primary btn-block" style="background-color: #8A5241; border: none" type="submit">Login</button>
 
                 </form>
                 <br>
