@@ -49,6 +49,6 @@ class Admin extends Model
 
     public function all_loans_excel()
     {
-        
+        return "excel";
     }
 }
