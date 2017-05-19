@@ -10,6 +10,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
+use Maatwebsite\Excel\Facades\Excel;
 
 class admincontroller extends Controller
 {
@@ -199,8 +200,111 @@ class admincontroller extends Controller
         return redirect('/admin/dashboard')->with('status', 'Credentials Updated successfully');
     }
 
-    public function all_loans_excel()
+    /**
+     * @param $loans
+     * @return array
+     */
+    private function loans_to_Array($loans)
     {
+        $header[] = ['Surname', 'Firstname', 'Email', 'Telephone (Mobile)', 'Amount Requested'];
 
+        foreach ($loans as $loan) {
+            $header[] = array($loan->surname, $loan->firstname, $loan->email, $loan->telephone_mobile, $loan->amount_requested);
+        }
+
+        return $header;
+    }
+
+
+    public function export_excel(Request $request)
+    {
+        $inputs = $request->all();
+
+        $this->to_excel($inputs['function'], $inputs['type']);
+
+    }
+
+    /**
+     * @param $function
+     * @param $type
+     */
+    private function to_excel($function, $type)
+    {
+        $l = new Loan;
+
+        if ($function === "all_loans") {
+
+            $all_loans = $l->get_all_loans();
+
+            $all_loans = $this->loans_to_Array($all_loans);
+
+            Excel::create('All Loans', function ($excel) use ($all_loans) {
+
+                $excel->setTitle('Payments');
+                $excel->setCreator('Jireh Microfinance Ltd')->setCompany('Jireh Microfinance Ltd');
+                $excel->setDescription('All Loans');
+
+                $excel->sheet('All Loans', function ($sheet) use ($all_loans) {
+                    $sheet->fromArray($all_loans, null, 'A1', false, false);
+                });
+
+            })->download($type);
+        }
+
+        if ($function === "pending") {
+
+            $all_loans = $l->get_all_pending_loans();
+
+            $all_loans = $this->loans_to_Array($all_loans);
+
+            Excel::create('Pending Loans', function ($excel) use ($all_loans) {
+
+                $excel->setTitle('Pending Loans');
+                $excel->setCreator('Jireh Microfinance Ltd')->setCompany('Jireh Microfinance Ltd');
+                $excel->setDescription('All Loans');
+
+                $excel->sheet('Pending Loans', function ($sheet) use ($all_loans) {
+                    $sheet->fromArray($all_loans, null, 'A1', false, false);
+                });
+
+            })->download($type);
+        }
+
+        if ($function === "refused") {
+            $all_loans = $l->get_all_refused_loans();
+
+            $all_loans = $this->loans_to_Array($all_loans);
+
+            Excel::create('Refused Loans', function ($excel) use ($all_loans) {
+
+                $excel->setTitle('Refused Loans');
+                $excel->setCreator('Jireh Microfinance Ltd')->setCompany('Jireh Microfinance Ltd');
+                $excel->setDescription('Refused Loans');
+
+                $excel->sheet('Refused Loans', function ($sheet) use ($all_loans) {
+                    $sheet->fromArray($all_loans, null, 'A1', false, false);
+                });
+
+            })->download($type);
+        }
+
+        if ($function === "approved") {
+
+            $all_loans = $l->get_all_approved_loans();
+
+            $all_loans = $this->loans_to_Array($all_loans);
+
+            Excel::create('Approved Loans', function ($excel) use ($all_loans) {
+
+                $excel->setTitle('Approved Loans');
+                $excel->setCreator('Jireh Microfinance Ltd')->setCompany('Jireh Microfinance Ltd');
+                $excel->setDescription('Approved Loans');
+
+                $excel->sheet('Approved Loans', function ($sheet) use ($all_loans) {
+                    $sheet->fromArray($all_loans, null, 'A1', false, false);
+                });
+
+            })->download($type);
+        }
     }
 }

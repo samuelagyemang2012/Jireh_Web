@@ -79,7 +79,8 @@ class Loan extends Model
         return DB::table('loans')
             ->join('users', 'users.email', '=', 'loans.client_email')
             ->join('clients', 'users.email', '=', 'clients.email')
-            ->select('users.firstname', 'users.surname', 'users.email', 'clients.telephone_mobile', 'loans.id', 'loans.date_applied', 'loans.amount_requested')
+            ->select('users.firstname',
+                'users.surname', 'users.email', 'clients.telephone_mobile', 'loans.id', 'loans.date_applied', 'loans.amount_requested')
             ->where('loans.status_id', '=', '1')
             ->get();
     }
@@ -139,7 +140,7 @@ class Loan extends Model
     public function refuse_loan($id)
     {
         DB::table('loans')
-            ->where('id',$id)
-            ->update(['status_id'=> 3]);
+            ->where('id', $id)
+            ->update(['status_id' => 3]);
     }
 }

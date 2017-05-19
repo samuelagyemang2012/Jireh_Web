@@ -47,4 +47,4 @@ Route::get('/edit', 'admincontroller@show_edit_details')->name('edit');
 
 Route::post('/edit_admin_action', 'admincontroller@edit_admin')->name('edit_admin');
 
-Route::get('/all_loans_excel', 'admincontroller@all_loans_excel')->name('all_loans_excel');
+Route::get('/all_loans_excel', 'admincontroller@export_excel')->name('export_excel');
