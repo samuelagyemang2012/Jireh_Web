@@ -15,12 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//get base url/index page
-//Route::get('/', 'homecontroller@index');
-
-//get about page
-//Route::get('create-account', 'homecontroller@create_account');
-
 Route::resource('client', 'clientcontroller');
 
 Route::resource('login', 'logincontroller');
