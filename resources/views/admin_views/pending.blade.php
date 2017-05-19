@@ -42,8 +42,12 @@
         <table>
             <thead>
             <th>
-                <a href="" class="btn btn-primary">Print</a>
-                &nbsp;&nbsp;&nbsp;
+                <form method="get" action="{{route('export_pdf')}}">
+                    {{csrf_field()}}
+                    <input value="pending" name="function" hidden>
+                    <button type="submit" class="btn btn-primary">Print</button>
+                    &nbsp;&nbsp;
+                </form>
             </th>
             <th>
                 <form class="form-horizontal" method="get" action="{{route('export_excel')}}">

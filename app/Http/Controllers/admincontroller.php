@@ -7,10 +7,12 @@ use App\Client;
 use App\Loan;
 use App\title;
 use App\User;
+use Dompdf\Adapter\PDFLib;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Maatwebsite\Excel\Facades\Excel;
+use PDF;
 
 class admincontroller extends Controller
 {
@@ -305,6 +307,47 @@ class admincontroller extends Controller
                 });
 
             })->download($type);
+        }
+    }
+
+    public function export_pdf(Request $request)
+    {
+        $inputs = $request->all();
+
+//        return $request->all();
+
+        return $this->to_pdf($inputs['function']);
+
+    }
+
+    private function to_pdf($function)
+    {
+        $l = new Loan;
+
+        $date = date("l jS \of F Y h:i:s A");
+//
+        if ($function === "all_loans") {
+            $loans = $l->get_all_loans();
+            $pdf = PDF::loadView('PDF.all_loans', ['loans' => $loans, 'date' => $date, 'title'=>'All Loans']);
+            return $pdf->download('All Loans.pdf');
+        }
+
+        if ($function === "pending") {
+            $loans = $l->get_all_pending_loans();
+            $pdf = PDF::loadView('PDF.all_loans', ['loans' => $loans, 'date' => $date, 'title'=>'Pending Loans']);
+            return $pdf->download('Pending Loans.pdf');
+        }
+
+        if ($function === "approved") {
+            $loans = $l->get_all_approved_loans();
+            $pdf = PDF::loadView('PDF.all_loans', ['loans' => $loans, 'date' => $date, 'title'=>'Approved Loans']);
+            return $pdf->download('Approved Loans.pdf');
+        }
+
+        if ($function === "refused") {
+            $loans = $l->get_all_refused_loans();
+            $pdf = PDF::loadView('PDF.all_loans', ['loans' => $loans, 'date' => $date, 'title'=>'Refused Loans']);
+            return $pdf->download('Refused Loans.pdf');
         }
     }
 }
