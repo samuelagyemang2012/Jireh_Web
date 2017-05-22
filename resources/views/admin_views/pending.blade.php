@@ -83,7 +83,7 @@
             </thead>
             <tbody>
 
-            @foreach($pendingl as $pend)
+            @foreach($pending as $pend)
                 <tr>
                     <form method="post" action="{{route('details')}}">
                         {{csrf_field()}}
