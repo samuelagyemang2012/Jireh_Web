@@ -50,6 +50,10 @@
             </tbody>
         </table>
     </div>
+
+    <div class="container">
+        {{$pending->link()}}
+    </div>
 @stop
 
 {{--<script>--}}

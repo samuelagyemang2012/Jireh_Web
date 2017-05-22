@@ -67,25 +67,25 @@
 
                     <label class="myfont">Net Monthly Salary/Sales (GHS)</label>
                     <div>
-                        <input type="number" class="form-control" name="num_monthly" id="net_monthly" required>
+                        <input type="number" class="form-control" name="num_monthly" id="net_monthly" required value="{{old('num_monthly')}}">
                     </div>
                     <br>
 
                     <label class="myfont">Any Other Source of Income</label>
                     <div>
-                        <input type="text" class="form-control" name="other_source" id="other_source">
+                        <input type="text" class="form-control" name="other_source" id="other_source" value="{{old('other_source')}}">
                     </div>
                     <br>
 
                     <label class="myfont">Bank/Branch</label>
                     <div>
-                        <input type="text" class="form-control" name="bank" id="bank" required>
+                        <input type="text" class="form-control" name="bank" id="bank" required value="{{old('bank')}}">
                     </div>
                     <br>
 
                     <label class="myfont">Salary Date</label>
                     <div>
-                        <input type="date" class="form-control" name="salary_date" id="salary_date" required>
+                        <input type="date" class="form-control" name="salary_date" id="salary_date" required value="{{old('salary_date')}}">
                     </div>
                     <br>
                     <br>
@@ -96,7 +96,7 @@
 
                     <label class="myfont">Number of Current Loans</label>
                     <div>
-                        <input type="number" class="form-control" name="numloans" id="numloans" required>
+                        <input type="number" class="form-control" name="numloans" id="numloans" required value="{{old('numloans')}}">
                     </div>
                     <br>
 
@@ -104,13 +104,13 @@
                     <div>
                         <input type="number" class="form-control" name="total_monthly_payments"
                                id="total_monthly_payments"
-                               required>
+                               required value="{{old('total_monthly_payments')}}">
                     </div>
                     <br>
 
                     <label class="myfont">Name of Institution(s)</label>
                     <div>
-                        <input type="text" class="form-control" name="name_insti" id="name_insti" required>
+                        <input type="text" class="form-control" name="name_insti" id="name_insti" required value="{{old('name_insti')}}">
                     </div>
                     <br>
 
@@ -119,25 +119,25 @@
 
                     <label class="myfont">Amount Requested</label>
                     <div>
-                        <input type="number" class="form-control" name="amount" id="amount" required>
+                        <input type="number" class="form-control" name="amount" id="amount" required value="{{old('amount')}}">
                     </div>
                     <br>
 
                     <label class="myfont">Proposed Loan Period</label>
                     <div>
-                        <input type="number" class="form-control" name="loan_period" id="loan_period" required>
+                        <input type="number" class="form-control" name="loan_period" id="loan_period" required value="{{old('loan_period')}}">
                     </div>
                     <br>
 
                     <label class="myfont">Purpose of Loan</label>
                     <div>
-                        <textarea class="form-control" name="purpose" id="purpose" rows="3" required></textarea>
+                        <textarea class="form-control" name="purpose" id="purpose" rows="3" required value="{{old('purpose')}}"></textarea>
                     </div>
                     <br>
 
                     <label class="myfont">Collateral Details</label>
                     <div>
-                        <textarea class="form-control" name="collateral" id="collateral" rows="3" required></textarea>
+                        <textarea class="form-control" name="collateral" id="collateral" rows="3" required  value="{{old('collateral')}}" ></textarea>
                     </div>
                     <br>
 
@@ -155,19 +155,19 @@
 
                     <label class="myfont">Witness' Name</label>
                     <div>
-                        <input type="text" class="form-control" name="wname" id="wname" required>
+                        <input type="text" class="form-control" name="wname" id="wname" required value="{{old('wname')}}">
                     </div>
                     <br>
 
                     <label class="myfont">Witness' Employer</label>
                     <div>
-                        <input type="text" class="form-control" name="wemployer" id="wemployer" required>
+                        <input type="text" class="form-control" name="wemployer" id="wemployer" required value="{{old('wemployer')}}">
                     </div>
                     <br>
 
                     <label class="myfont">Witness' Telephone Number</label>
                     <div>
-                        <input type="tel" class="form-control" name="wtel" id="wtel" required>
+                        <input type="tel" class="form-control" name="wtel" id="wtel" required value="{{old('wtel')}}">
                     </div>
                     <br>
 

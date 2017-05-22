@@ -27,4 +27,8 @@
             </tbody>
         </table>
     </div>
+
+    <div class="container">
+        {{$clogs->links()}}
+    </div>
 @stop

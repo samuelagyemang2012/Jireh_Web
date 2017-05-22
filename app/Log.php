@@ -21,13 +21,14 @@ class Log extends Model
     {
         return DB::table('logs')
             ->where('role', '=', 'client')
-            ->get();
+            ->paginate(10);
     }
 
     public function get_admin_logs()
     {
         return DB::table('logs')
             ->where('role', '=', 'admin')
-            ->get();
+            ->paginate(10);
+//            ->get();
     }
 }

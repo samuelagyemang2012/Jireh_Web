@@ -106,6 +106,10 @@
             </tbody>
         </table>
 
+        <div class="container">
+            {{$aploans->links()}}
+        </div>
+
         <table>
             <thead>
             <th>

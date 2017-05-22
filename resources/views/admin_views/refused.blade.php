@@ -104,6 +104,10 @@
             </tbody>
         </table>
 
+        <div class="container">
+            {{$rloans->links()}}
+        </div>
+
         <table>
             <thead>
             <th>

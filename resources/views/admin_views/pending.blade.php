@@ -104,6 +104,10 @@
             </tbody>
         </table>
 
+        <div class="container">
+            {{$all_pend->links()}}
+        </div>
+
         <table>
             <thead>
             <th>

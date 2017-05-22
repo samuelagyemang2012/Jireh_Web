@@ -106,6 +106,10 @@
             </tbody>
         </table>
 
+        <div class="container">
+            {{$all_loans->links()}}
+        </div>
+
         <table>
             <thead>
             <th>

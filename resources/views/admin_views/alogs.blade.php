@@ -18,12 +18,16 @@
                 <tr>
                     <td>{{$a->done_by}}</td>
                     <td>{{$a->message}}</td>
-            <td>{{$a->created_at}}</td>
+                    <td>{{$a->created_at}}</td>
                 </tr>
             @endforeach
 
             </tbody>
         </table>
+    </div>
+
+    <div class="container">
+        {{$alogs->links()}}
     </div>
 
 @stop

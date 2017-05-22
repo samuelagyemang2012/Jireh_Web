@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Admin;
 use App\Client;
 use App\Loan;
-use App\title;
 use App\User;
 use App\Log;
 use Dompdf\Adapter\PDFLib;
@@ -24,7 +23,6 @@ class admincontroller extends Controller
 
     public function show()
     {
-
         $c = new Client;
         $l = new Loan;
 
@@ -41,7 +39,6 @@ class admincontroller extends Controller
             ->with('approved', $approved)
             ->with('refused', $refused)
             ->with('all', $all);
-
     }
 
     public function pending()
