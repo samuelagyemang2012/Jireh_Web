@@ -1,8 +1,29 @@
 @extends('master')
 
+@section('header')
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+
+            <div class="col-4">
+                @if (session('status'))
+                    <div class="alert alert-danger">
+                        <p>{{ session('status') }}</p>
+                    </div>
+                @endif
+            </div>
+
+            <div class="col-4"></div>
+
+        </div>
+    </div>
+
+@stop
 
 @section('content')
     <body class="login">
+
 
     <div class="container">
         <div class="row">
@@ -24,7 +45,8 @@
                                 </p>
                                 <input type="text" placeholder="Email" class="form-control top" name="email" required>
 
-                                <input type="password" placeholder="Password" class="form-control bottom" name="password" required>
+                                <input type="password" placeholder="Password" class="form-control bottom"
+                                       name="password" required>
 
                                 {{--<div class="checkbox">--}}
                                 {{--<label>--}}

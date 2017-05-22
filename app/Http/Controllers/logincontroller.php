@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 
+use App\Loan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\User;
+use App\Log;
 use Illuminate\Support\Facades\Session;
 
 //session_start();
@@ -22,6 +24,8 @@ class logincontroller extends Controller
     {
 
         $user = new User;
+        $log = new Log;
+
 
         $inputs = $request->all();
 
@@ -30,8 +34,19 @@ class logincontroller extends Controller
         $urole = Session::get('urole');
 
         if ($res == 1 && $urole === 'user') {
+
+            $date = date('l jS \of F Y h:i:s A');
+            $user->update_last_login($inputs['email'], $date);
+
+            $msg = $inputs['email'] . " logged in successfully";
+            $log->insert($msg, $inputs['email'], 'client');
+
             return redirect('profile');
         } else {
+
+            $msg = $inputs['email'] . " failed to log in successfully";
+            $log->insert($msg, $inputs['email'], 'client');
+
             return redirect('login')->with('log', 'Invalid Login Details !');
         }
     }

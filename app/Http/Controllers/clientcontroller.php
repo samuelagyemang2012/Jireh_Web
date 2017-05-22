@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Log;
 use Illuminate\Http\Request;
 use App\User;
 use App\Client;
@@ -19,7 +20,6 @@ class clientcontroller extends Controller
     public function index()
     {
 //        return view('user_views.index');
-
     }
 
     /**
@@ -44,6 +44,7 @@ class clientcontroller extends Controller
         $spouse = new Spouse;
         $employer = new Employer;
         $client = new Client;
+        $log = new Log;
 
         $inputs = $request->all();
 
@@ -187,6 +188,13 @@ class clientcontroller extends Controller
             $spouse->insert($inputs['email'], $inputs['spousename'], $inputs['saddress'], $inputs['stel']);
             $employer->insert($inputs['email'], $inputs['employer_name'], $inputs['employer_address']);
             $client->insert($inputs['email'], $inputs['title'], $inputs['gender'], $inputs['num_children'], $inputs['residential_address'], $inputs['mailing_address'], $inputs['telephone_mobile'], $inputs['telephone_official'], $inputs['date_of_birth'], $inputs['occupation'], $inputs['position'], $inputs['nationality'], $inputs['numyears'], $inputs['marital_status'], $inputs['source_of_funds'], $inputs['monthly_income'], $inputs['identification'], $inputs['identification_number'], $inputs['issuedate'], $inputs['expirydate'], $inputs['literacy'], $inputs['hometown'], $inputs['social_security'], $inputs['numhousehold'], $inputs['numdependants'], $inputs['father'], $inputs['mother'], $inputs['kname'], $inputs['kaddress'], $inputs['ktel'], $inputs['krel']);
+
+            $fname = $inputs['firstname'];
+            $sname = $inputs['surname'];
+
+            $msg = "" . $fname . " " . $sname . "created a new account.";
+
+            $log->insert($msg, $inputs['email'], 'client');
 
             return redirect('login')->with('status', 'Your account has been created successfully !');
         } else {

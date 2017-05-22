@@ -1,5 +1,72 @@
 @extends('master3')
 
+@section('dashboard')
+
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-aqua">
+            <div class="inner">
+                <h3>{{$all}}</h3>
+
+                <p>All Loans</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-bag"></i>
+            </div>
+            <a href="#" class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+
+    <!-- ./col -->
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-green">
+            <div class="inner">
+                <h3>{{$approved}}<sup style="font-size: 20px"></sup></h3>
+
+                <p>Approved Loans</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+            </div>
+            <a href="#" class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+
+    <!-- ./col -->
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-yellow">
+            <div class="inner">
+                <h3>{{$pending}}</h3>
+
+                <p>Pending Loans</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-person-add"></i>
+            </div>
+            <a href="#" class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+
+    <!-- ./col -->
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-red">
+            <div class="inner">
+                <h3>{{$refused}}</h3>
+
+                <p>Refused Loans</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+            </div>
+            <a href="#" class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+
+@stop
+
 @section('content')
     <div class="box-footer clearfix">
         <h3>All Loans</h3>
@@ -18,7 +85,7 @@
             </thead>
             <tbody>
 
-            @foreach($all as $a)
+            @foreach($all_loans as $a)
                 <tr>
                     <form method="post" action="{{route('details')}}">
                         {{csrf_field()}}
@@ -45,7 +112,8 @@
                 <form method="get" action="{{route('export_pdf')}}">
                     {{csrf_field()}}
                     <input value="all_loans" name="function" hidden>
-                    <button type="submit" class="btn btn-primary">Print</button>&nbsp;&nbsp;
+                    <button type="submit" class="btn btn-primary">Print</button>
+                    &nbsp;&nbsp;
                 </form>
 
             </th>
@@ -61,6 +129,7 @@
                     <button type="submit" class="btn btn-primary">Export</button>
                 </form>
             </th>
+            <a href="{{route('mail')}}" class="btn">Mail</a>
 
             </thead>
         </table>

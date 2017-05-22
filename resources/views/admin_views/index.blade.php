@@ -8,7 +8,10 @@
         </div>
     @endif
 
+
+
     <div class="box-footer clearfix">
+        <h3>Pending Loans</h3>
         <table class="table table-responsive">
 
             <thead style="">

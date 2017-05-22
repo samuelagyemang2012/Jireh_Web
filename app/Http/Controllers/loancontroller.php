@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -18,6 +19,8 @@ class loancontroller extends Controller
     {
 //        return $request->all();
         $loan = new Loan;
+        $log = new Log;
+        $role = 'client';
 //
         $inputs = $request->all();
 
@@ -82,7 +85,10 @@ class loancontroller extends Controller
         if ($inputs['agree'] == 1) {
 //            return $request->all();
             $loan->insert($email, $inputs['num_monthly'], $inputs['other_source'], $inputs['bank'], $inputs['salary_date'], $inputs['numloans'], $inputs['total_monthly_payments'], $inputs['name_insti'], $inputs['amount'], $inputs['loan_period'], $inputs['purpose'], $inputs['collateral'], $inputs['cash_service'], $inputs['wname'], $inputs['wemployer'], $inputs['wtel'], $date, 1);
-//
+
+            $msg = $email . " requested for a loan";
+            $log->insert($msg, $email, $role);
+
             return redirect('profile')->with('loan', 'Your loan application was successful !');
         } else {
 //            echo 'false';

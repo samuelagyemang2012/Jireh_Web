@@ -59,4 +59,12 @@ class Client extends Model
             ->where('loans.id', '=', $id)
             ->get();
     }
+
+    public function get_client_names($email)
+    {
+        return DB::table('users')
+            ->where('email', '=', $email)
+            ->select('firstname', 'surname', 'last_logged_in')
+            ->get();
+    }
 }

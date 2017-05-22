@@ -57,11 +57,11 @@
                 </li>
 
                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Last
-                            seen</strong></span> Yesterday
+                            seen</strong></span> {{$last}}
                 </li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Name</strong></span>
-                    Joseph
-                    Doe
+                    {{$fname}}
+                    {{$sname}}
                 </li>
 
             </ul>
@@ -97,28 +97,29 @@
                 </div>
                 <div class="panel-body">
                     <div class="row">
-
-                        @foreach($aloans as $aloan)
-                            <div class="col-md-4">
-                                <div class="thumbnail">
-                                    <div class="caption">
-                                        <h3>
-                                            <b style="color: #8A5241">Amount Requested</b>
-                                        </h3>
-                                        <hr>
-                                        <p>
-                                            <span>GHC </span><b>{{$aloan->amount_requested}}</b>
-                                        </p>
-                                        <hr>
-                                        <h3>
-                                            <b style="color: #8A5241">Status</b>
-                                        </h3>
-                                        <p>{{$aloan->name}}</p>
-                                        <hr>
+                        @if($aloans)
+                            @foreach($aloans as $aloan)
+                                <div class="col-md-4">
+                                    <div class="thumbnail">
+                                        <div class="caption">
+                                            <h3>
+                                                <b style="color: #8A5241">Amount Requested</b>
+                                            </h3>
+                                            <hr>
+                                            <p>
+                                                <span>GHC </span><b>{{$aloan->amount_requested}}</b>
+                                            </p>
+                                            <hr>
+                                            <h3>
+                                                <b style="color: #8A5241">Status</b>
+                                            </h3>
+                                            <p>{{$aloan->name}}</p>
+                                            <hr>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        @endif
                     </div>
 
                 </div>
@@ -133,28 +134,27 @@
                 </div>
                 <div class="panel-body">
                     <div class="row">
-
-                        @foreach($ploans as $ploan)
-                            <div class="col-md-4">
-                                <div class="thumbnail">
-                                    <div class="caption">
-                                        <h3>
-                                            <b style="color: #8A5241">Amount Requested</b>
-                                        </h3>
-                                        <hr>
-                                        <p>
-                                            <span>GHC </span><b>{{$ploan->amount_requested}}</b>
-                                        </p>
-                                        <hr>
-                                        <h3>
-                                            <b style="color: #8A5241">Status</b>
-                                        </h3>
-                                        <p>{{$ploan->name}}</p>
-                                        <hr>
+                            @foreach($ploans as $ploan)
+                                <div class="col-md-4">
+                                    <div class="thumbnail">
+                                        <div class="caption">
+                                            <h3>
+                                                <b style="color: #8A5241">Amount Requested</b>
+                                            </h3>
+                                            <hr>
+                                            <p>
+                                                <span>GHC </span><b>{{$ploan->amount_requested}}</b>
+                                            </p>
+                                            <hr>
+                                            <h3>
+                                                <b style="color: #8A5241">Status</b>
+                                            </h3>
+                                            <p>{{$ploan->name}}</p>
+                                            <hr>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
                     </div>
 
                 </div>
@@ -168,28 +168,29 @@
                 </div>
                 <div class="panel-body">
                     <div class="row">
-
-                        @foreach($rloans as $rloan)
-                            <div class="col-md-4">
-                                <div class="thumbnail">
-                                    <div class="caption">
-                                        <h3>
-                                            <b style="color: #8A5241">Amount Requested</b>
-                                        </h3>
-                                        <hr>
-                                        <p>
-                                            <span>GHC </span><b>{{$ploan->amount_requested}}</b>
-                                        </p>
-                                        <hr>
-                                        <h3>
-                                            <b style="color: #8A5241">Status</b>
-                                        </h3>
-                                        <p>{{$ploan->name}}</p>
-                                        <hr>
+                        @if($rloans)
+                            @foreach($rloans as $rloan)
+                                <div class="col-md-4">
+                                    <div class="thumbnail">
+                                        <div class="caption">
+                                            <h3>
+                                                <b style="color: #8A5241">Amount Requested</b>
+                                            </h3>
+                                            <hr>
+                                            <p>
+                                                <span>GHC </span><b>{{$rloan->amount_requested}}</b>
+                                            </p>
+                                            <hr>
+                                            <h3>
+                                                <b style="color: #8A5241">Status</b>
+                                            </h3>
+                                            <p>{{$rloan->name}}</p>
+                                            <hr>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        @endif
                     </div>
 
                 </div>

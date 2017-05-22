@@ -46,7 +46,7 @@
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>A</b>LT</span>
             <!-- logo for regular state and mobile devices -->
@@ -345,7 +345,8 @@
             <ul class="sidebar-menu">
 
                 <li class="header"></li>
-                <li><a href="documentation/index.html"><i class="fa fa-book"></i> <span>Dashboard</span></a></li>
+                <li><a href=""><i class="fa fa-book"></i> <span>Dashboard</span></a></li>
+
                 <li class="active treeview">
                     <a href="#">
                         <i class="fa fa-dashboard"></i> <span>Loans</span>
@@ -381,7 +382,21 @@
                         {{--<li class="active"><a href=""><i class="fa fa-circle-o"></i> All Loans</a></li>--}}
                         <li><a href="{{route('add_admin_view')}}"><i class="fa fa-circle-o"></i> Add New Admin</a></li>
                         <li><a href="{{route('edit')}}"><i class="fa fa-circle-o"></i> Edit Admin Details</a></li>
-                        {{--<li><a href=""><i class="fa fa-circle-o"></i> Edit Admin Details</a></li>--}}
+                    </ul>
+                </li>
+
+                <li class="active treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i> <span>System Logs</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class="active"><a href="{{route('client_log')}}"><i class="fa fa-circle-o"></i>Client
+                                Logs</a>
+                        </li>
+                        <li><a href="{{route('admin_log')}}"><i class="fa fa-circle-o"></i> Admin Logs</a></li>
                     </ul>
                 </li>
 
@@ -411,68 +426,7 @@
             {{--<h1>jsdjfskfskfsdfsdfsdf</h1>--}}
             <div class="row">
 
-                <div class="col-lg-3 col-xs-6">
-                    <!-- small box -->
-                    <div class="small-box bg-aqua">
-                        <div class="inner">
-                            <h3>150</h3>
-
-                            <p>New Orders</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-bag"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- ./col -->
-                <div class="col-lg-3 col-xs-6">
-                    <!-- small box -->
-                    <div class="small-box bg-green">
-                        <div class="inner">
-                            <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                            <p>Bounce Rate</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-stats-bars"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- ./col -->
-                <div class="col-lg-3 col-xs-6">
-                    <!-- small box -->
-                    <div class="small-box bg-yellow">
-                        <div class="inner">
-                            <h3>44</h3>
-
-                            <p>User Registrations</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-person-add"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- ./col -->
-                <div class="col-lg-3 col-xs-6">
-                    <!-- small box -->
-                    <div class="small-box bg-red">
-                        <div class="inner">
-                            <h3>65</h3>
-
-                            <p>Unique Visitors</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-pie-graph"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
+                @yield('dashboard')
 
                 <!-- ./col -->
             </div>
@@ -495,13 +449,13 @@
 </div>
 
 <!-- /.content-wrapper -->
-<footer class="main-footer">
-    <div class="pull-right hidden-xs">
-        <b>Version</b> 2.3.8
-    </div>
-    <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
-    reserved.
-</footer>
+{{--<footer class="main-footer">--}}
+    {{--<div class="pull-right hidden-xs">--}}
+        {{--<b>Version</b> 2.3.8--}}
+    {{--</div>--}}
+    {{--<strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights--}}
+    {{--reserved.--}}
+{{--</footer>--}}
 
 <!-- Control Sidebar -->
 <aside class="control-sidebar control-sidebar-dark">

@@ -73,6 +73,13 @@ class User extends Authenticatable
             return 0;
         }
     }
+
+    public function update_last_login($email, $date)
+    {
+        DB::table('users')
+            ->where('email', $email)
+            ->update(['last_logged_in' => $date]);
+    }
     /**
      * The attributes that are mass assignable.
      *

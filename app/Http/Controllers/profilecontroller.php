@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Client;
 use App\Loan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -10,8 +11,16 @@ class profilecontroller extends Controller
 {
     public function index()
     {
+        $client = new Client;
+
         $loan = new Loan();
         $email = Session::get('email');
+
+        $user_data = $client->get_client_names($email);
+
+        $fname = $user_data[0]->firstname;
+        $sname = $user_data[0]->surname;
+        $last = $user_data[0]->last_logged_in;
 
         $ploans = $loan->get_client_pending_loan_details($email);
         $aloans = $loan->get_client_approved_loan_details($email);
@@ -33,6 +42,9 @@ class profilecontroller extends Controller
             ->with('numloans', $numloans)
             ->with('pending', $pending)
             ->with('approved', $approved)
-            ->with('refused', $refused);
+            ->with('refused', $refused)
+            ->with('fname', $fname)
+            ->with('sname', $sname)
+            ->with('last', $last);
     }
 }

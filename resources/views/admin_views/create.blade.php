@@ -17,19 +17,19 @@
         <form method="post" action="{{route('add_admin')}}">
             {{csrf_field()}}
             <label>Surname</label>
-            <input type="text" class="form-control" name="surname">
+            <input type="text" class="form-control" name="surname" required>
 
             <label>Firstname</label>
-            <input type="text" class="form-control" name="firstname">
+            <input type="text" class="form-control" name="firstname" required>
 
             <label>Email</label>
-            <input type="text" class="form-control" name="email">
+            <input type="text" class="form-control" name="email" required>
 
             <label>Password</label>
-            <input type="password" class="form-control" name="password">
+            <input type="password" class="form-control" name="password" required>
 
             <label>Confirm Password</label>
-            <input type="password" class="form-control" name="confirm_password">
+            <input type="password" class="form-control" name="confirm_password" required>
 
             <br>
 

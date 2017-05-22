@@ -110,22 +110,44 @@ class Loan extends Model
         return DB::table('loans')->count();
     }
 
-    public function get_num_pending_loans($email)
+    public function get_num_pending_loans()
+    {
+        return DB::table('loans')
+            ->where('status_id', '=', '1')
+            ->count();
+    }
+
+    public function get_num_approved_loans()
+    {
+        return DB::table('loans')
+            ->where('status_id', '=', '2')
+            ->count();
+    }
+
+    public function get_num_refused_loans()
+    {
+        return DB::table('loans')
+            ->where('status_id', '=', '3')
+            ->count();
+    }
+
+
+    public function get_num_client_pending_loans($email)
     {
         return DB::table('loans')->where('client_email', '=', $email)->where('status_id', '=', 1)->count();
     }
 
-    public function get_num_all_pending_loans()
+    public function get_num_all_client_pending_loans()
     {
         return DB::table('loans')->count();
     }
 
-    public function get_num_approved_loans($email)
+    public function get_num_approved_client_loans($email)
     {
         return DB::table('loans')->where('client_email', '=', $email)->where('status_id', '=', 2)->count();
     }
 
-    public function get_num_refused_loans($email)
+    public function get_num_refused_client_loans($email)
     {
         return DB::table('loans')->where('client_email', '=', $email)->where('status_id', '=', 3)->count();
     }
@@ -142,5 +164,13 @@ class Loan extends Model
         DB::table('loans')
             ->where('id', $id)
             ->update(['status_id' => 3]);
+    }
+
+    public function get_loan_email_by_id($id)
+    {
+        return DB::table('loans')
+            ->where('id', '=', $id)
+            ->select('loans.client_email')
+            ->get();
     }
 }

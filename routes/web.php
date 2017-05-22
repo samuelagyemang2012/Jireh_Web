@@ -49,4 +49,12 @@ Route::post('/edit_admin_action', 'admincontroller@edit_admin')->name('edit_admi
 
 Route::get('/all_loans_excel', 'admincontroller@export_excel')->name('export_excel');
 
-Route::get('/pdf','admincontroller@export_pdf')->name('export_pdf');
+Route::get('/pdf', 'admincontroller@export_pdf')->name('export_pdf');
+
+Route::get('/mail', 'admincontroller@mail')->name('mail');
+
+Route::get('/client_log', 'admincontroller@client_log')->name('client_log');
+
+Route::get('admin_log', 'admincontroller@admin_log')->name('admin_log');
+
+
