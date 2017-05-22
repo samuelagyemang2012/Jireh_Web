@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap-grid.css')}}">
 
-    <script type="text/javascript" src="{{asset('js/jquery')}}"></script>
+    <script type="text/javascript" src="{{asset('js/jquery.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/validate.js')}}"></script>
     {{--    <script type="text/javascript" src="{{asset('js/bootstrap.js')}}"></script>--}}
 </head>
 

@@ -688,5 +688,7 @@
 <!-- AdminLTE App -->
 <script src="{{asset('js/app.min.js')}}"></script>
 
+<script src="{{asset('js/validate.js')}}"></script>
+
 </body>
 </html>
