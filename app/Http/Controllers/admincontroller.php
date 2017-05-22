@@ -24,18 +24,19 @@ class admincontroller extends Controller
 
     public function show()
     {
-//        echo "home";
+
         $c = new Client;
         $l = new Loan;
 
-        $pending = $l->get_all_pending_loans();
+        $all_pend = $l->get_all_approved_loans();
+
         $pending1 = $l->get_num_pending_loans();
         $approved = $l->get_num_approved_loans();
         $refused = $l->get_num_refused_loans();
         $all = $l->get_num_loans();
 
         return view('admin_views.pending')
-            ->with('pending', $pending)
+            ->with('all_pend', $all_pend)
             ->with('pending1', $pending1)
             ->with('approved', $approved)
             ->with('refused', $refused)
@@ -47,17 +48,16 @@ class admincontroller extends Controller
     {
         $l = new Loan;
 
+        $all_pend = $l->get_all_approved_loans();
+
         $pending1 = $l->get_num_pending_loans();
         $approved = $l->get_num_approved_loans();
         $refused = $l->get_num_refused_loans();
         $all = $l->get_num_loans();
 
-        $pending = $l->get_all_pending_loans();
-
         return view('admin_views.pending')
-            ->with('title', 'Pending Loans')
-            ->with('pendingl', $pending)
-            ->with('pending', $pending1)
+            ->with('all_pend', $all_pend)
+            ->with('pending1', $pending1)
             ->with('approved', $approved)
             ->with('refused', $refused)
             ->with('all', $all);

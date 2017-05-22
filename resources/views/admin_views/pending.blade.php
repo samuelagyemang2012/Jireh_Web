@@ -37,7 +37,7 @@
         <!-- small box -->
         <div class="small-box bg-yellow">
             <div class="inner">
-                <h3>{{$pending}}</h3>
+                <h3>{{$pending1}}</h3>
 
                 <p>Pending Loans</p>
             </div>
@@ -83,7 +83,7 @@
             </thead>
             <tbody>
 
-            @foreach($pending as $pend)
+            @foreach($all_pend as $pend)
                 <tr>
                     <form method="post" action="{{route('details')}}">
                         {{csrf_field()}}
