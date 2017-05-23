@@ -78,7 +78,7 @@ class clientcontroller extends Controller
             'father' => 'required|min:2',
             'mother' => 'required|min:2',
             'kname' => 'required|min:2',
-            'kaddress' => 'required|min:5',
+            'kaddress' => 'required|min:2',
             'ktel' => 'required|min:10',
             'krel' => 'required|min:3',
 //            'username' => 'required|min:6|unique:users',

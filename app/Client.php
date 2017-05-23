@@ -67,4 +67,46 @@ class Client extends Model
             ->select('firstname', 'surname', 'last_logged_in')
             ->get();
     }
+
+//    public function get_all_clients()
+//    {
+//        return DB::table('clients')
+//            ->join('titles.id','=','clients.title')
+//            ->join('marital_statuses.id','=','clients.marital_status_id')
+//            ->join('marital_statuses.id','=','marital_status_id')
+//            ->join('monthly_incomes.id'.'=','monthly_income_id')
+//            ->join('literacy_levels.id','=','literacy_level_id')
+//            ->select('clients.id',
+//                'clients.email',
+//                'title.name',
+//                'clients.gender',
+//                'marital_statuses.name',
+//                'clients.num_children',
+//                'clients.residential_address',
+//                'clients.mailing_address',
+//                'clients.telephone_mobile',
+//                'clients.date_of_birth',
+//                'clients.occupation',
+//                'clients.position_held',
+//                'clients.nationality',
+//                'clients.number_of_years',
+//                'source_of_funds.name',
+//                'monthly_incomes.name',
+//                'clients.identification_number',
+//                'clients.id_number',
+//                'clients.date_of_issue',
+//                'clients.expiry_date',
+//                'literacy_levels.name',
+//                'clients.hometown',
+//                'clients.social_security',
+//                'clients.household_members',
+//                'clients.num_dependants',
+//                'clients.father',
+//                'clients.mother',
+//                'clients.kin_name',
+//                'clients.kin_address',
+//                'clients.kin_telephone',
+//                'clients.kin_relationship',
+//                'clients.created_at');
+//    }
 }
