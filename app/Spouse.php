@@ -20,4 +20,11 @@ class Spouse extends Model
             ]
         );
     }
+
+    public function get_spouse($email)
+    {
+        return DB::table('spouses')
+            ->where('spouses.client_email', '=', $email)
+            ->get();
+    }
 }

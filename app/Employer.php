@@ -17,4 +17,11 @@ class Employer extends Model
             ]
         );
     }
+
+    public function get_employer($email)
+    {
+        return DB::table('employers')
+            ->where('client_email', '=', $email)
+            ->get();
+    }
 }

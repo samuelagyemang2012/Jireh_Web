@@ -66,6 +66,17 @@
 @stop
 
 @section('content')
+    <div class="container">
+        @if (session('status'))
+            <div class="alert alert-success" style="width: 400px">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <p>{{ session('status') }}</p>
+            </div>
+    </div>
+    @endif
+
+
+
     <div class="box-footer clearfix">
         <h3>Pending Loans</h3>
         <table class="table">

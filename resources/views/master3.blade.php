@@ -365,7 +365,7 @@
 
 
                 <li class="treeview">
-                    <a href="#">
+                    <a href="{{route('manage_clients')}}">
                         <i class="fa fa-pie-chart"></i>
                         <span>Manage Clients</span>
                     </a>

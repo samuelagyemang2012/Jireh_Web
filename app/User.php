@@ -80,6 +80,20 @@ class User extends Authenticatable
             ->where('email', $email)
             ->update(['last_logged_in' => $date]);
     }
+
+    public function get_user($email)
+    {
+        return DB::table('users')
+            ->where('email', '=', $email)
+            ->get();
+    }
+
+    public function get_all_users()
+    {
+        return DB::table('users')
+            ->where('role','=','user')
+            ->paginate(10);
+    }
     /**
      * The attributes that are mass assignable.
      *

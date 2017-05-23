@@ -33,7 +33,7 @@ Route::get('refuse_loans', 'admincontroller@refused')->name('refused');
 
 Route::get('all_loans', 'admincontroller@all')->name('all');
 
-Route::post('/details', 'admincontroller@client_details')->name('details');
+Route::post('/client-loan-details', 'admincontroller@client_details')->name('details');
 
 Route::post('/approve', 'admincontroller@approve_loan')->name('approve');
 
@@ -56,5 +56,11 @@ Route::get('/mail', 'admincontroller@mail')->name('mail');
 Route::get('/client_log', 'admincontroller@client_log')->name('client_log');
 
 Route::get('admin_log', 'admincontroller@admin_log')->name('admin_log');
+
+Route::get('manage-clients', 'admincontroller@manage_clients')->name('manage_clients');
+
+Route::get('client-details', 'admincontroller@single_client_details')->name('single');
+
+Route::post('update', 'admincontroller@update')->name('update');
 
 
