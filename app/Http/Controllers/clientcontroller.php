@@ -8,6 +8,7 @@ use App\User;
 use App\Client;
 use App\Employer;
 use App\Spouse;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\DB;
 
 class clientcontroller extends Controller
@@ -193,13 +194,35 @@ class clientcontroller extends Controller
             $sname = $inputs['surname'];
 
             $msg = "" . $fname . " " . $sname . " created a new account.";
-
             $log->insert($msg, $inputs['email'], 'client');
+
+//            For Mail
+            $body = "You have successfully created an account with Jireh Microfinance Limited.";
+            $sal = " ";
+
+            $data = ["firstname" => $inputs['firstname'],
+                "surname" => $inputs['surname'],
+                "body" => $body,
+                "salutation" => $sal
+            ];
+
+            $this->mail($data,$inputs['email'],'WELCOME TO JIREH MICROFINANCE LTD');
+
+
 
             return redirect('login')->with('status', 'Your account has been created successfully !');
         } else {
             return redirect('client/create')->with('status', 'You must agree with the terms and conditions !');
         }
+    }
+
+    private function mail($data, $email, $subject)
+    {
+        Mail::send('email_views.email', $data, function ($m) use ($email, $subject) {
+            $m->from('info@jirehmfl.com.gh', 'Jireh Microfinance Ltd');
+            $m->to($email);
+            $m->subject($subject);
+        });
     }
 
     /**

@@ -84,6 +84,7 @@ class User extends Authenticatable
     public function get_user($email)
     {
         return DB::table('users')
+            ->select('firstname','surname')
             ->where('email', '=', $email)
             ->get();
     }

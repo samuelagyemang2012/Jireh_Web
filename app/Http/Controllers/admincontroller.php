@@ -29,7 +29,7 @@ class admincontroller extends Controller
         $c = new Client;
         $l = new Loan;
 
-        $all_pend = $l->get_all_approved_loans();
+        $all_pend = $l->get_all_pending_loans();
 
         $pending1 = $l->get_num_pending_loans();
         $approved = $l->get_num_approved_loans();
@@ -154,6 +154,7 @@ class admincontroller extends Controller
     {
         $l = new Loan;
         $log = new Log;
+        $u = new User;
 
         $input = $request->all();
 
@@ -161,16 +162,26 @@ class admincontroller extends Controller
 
         $email = Session::get('admin');
 
-        $client = $l->get_loan_email_by_id(($input['id']));
+        $client = $l->get_loan_details_by_id($input['id']);
+        $userdata = $u->get_user($client[0]->client_email);
+
+        $date = explode(" ", $client[0]->created_at);
+
+//        For mail
+        $body = "Your loan request of GHC " . $client[0]->amount_requested . " on " . $date[0] . " has been approved.";
+        $sal = "Please visit us for more details.";
+
+        $data = ["firstname" => $userdata[0]->firstname,
+            "surname" => $userdata[0]->surname,
+            "body" => $body,
+            "salutation" => $sal
+        ];
+
 
         $msg = $email . " approved a loan by" . $client[0]->client_email;
-//
         $log->insert($msg, $email, 'admin');
 
-//        Mail::send(['text'=>'email_views.email'], function ($message) {
-//            $message->from('khermztest@gmail.com', 'Khermz2012');
-//            $message->to('khermz2012@gmail.com');
-//        });
+        $this->mail($data, $client[0]->client_email,"LOAN APPROVAL");
 
         return redirect('/admin/dashboard');
     }
@@ -179,6 +190,7 @@ class admincontroller extends Controller
     {
         $l = new Loan;
         $log = new Log;
+        $u = new User;
 
         $input = $request->all();
 
@@ -186,10 +198,25 @@ class admincontroller extends Controller
 
         $email = Session::get('admin');
 
-        $client = $l->get_loan_email_by_id($input['id']);
+        $client = $l->get_loan_details_by_id($input['id']);
+        $userdata = $u->get_user($client[0]->client_email);
+
+        $date = explode(" ", $client[0]->created_at);
+
+//        For mail
+        $body = "Your loan request for GHC " . $client[0]->amount_requested . " on " . $date[0] . " has been refused.";
+        $sal = "Please visit us for more details.";
+
+        $data = ["firstname" => $userdata[0]->firstname,
+            "surname" => $userdata[0]->surname,
+            "body" => $body,
+            "salutation" => $sal
+        ];
 
         $msg = $email . " refused a loan by" . $client[0]->client_email;
         $log->insert($msg, $email, 'admin');
+
+        $this->mail($data, $client[0]->client_email,"LOAN REFUSAL");
 
         return redirect('/admin/dashboard');
     }
@@ -615,20 +642,6 @@ class admincontroller extends Controller
         }
     }
 
-    public function mail()
-    {
-//        echo 'mail';
-        $data = array('name' => "Virat Gandhi");
-
-        Mail::send(['text' => 'email_views.email'], $data, function ($message) {
-            $message->to('khermz2012@gmail.com', 'Tutorials Point')->subject
-            ('Laravel Basic Testing Mail');
-            $message->from('xyz@gmail.com', 'Virat Gandhi');
-        });
-
-        echo 'sent';
-    }
-
     public function client_log()
     {
 //        echo "sd";
@@ -749,20 +762,12 @@ class admincontroller extends Controller
         return redirect('/admin');
     }
 
-    public function test(){
-        $data = [
-            'firstName' => 'sam'
-//            'username' => $inputs['username'],
-//            'password' => $password,
-//            'admin_mail' => Auth::user()->email
-        ];
-
-
-            //send email notification to client
-            Mail::send('email_views.email', $data, function ($m) {
-                $m->from('npontualph@gmail.com', 'ERUDIO');
-                $m->to("khermz2012@gmail.com");
-                $m->subject('Welcome to ERUDIO!');
+    private function mail($data, $email, $subject)
+    {
+            Mail::send('email_views.email', $data, function ($m) use ($email, $subject) {
+                $m->from('info@jirehmfl.com.gh', 'Jireh Microfinance Ltd');
+                $m->to($email);
+                $m->subject($subject);
             });
     }
 }

@@ -1,1 +1,12 @@
-You email has been approved.
+Hello {{$firstname}}&nbsp;{{$surname}},<br><br>
+
+{{$body}}<br>
+
+{{$salutation}}<br><br>
+
+Thank you,<br>
+Jireh Microfinance Limited
+
+
+
+

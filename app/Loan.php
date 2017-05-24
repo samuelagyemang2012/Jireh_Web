@@ -167,11 +167,12 @@ class Loan extends Model
             ->update(['status_id' => 3]);
     }
 
-    public function get_loan_email_by_id($id)
+    public function get_loan_details_by_id($id)
     {
         return DB::table('loans')
             ->where('id', '=', $id)
-            ->select('loans.client_email')
+            ->select('loans.client_email', 'loans.amount_requested', 'loans.created_at')
             ->get();
     }
+
 }
