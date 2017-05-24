@@ -11,6 +11,7 @@ use App\User;
 use App\Log;
 use Dompdf\Adapter\PDFLib;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Maatwebsite\Excel\Facades\Excel;
@@ -47,7 +48,7 @@ class admincontroller extends Controller
     {
         $l = new Loan;
 
-        $all_pend = $l->get_all_approved_loans();
+        $all_pend = $l->get_all_pending_loans();
 
         $pending1 = $l->get_num_pending_loans();
         $approved = $l->get_num_approved_loans();
@@ -417,10 +418,10 @@ class admincontroller extends Controller
         $inputs = $request->all();
 
         $sesion_email = Session::get('aemail');
-        session()->forget('aemail');
+//        session()->forget('aemail');
 
         $rules = [
-            'email' => 'required|min:6|unique:users',
+//            'email' => 'required|min:6',
             'password' => 'required|min:6',
             'confirm_password' => 'required|same:password'
         ];
@@ -433,10 +434,10 @@ class admincontroller extends Controller
 
         $a->update_admin_details($sesion_email, $inputs['email'], $npass);
 
-        session()->put('aemail', $inputs['email']);
+//        session()->put('aemail', $inputs['email']);
 
-        $msg = $email . " updated his email from " . $email . " to " . $inputs['email'];
-        $log->insert($msg, $email, $role);
+        $msg = $sesion_email . " updated his email their credentials";
+        $log->insert($msg, $sesion_email, $role);
 
         return redirect('/admin/dashboard')->with('status', 'Credentials Updated successfully');
     }
@@ -715,7 +716,7 @@ class admincontroller extends Controller
             'occup' => $clients[0]->occupation,
             'pos' => $clients[0]->position_held,
             'nation' => $clients[0]->nationality,
-            'numyears' =>$clients[0]->number_of_years,
+            'numyears' => $clients[0]->number_of_years,
             'empname' => $emps[0]->name,
             'empaddress' => $emps[0]->address,
             'mstatus' => $clients[0]->marital_status_id,
@@ -739,5 +740,29 @@ class admincontroller extends Controller
         ]);
     }
 
+    public function logout()
+    {
+        $u = new User;
 
+        $u->logout();
+
+        return redirect('/admin');
+    }
+
+    public function test(){
+        $data = [
+            'firstName' => 'sam'
+//            'username' => $inputs['username'],
+//            'password' => $password,
+//            'admin_mail' => Auth::user()->email
+        ];
+
+
+            //send email notification to client
+            Mail::send('email_views.email', $data, function ($m) {
+                $m->from('npontualph@gmail.com', 'ERUDIO');
+                $m->to("khermz2012@gmail.com");
+                $m->subject('Welcome to ERUDIO!');
+            });
+    }
 }

@@ -62,15 +62,17 @@
                     <label>Surname</label>
                     <div>
                         <input type="text" class="form-control" name="surname" id="surname" required
-                                value="{{old('surname')}}" onblur="validate('surname')" min="2">
+                               value="{{old('surname')}}" onblur="validate('surname','surnamesp','2')" min="2">
+                        <span id="surnamesp"></span>
                     </div>
                     <br>
 
                     <label>Firstname</label>
                     <div>
                         <input type="text" class="form-control" name="firstname" id="firstname" required
-                                value="{{old('firstname')}}" onblur="validate('firstname')"
+                               value="{{old('firstname')}}" onblur="validate('firstname','firstnamesp','2')"
                                min="2">
+                        <span id="firstnamesp"></span>
                     </div>
                     <br>
 
@@ -79,6 +81,7 @@
                         <input type="text" class="form-control" name="othernames" id="othernames"
                                value="{{old('othernames')}}">
                     </div>
+                    {{--<span id="othernamesp"></span>--}}
                     <br>
 
                     <label>Name of Spouse</label>
@@ -86,12 +89,13 @@
                         <input type="text" class="form-control" name="spousename" id="spousename"
                                value="{{old('spousename')}}">
                     </div>
+                    {{--<span></span>--}}
                     <br>
 
                     <label>Spouse Address</label>
                     <div>
                         <input type="text" class="form-control" name="saddress" id="saddress"
-                                 value="{{old('saddress')}}" min="">
+                               value="{{old('saddress')}}" min="">
                     </div>
                     <br>
 
@@ -111,92 +115,105 @@
                     <label>Number of Children</label>
                     <div>
                         <input type="number" class="form-control" name="num_children" id="numchildren" required
-                               value="{{old('num_children')}}">
+                               value="{{old('num_children')}}" min="0" onblur="validate('num_children','child','0')">
                     </div>
+                    <span id="child"></span>
                     <br>
 
                     <label>Residential Address</label>
                     <div>
                         <input type="text" class="form-control" name="residential_address" id="raddress" required
-                               value="{{old('residential_address')}}" min="6" onblur="validate('raddress')">
+                               value="{{old('residential_address')}}" min="6" onblur="validate('raddress','rad','6')">
                     </div>
+                    <span id="rad"></span>
                     <br>
 
                     <label>Mailing Address</label>
                     <div>
                         <input type="text" class="form-control" name="mailing_address" id="maddress" required
-                               value="{{old('mailing_address')}}" min="6" onblur="validate('maddress')">
+                               value="{{old('mailing_address')}}" min="6" onblur="validate('maddress','mad','6')">
                     </div>
+                    <span id="mad"></span>
                     <br>
 
                     <label>Telephone(Mobile)</label>
                     <div>
                         <input type="tel" class="form-control" name="telephone_mobile" id="telmob" min="10" required
-                               value="{{old('telephone_mobile')}}" onblur="validate('telmob')">
+                               value="{{old('telephone_mobile')}}" onblur="validate('telmob','tmob','10')">
                     </div>
+                    <span id="tmob"></span>
                     <br>
 
                     <label>Telephone(Official)</label>
                     <div>
                         <input type="tel" name="telephone_official" class="form-control" id="teloff" min="10" required
-                               value="{{old('telephone_official')}}" onblur="validate('teloff')">
+                               value="{{old('telephone_official')}}" onblur="validate('teloff','toff','10')">
                     </div>
+                    <span id="toff"></span>
                     <br>
 
                     <label>Date of Birth</label>
                     <div>
                         <input type="date" class="form-control" name="date_of_birth" id="dob" required
-                               value="{{old('date_of_birth')}}" onblur="validate('dob')">
+                               value="{{old('date_of_birth')}}" onblur="validate('dob','db','7')">
                     </div>
+                    <span id="db"></span>
                     <br>
 
                     <label>Email</label>
                     <div>
                         <input type="email" class="form-control" name="email" id="email" required
-                               value="{{old('email')}}" min="6" onblur="validate('email')">
+                               value="{{old('email')}}" min="6" onblur="validate('email','em','6')">
                     </div>
+                    <span id="em"></span>
                     <br>
 
                     <label>Occupation</label>
                     <div>
                         <input type="text" class="form-control" name="occupation" id="occupation" required
-                               value="{{old('occupation')}}" min="5" onblur="validate('occupation')">
+                               value="{{old('occupation')}}" min="5" onblur="validate('occupation','occup','5')">
                     </div>
+                    <span id="occup"></span>
                     <br>
 
                     <label>Position Held</label>
                     <div>
                         <input type="text" class="form-control" name="position" id="position" required
-                               value="{{old('position')}}" min="5" onblur="validate('position')">
+                               value="{{old('position')}}" min="5" onblur="validate('position','pos','5')">
                     </div>
+                    <span id="pos"></span>
                     <br>
 
                     <label>Nationality</label>
                     <div>
                         <input type="text" class="form-control" name="nationality" id="nationality" required
-                               value="{{old('nationality')}}" min="5" onblur="validate('nationality')">
+                               value="{{old('nationality')}}" min="5" onblur="validate('nationality','nation','5')">
                     </div>
+                    <span id="nation"></span>
                     <br>
 
                     <label>Number of Years in Current Employment</label>
                     <div>
                         <input type="number" class="form-control" name="numyears" id="numyears" required
-                               value="{{old('numyears')}}" min="1" onblur="validate('numyears')">
+                               value="{{old('numyears')}}" min="1" onblur="validate('numyears','nyears','1')">
                     </div>
+                    <span id="nyears"></span>
                     <br>
 
                     <label>Employer Name</label>
                     <div>
                         <input type="text" class="form-control" name="employer_name" id="empname" required
-                               value="{{old('employer_name')}}" min="5" onblur="validate('empname')">
+                               value="{{old('employer_name')}}" min="5" onblur="validate('empname','ename','5')">
                     </div>
+                    <span id="ename"></span>
                     <br>
 
                     <label>Employer Address</label>
                     <div>
                         <input type="text" class="form-control" name="employer_address" id="empaddress" required
-                               value="{{old('employer_address')}}" min="5" onblur="validate('empaddress')">
+                               value="{{old('employer_address')}}" min="5" onblur="validate('empaddress','eadd','5')">
                     </div>
+                    <span id="eadd"></span>
                     <br>
 
                     <label>Marital Status</label>
@@ -238,22 +255,25 @@
                     <label>ID Number</label>
                     <div>
                         <input type="text" class="form-control" name="identification_number" id="idnum" required
-                               value="{{old('identification_number')}}" min="5" onblur="validate('idnum')">
+                               value="{{old('identification_number')}}" min="5" onblur="validate('idnum','idn','5')">
                     </div>
+                    <span id="idn"></span>
                     <br>
 
                     <label>Date of Issue</label>
                     <div>
                         <input type="date" class="form-control" name="issuedate" id="issuedate" required
-                               value="{{old('issuedate')}}" onblur="validate('issuedate')">
+                               value="{{old('issuedate')}}" onblur="validate('issuedate','idate','7')">
                     </div>
+                    <span id="idate"></span>
                     <br>
 
                     <label>Expiry Date</label>
                     <div>
                         <input type="date" class="form-control" name="expirydate" id="expirydate" required
-                               value="{{old('expirydate')}}" onblur="validate('expirydate')">
+                               value="{{old('expirydate')}}" onblur="validate('expirydate','exp','7')">
                     </div>
+                    <span id="exp"></span>
                     <br>
 
                     <label>Literacy</label>
@@ -270,71 +290,81 @@
                     <label>Hometown</label>
                     <div>
                         <input type="text" class="form-control" name="hometown" id="hometown" required
-                               value="{{old('hometown')}}" min="5" onblur="validate('hometown')">
+                               value="{{old('hometown')}}" min="5" onblur="validate('hometown','h','5')">
                     </div>
+                    <span id="h"></span>
                     <br>
 
                     <label>Social Security Number</label>
                     <div>
                         <input type="text" class="form-control" name="social_security" id="scnumber" required
-                               value="{{old('social_security')}}" min="5" onblur="validate('scnumber')">
+                               value="{{old('social_security')}}" min="5" onblur="validate('scnumber','soc','5')">
                     </div>
+                    <span id="soc"></span>
                     <br>
 
                     <label>Number of Member in Household</label>
                     <div>
                         <input type="number" class="form-control" name="numhousehold" id="numhousehold" required
-                               value="{{old('numhousehold')}}" min="1" onblur="validate('numhousehold')">
+                               value="{{old('numhousehold')}}" min="1" onblur="validate('numhousehold','nh','1')">
                     </div>
+                    <span id="nh"></span>
                     <br>
 
                     <label>Number of Dependants</label>
                     <div>
                         <input type="number" class="form-control" name="numdependants" id="numdependants" required
-                               value="{{old('numdependants')}}" min="1" onblur="validate('numdependants')">
+                               value="{{old('numdependants')}}" min="1" onblur="validate('numdependants','nd','1')">
                     </div>
+                    <span id="nd"></span>
                     <br>
 
                     <label>Father's Name</label>
                     <div>
                         <input type="text" class="form-control" name="father" id="father" required
-                               value="{{old('father')}}" min="2" onblur="validate('father')">
+                               value="{{old('father')}}" min="2" onblur="validate('father','fa','2')">
                     </div>
+                    <span id="fa"></span>
                     <br>
 
                     <label>Mother's Name</label>
                     <div>
                         <input type="text" class="form-control" name="mother" id="mother" required
-                               value="{{old('mother')}}" min="2" onblur="validate('mother')">
+                               value="{{old('mother')}}" min="2" onblur="validate('mother','mo','2')">
                     </div>
+                    <span id="mo"></span>
                     <br>
 
                     <label>Next of Kin's Name</label>
                     <div>
                         <input type="text" class="form-control" name="kname" id="kname" required
-                               value="{{old('kname')}}" min="2" onblur="validate('kname')">
+                               value="{{old('kname')}}" min="2" onblur="validate('kname','kn','2')">
                     </div>
+                    <span id="kn"></span>
                     <br>
 
                     <label>Next of Kin's Address</label>
                     <div>
                         <input type="text" class="form-control" name="kaddress" id="kaddress" required
-                               value="{{old('kaddress')}}" min="5" onblur="validate('kaddress')">
+                               value="{{old('kaddress')}}" min="5" onblur="validate('kaddress','ka','5')">
                     </div>
+                    <span id="ka"></span>
                     <br>
 
                     <label>Next of Kin's Mobile Number</label>
                     <div>
                         <input type="tel" class="form-control" name="ktel" id="ktel" min="10" required
-                               value="{{old('ktel')}}" min="10" onblur="validate('ktel')">
+                               value="{{old('ktel')}}" min="10" onblur="validate('ktel','kt','10')">
                     </div>
+                    <span id="kt"></span>
                     <br>
 
                     <label>Relationship to Kin's Name</label>
                     <div>
                         <input type="text" class="form-control" name="krel" id="krel" required value="{{old('krel')}}"
-                               min="3" onblur="validate('krel')">
+                               min="3" onblur="validate('krel','kr','3')">
                     </div>
+                    <span id="kr"></span>
                     <br>
 
                     {{--<label>Username</label>--}}
@@ -346,8 +376,9 @@
                     <label>Password</label>
                     <div>
                         <input type="password" class="form-control" name="password" id="password" required min="6"
-                               onblur="validate('password')">
+                               onblur="validate('password','pass','6')">
                     </div>
+                    <span id="pass"></span>
                     <br>
 
                     <label>Confirm Password</label>

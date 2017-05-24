@@ -23,9 +23,9 @@
             {{csrf_field()}}
 
             <label>Email</label>
-            <input type="text" class="form-control" name="email" value="{{$aemail}}">
+            <input readonly type="text" class="form-control" name="email" value="{{$aemail}}">
 
-            <label>Password</label>
+            <label>New Password</label>
             <input type="password" class="form-control" name="password">
 
             <label>Confirm Password</label>

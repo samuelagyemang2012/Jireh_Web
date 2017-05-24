@@ -91,24 +91,13 @@ class User extends Authenticatable
     public function get_all_users()
     {
         return DB::table('users')
-            ->where('role','=','user')
+            ->where('role', '=', 'user')
             ->paginate(10);
     }
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-//    protected $fillable = [
-//        'surname', 'firstname', 'othernames','username','email','pic','last_logged_in','created_at','updated_at'
-//    ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-//    protected $hidden = [
-//        'password', 'remember_token',
-//    ];
+    public function logout()
+    {
+        Auth::logout();
+
+    }
 }

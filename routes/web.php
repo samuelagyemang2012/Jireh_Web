@@ -63,4 +63,10 @@ Route::get('client-details', 'admincontroller@single_client_details')->name('sin
 
 Route::post('update', 'admincontroller@update')->name('update');
 
+Route::get('admin-logout', 'admincontroller@logout')->name('logout');
+
+Route::get('logout', 'logincontroller@logout')->name('user_logout');
+
+Route::get('test', 'admincontroller@test')->name('test');
+
 

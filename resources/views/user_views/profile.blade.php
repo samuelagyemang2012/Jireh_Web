@@ -10,6 +10,10 @@
             <ul class="nav navbar-nav">
                 <li><a href="\profile"><b class="thead">My Loans</b></a></li>
                 <li><a href="\loan"><b class="thead">Request A Loan</b></a></li>
+
+
+                <li><a href="{{route('user_logout')}}"><b class="thead" style="padding-left: 700px">Logout</b></a></li>
+
             </ul>
         </div>
     </nav>
@@ -134,27 +138,27 @@
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                            @foreach($ploans as $ploan)
-                                <div class="col-md-4">
-                                    <div class="thumbnail">
-                                        <div class="caption">
-                                            <h3>
-                                                <b style="color: #8A5241">Amount Requested</b>
-                                            </h3>
-                                            <hr>
-                                            <p>
-                                                <span>GHC </span><b>{{$ploan->amount_requested}}</b>
-                                            </p>
-                                            <hr>
-                                            <h3>
-                                                <b style="color: #8A5241">Status</b>
-                                            </h3>
-                                            <p>{{$ploan->name}}</p>
-                                            <hr>
-                                        </div>
+                        @foreach($ploans as $ploan)
+                            <div class="col-md-4">
+                                <div class="thumbnail">
+                                    <div class="caption">
+                                        <h3>
+                                            <b style="color: #8A5241">Amount Requested</b>
+                                        </h3>
+                                        <hr>
+                                        <p>
+                                            <span>GHC </span><b>{{$ploan->amount_requested}}</b>
+                                        </p>
+                                        <hr>
+                                        <h3>
+                                            <b style="color: #8A5241">Status</b>
+                                        </h3>
+                                        <p>{{$ploan->name}}</p>
+                                        <hr>
                                     </div>
                                 </div>
-                            @endforeach
+                            </div>
+                        @endforeach
                     </div>
 
                 </div>

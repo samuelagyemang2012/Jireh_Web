@@ -50,4 +50,13 @@ class logincontroller extends Controller
             return redirect('login')->with('log', 'Invalid Login Details !');
         }
     }
+
+    public function logout()
+    {
+        $u = new User;
+
+        $u->logout();
+
+        return redirect('login');
+    }
 }

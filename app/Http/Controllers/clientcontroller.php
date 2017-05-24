@@ -63,7 +63,7 @@ class clientcontroller extends Controller
             'telephone_official' => 'required|min:10',
             'email' => 'required|min:6|unique:users',
             'occupation' => 'required|min:5',
-            'position' => 'required|min:5',
+            'position' => 'required|min:2',
             'nationality' => 'required|min:5',
             'numyears' => 'required|min:1',
             'employer_name' => 'required|min:5',
@@ -192,7 +192,7 @@ class clientcontroller extends Controller
             $fname = $inputs['firstname'];
             $sname = $inputs['surname'];
 
-            $msg = "" . $fname . " " . $sname . "created a new account.";
+            $msg = "" . $fname . " " . $sname . " created a new account.";
 
             $log->insert($msg, $inputs['email'], 'client');
 

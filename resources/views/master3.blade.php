@@ -63,12 +63,9 @@
                 <ul class="nav navbar-nav">
                     <!-- Messages: style can be found in dropdown.less-->
                     <li class="dropdown messages-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-envelope-o"></i>
-                            <span class="label label-success">4</span>
-                        </a>
+
                         <ul class="dropdown-menu">
-                            <li class="header">You have 4 messages</li>
+                            {{--<li class="header">You have 4 messages</li>--}}
                             <li>
                                 <!-- inner menu: contains the actual data -->
                                 <ul class="menu">
@@ -145,10 +142,10 @@
                     </li>
                     <!-- Notifications: style can be found in dropdown.less -->
                     <li class="dropdown notifications-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-bell-o"></i>
-                            <span class="label label-warning">10</span>
-                        </a>
+                        {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown">--}}
+                            {{--<i class="fa fa-bell-o"></i>--}}
+                            {{--<span class="label label-warning">10</span>--}}
+                        {{--</a>--}}
                         <ul class="dropdown-menu">
                             <li class="header">You have 10 notifications</li>
                             <li>
@@ -188,10 +185,10 @@
                     </li>
                     <!-- Tasks: style can be found in dropdown.less -->
                     <li class="dropdown tasks-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-flag-o"></i>
-                            <span class="label label-danger">9</span>
-                        </a>
+                        {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown">--}}
+                            {{--<i class="fa fa-flag-o"></i>--}}
+                            {{--<span class="label label-danger">9</span>--}}
+                        {{--</a>--}}
                         <ul class="dropdown-menu">
                             <li class="header">You have 9 tasks</li>
                             <li>
@@ -271,7 +268,7 @@
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <span class="hidden-xs">Administrator</span>
+                            <span class="hidden-xs"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
@@ -311,7 +308,7 @@
                     </li>
                     <!-- Control Sidebar Toggle Button -->
                     <li>
-                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                        <a href="{{route('logout')}}"><i class="fa fa-power-off"></i></a>
                     </li>
                 </ul>
             </div>
@@ -381,7 +378,7 @@
                     <ul class="treeview-menu">
                         {{--<li class="active"><a href=""><i class="fa fa-circle-o"></i> All Loans</a></li>--}}
                         <li><a href="{{route('add_admin_view')}}"><i class="fa fa-circle-o"></i> Add New Admin</a></li>
-                        <li><a href="{{route('edit')}}"><i class="fa fa-circle-o"></i> Edit Admin Details</a></li>
+                        <li><a href="{{route('edit')}}"><i class="fa fa-circle-o"></i> Change Password</a></li>
                     </ul>
                 </li>
 
@@ -493,15 +490,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript:void(0)">
-                        <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
 
-                        <div class="menu-info">
-                            <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-
-                            <p>nora@example.com</p>
-                        </div>
-                    </a>
                 </li>
                 <li>
                     <a href="javascript:void(0)">

@@ -42,7 +42,7 @@ class Loan extends Model
             ->select('loans.purpose_of_loan', 'loans.date_applied', 'loans.amount_requested', 'statuss.name')
             ->where('loans.client_email', '=', $email)
             ->where('loans.status_id', '=', '1')
-            ->paginate(10);
+            ->get();
     }
 
     public function get_client_approved_loan_details($email)
@@ -52,7 +52,7 @@ class Loan extends Model
             ->select('loans.purpose_of_loan', 'loans.date_applied', 'loans.amount_requested', 'statuss.name')
             ->where('loans.client_email', '=', $email)
             ->where('loans.status_id', '=', '2')
-            ->paginate(10);
+            ->get();
     }
 
     public function get_client_refused_loan_details($email)
@@ -62,7 +62,7 @@ class Loan extends Model
             ->select('loans.purpose_of_loan', 'loans.date_applied', 'loans.amount_requested', 'statuss.name')
             ->where('loans.client_email', '=', $email)
             ->where('loans.status_id', '=', '3')
-            ->paginate(10);
+            ->get();
     }
 
     public function get_all_loans()
@@ -136,9 +136,11 @@ class Loan extends Model
         return DB::table('loans')->where('client_email', '=', $email)->where('status_id', '=', 1)->count();
     }
 
-    public function get_num_all_client_pending_loans()
+    public function get_num_all_client_loans($email)
     {
-        return DB::table('loans')->count();
+        return DB::table('loans')
+            ->where('client_email', '=', $email)
+            ->count();
     }
 
     public function get_num_approved_client_loans($email)
