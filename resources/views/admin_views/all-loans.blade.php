@@ -133,7 +133,7 @@
                     <button type="submit" class="btn btn-primary">Export</button>
                 </form>
             </th>
-            <a href="{{route('test')}}" class="btn">Mail</a>
+            {{--<a href="{{route('test')}}" class="btn">Mail</a>--}}
 
             </thead>
         </table>
