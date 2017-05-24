@@ -37,7 +37,7 @@
             <div class="col-4"></div>
 
             <div class="col-4">
-                <form class="form-horizontal" action="/client" method="post">
+                <form class="form-horizontal" action="/client" method="post" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div>
                         <label>Title</label>
@@ -399,13 +399,14 @@
                     <br>
 
 
-                    <img src="" height="200px" width="200px">
+                    <img src="" id="image" height="200px" width="200px"/>
+
                     <br>
                     <br>
                     <label>Upload Picture</label>
                     <div>
                         <input type="file" class="form-control" name="pic" id="pic" required value="{{old('pic')}}"
-                               onblur="validate('pic')">
+                               onblur="validate('pic')" onchange="readURL(this)">
                     </div>
                     <br>
                     <br>

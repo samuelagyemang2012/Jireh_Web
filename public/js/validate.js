@@ -3,6 +3,29 @@
  */
 
 
+function readURL(input) {
+
+    if (input.files && input.files[0]) {
+
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#image').attr("src", e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+//function cha
+//
+$("#pic").change(function () {
+    alert("gghjh");
+    //readURL(this);
+//
+});
+
+
 function validate(name, id, min) {
     var input = $("#" + name);
 
@@ -19,3 +42,5 @@ function validate(name, id, min) {
         span.html('<b></b>');
     }
 }
+
+

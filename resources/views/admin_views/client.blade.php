@@ -2,6 +2,13 @@
 
 @section('content')
 
+    <div class="container">
+        <div class="container">
+{{--            <h1>{{$data->pic}}</h1>--}}
+            <img src="uploads/{{$data->pic}}" height="200px" width="200px">
+        </div>
+    </div>
+
     <div class="box-footer ">
         <table class="table table-bordered">
             <thead style="background-color: #222D32; color: #ffffff">
