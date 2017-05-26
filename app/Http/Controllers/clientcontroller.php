@@ -216,7 +216,7 @@ class clientcontroller extends Controller
                 "salutation" => $sal
             ];
 
-            $this->mail($data, $inputs['email'], 'WELCOME TO JIREH MICROFINANCE LTD');
+//            $this->mail($data, $inputs['email'], 'WELCOME TO JIREH MICROFINANCE LTD');
 
 
             return redirect('login')->with('status', 'Your account has been created successfully !');
