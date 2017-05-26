@@ -13,8 +13,8 @@
             </thead>
 
             <tbody>
-            <tr>
-                @foreach($users as $u)
+            @foreach($users as $u)
+                <tr>
                     <form method="get" action="{{route('single')}}">
                         {{csrf_field()}}
                         <td>{{$u->surname}}</td>
@@ -27,8 +27,8 @@
                             <button class="btn btn-sm btn-primary" type="submit">More Details</button>
                         </td>
                     </form>
-                @endforeach
-            </tr>
+                </tr>
+            @endforeach
             </tbody>
         </table>
 
