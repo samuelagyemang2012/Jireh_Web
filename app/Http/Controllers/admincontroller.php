@@ -181,7 +181,7 @@ class admincontroller extends Controller
         $msg = $email . " approved a loan by" . $client[0]->client_email;
         $log->insert($msg, $email, 'admin');
 
-//        $this->mail($data, $client[0]->client_email,"LOAN APPROVAL");
+        $this->mail($data, $client[0]->client_email,"LOAN APPROVAL");
 
         return redirect('/admin/dashboard');
     }
