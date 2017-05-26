@@ -25,6 +25,11 @@
                 <div class="col-4">
                     <form method="post" action="{{route('update')}}">
                         {{csrf_field()}}
+                        
+                        <div>
+                            <img src="/uploads/{{$pic}}" height="200px" width="200px">
+                        </div>
+                        <br>
                         <div>
                             <label>Title</label>
                             <select name="title" id="title" class="form-control" style="width: 300px">

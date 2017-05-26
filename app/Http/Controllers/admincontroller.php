@@ -710,6 +710,7 @@ class admincontroller extends Controller
         $spouses = $s->get_spouse($inputs['email']);
 //        return $users;
         return view('admin_views.single-client', [
+            'pic'=>$users[0]->pic,
             'title' => $clients[0]->title,
             'gender' => $clients[0]->gender,
             'surname' => $users[0]->surname,
