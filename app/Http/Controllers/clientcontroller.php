@@ -216,7 +216,7 @@ class clientcontroller extends Controller
                 "salutation" => $sal
             ];
 
-//            $this->mail($data, $inputs['email'], 'WELCOME TO JIREH MICROFINANCE LTD');
+            $this->mail($data, $inputs['email'], 'WELCOME TO JIREH MICROFINANCE LTD');
 
 
             return redirect('login')->with('status', 'Your account has been created successfully !');
@@ -227,11 +227,11 @@ class clientcontroller extends Controller
 
     private function mail($data, $email, $subject)
     {
-//        Mail::send('email_views.email', $data, function ($m) use ($email, $subject) {
-//            $m->from('info@jirehmfl.com.gh', 'Jireh Microfinance Ltd');
-//            $m->to($email);
-//            $m->subject($subject);
-//        });
+        Mail::send('email_views.email', $data, function ($m) use ($email, $subject) {
+            $m->from('info@jirehmfl.com.gh', 'Jireh Microfinance Ltd');
+            $m->to($email);
+            $m->subject($subject);
+        });
     }
 
 
