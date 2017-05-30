@@ -15,16 +15,20 @@ class apicontroller extends Controller
 
         if ($response == 1) {
 
+            $token = str_random(60);
+
             return response()->json([
                 'code' => 1,
-                'msg' => "Login Successful"
+                'msg' => "Login Successful",
+                'token' => $token
             ]);
 
         } else {
 
             return response()->json([
                 'code' => 0,
-                'msg' => "Login Successful"
+                'msg' => "Login Successful",
+                'token' => null
             ]);
         }
     }
