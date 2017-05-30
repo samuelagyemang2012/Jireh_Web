@@ -14,15 +14,17 @@ class apicontroller extends Controller
         $response = $u->login($email, $password);
 
         if ($response == 1) {
-            return Response::json(array(
-                'code' => 1,
-                'msg' => 'Login successful'
-            ));
+
+            return response()->json([
+                "code"=>1
+            ]);
+
         } else {
-            return Response::json(array(
-                'code' => 0,
-                'msg' => 'failed'
-            ));
+
+            return response()->json([
+                "code" => 0
+            ]);
+
         }
     }
 }
