@@ -71,6 +71,6 @@ Route::get('test', 'admincontroller@test')->name('test');
 
 //APIs
 
-Route::post('api/login', 'apicontroller@login');
+Route::post('api/login', 'apicontroller@login')->name('api/login');
 
 
