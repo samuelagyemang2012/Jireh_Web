@@ -71,6 +71,6 @@ Route::get('test', 'admincontroller@test')->name('test');
 
 //APIs
 
-Route::post('api/login', ['uses' => 'apicontroller@store','middleware'=>'simpleauth']);
+Route::post('api/login', 'apicontroller@login');
 
 
