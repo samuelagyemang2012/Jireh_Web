@@ -5,18 +5,12 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 
-
 class apicontroller extends Controller
 {
     public function login($email, $password)
     {
+        $u = new User();
 
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-
-        return $email;
+        return "da";
     }
-
-
 }
-
