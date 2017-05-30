@@ -72,6 +72,6 @@ Route::get('test', 'admincontroller@test')->name('test');
 //APIs
 
 Route::group(['prefix' => 'api/v1', 'middleware' => 'auth:api'], function () {
-    Route::post('/login', 'apicontroller@login');
+    Route::post('/login/{{csfr_field}}', 'apicontroller@login');
 });
 
