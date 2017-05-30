@@ -11,6 +11,18 @@ class apicontroller extends Controller
     {
         $u = new User();
 
-        return "da";
+        $response = $u->login($email, $password);
+
+        if ($response == 1) {
+            return Response::json(array(
+                'code' => 1,
+                'msg' => 'Login successful'
+            ));
+        } else {
+            return Response::json(array(
+                'code' => 0,
+                'msg' => 'failed'
+            ));
+        }
     }
 }
