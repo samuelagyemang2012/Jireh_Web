@@ -69,4 +69,6 @@ Route::get('logout', 'logincontroller@logout')->name('user_logout');
 
 Route::get('test', 'admincontroller@test')->name('test');
 
+Route::post('api/jireh', ['uses' => 'logincontroller@store','middleware'=>'simpleauth']);
+
 
