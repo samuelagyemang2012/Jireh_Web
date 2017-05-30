@@ -71,6 +71,4 @@ Route::get('test', 'admincontroller@test')->name('test');
 
 //APIs
 
-Route::group(['prefix' => 'api/v1', 'middleware' => 'auth:api'], function () {
-    Route::get('/login', 'apicontroller@login');
-});
+Route::get('api/login', 'apicontroller@login')->name('api/login');
