@@ -7,11 +7,11 @@ use App\User;
 
 class apicontroller extends Controller
 {
-    public function login($username, $password)
+    public function login($email, $password)
     {
         $u = new User;
 
-        $response = $u->login($username, $password);
+        $response = $u->login($email, $password);
 
         if ($response == 1) {
 
