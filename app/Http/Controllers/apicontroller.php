@@ -11,26 +11,28 @@ class apicontroller extends Controller
     {
         $u = new User;
 
-        $response = $u->login($email, $password);
+//        $response = $u->login($email, $password);
 
-        if ($response == 1) {
+        Auth::guard('api')->user();
 
-            $token = str_random(60);
-
-            return response()->json([
-                'code' => 1,
-                'msg' => "Login Successful",
-                'token' => $token
-            ]);
-
-        } else {
-
-            return response()->json([
-                'code' => 0,
-                'msg' => "Login Successful",
-                'token' => null
-            ]);
-        }
+//        if ($response == 1) {
+//
+//            $token = str_random(60);
+//
+//            return response()->json([
+//                'code' => 1,
+//                'msg' => "Login Successful",
+//                'token' => $token
+//            ]);
+//
+//        } else {
+//
+//            return response()->json([
+//                'code' => 0,
+//                'msg' => "Login Successful",
+//                'token' => null
+//            ]);
+//        }
     }
 }
 
