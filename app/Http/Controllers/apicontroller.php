@@ -14,6 +14,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 
 class apicontroller extends Controller
 {
@@ -24,6 +25,8 @@ class apicontroller extends Controller
         $response = $u->login($email, $password);
 
         if ($response == 1) {
+
+            session()->put('memail', $email);
 
             return response()->json([
                 "code" => 1
@@ -260,7 +263,7 @@ class apicontroller extends Controller
         $inputs = $request->all();
 
         $date = date("l jS \of F Y h:i:s A");
-        $email = Session::get('email');
+        $email = Session::get('memail');
 
         $rules = [
             'num_monthly' => 'required|min:1',
