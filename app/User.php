@@ -101,4 +101,12 @@ class User extends Authenticatable
         Auth::logout();
 
     }
+
+    public function get_uniques($email, $soc)
+    {
+        return DB::table('clients')
+            ->where('email', '=', $email)
+            ->where('social_security', '=', $soc)
+            ->get();
+    }
 }
