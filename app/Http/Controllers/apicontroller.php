@@ -11,6 +11,7 @@ use App\Log;
 use App\Spouse;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class apicontroller extends Controller
 {
