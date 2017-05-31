@@ -322,7 +322,7 @@ class apicontroller extends Controller
 //        $this->validate($request, $rules, $messages);
         if ($inputs['agree'] == 1) {
 //            return $request->all();
-            $loan->insert($email, $inputs['num_monthly'], $inputs['other_source'], $inputs['bank'], $inputs['salary_date'], $inputs['numloans'], $inputs['total_monthly_payments'], $inputs['name_insti'], $inputs['amount'], $inputs['loan_period'], $inputs['purpose'], $inputs['collateral'], $inputs['cash_service'], $inputs['wname'], $inputs['wemployer'], $inputs['wtel'], $date, 1);
+            $loan->insert($inputs['client_email'], $inputs['num_monthly'], $inputs['other_source'], $inputs['bank'], $inputs['salary_date'], $inputs['numloans'], $inputs['total_monthly_payments'], $inputs['name_insti'], $inputs['amount'], $inputs['loan_period'], $inputs['purpose'], $inputs['collateral'], $inputs['cash_service'], $inputs['wname'], $inputs['wemployer'], $inputs['wtel'], $date, 1);
 
             $msg = $email . " requested for a loan";
             $log->insert($msg, $email, $role);
