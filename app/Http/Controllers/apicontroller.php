@@ -250,4 +250,11 @@ class apicontroller extends Controller
             "data" => $data
         ]);
     }
+
+    public function loan(Request $request)
+    {
+
+        return $request->all();
+
+    }
 }
