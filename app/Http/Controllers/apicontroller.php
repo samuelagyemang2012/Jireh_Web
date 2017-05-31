@@ -186,6 +186,8 @@ class apicontroller extends Controller
             if ($uniques == null) {
 //
                 return "ack";
+            } else {
+                return "nack";
             }
 //
 ////                $npass = bcrypt($inputs['password']);
