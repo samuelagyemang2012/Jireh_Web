@@ -176,33 +176,20 @@ class apicontroller extends Controller
 //            'pic.required' => 'The Picture Field is required'
 //        ]
 
-
         if ($inputs['agree'] == 1) {
 
             $uniques = $user->get_uniques($inputs['email'], $inputs['social_security']);
 
-            return $uniques;
+            if ($uniques == 0) {
 
-//            if ($uniques == null) {
-////
-//                return "ack";
-//            } else {
-//                return "nack";
-//            }
-//
-////                $npass = bcrypt($inputs['password']);
-////
-////                $today = date("l jS \of F Y h:i:s A");
-////                $user->insert($inputs['surname'], $inputs['firstname'], $inputs['othernames'], $npass, $inputs['email'], "test", $today);
-////                $spouse->insert($inputs['email'], $inputs['spousename'], $inputs['saddress'], $inputs['stel']);
-////                $employer->insert($inputs['email'], $inputs['employer_name'], $inputs['employer_address']);
-////
-////
-////                $client->insert($inputs['email'], $inputs['title'], $inputs['gender'], $inputs['num_children'], $inputs['residential_address'], $inputs['mailing_address'], $inputs['telephone_mobile'], $inputs['telephone_official'], $inputs['date_of_birth'], $inputs['occupation'], $inputs['position'], $inputs['nationality'], $inputs['numyears'], $inputs['marital_status'], $inputs['source_of_funds'], $inputs['monthly_income'], $inputs['identification'], $inputs['identification_number'], $inputs['issuedate'], $inputs['expirydate'], $inputs['literacy'], $inputs['hometown'], $inputs['social_security'], $inputs['numhousehold'], $inputs['numdependants'], $inputs['father'], $inputs['mother'], $inputs['kname'], $inputs['kaddress'], $inputs['ktel'], $inputs['krel']);
-//
-//            } else {
-//                return "nack";
-//            }
+                $npass = bcrypt($inputs['password']);
+
+                $today = date("l jS \of F Y h:i:s A");
+                $user->insert($inputs['surname'], $inputs['firstname'], $inputs['othernames'], $npass, $inputs['email'], "test", $today);
+                $spouse->insert($inputs['email'], $inputs['spousename'], $inputs['saddress'], $inputs['stel']);
+                $employer->insert($inputs['email'], $inputs['employer_name'], $inputs['employer_address']);
+                $client->insert($inputs['email'], $inputs['title'], $inputs['gender'], $inputs['num_children'], $inputs['residential_address'], $inputs['mailing_address'], $inputs['telephone_mobile'], $inputs['telephone_official'], $inputs['date_of_birth'], $inputs['occupation'], $inputs['position'], $inputs['nationality'], $inputs['numyears'], $inputs['marital_status'], $inputs['source_of_funds'], $inputs['monthly_income'], $inputs['identification'], $inputs['identification_number'], $inputs['issuedate'], $inputs['expirydate'], $inputs['literacy'], $inputs['hometown'], $inputs['social_security'], $inputs['numhousehold'], $inputs['numdependants'], $inputs['father'], $inputs['mother'], $inputs['kname'], $inputs['kaddress'], $inputs['ktel'], $inputs['krel']);
+
 //
 ////            if (Input::hasFile('pic')) {
 ////                $file = Input::file('pic');
@@ -213,38 +200,38 @@ class apicontroller extends Controller
 ////                "code" => 0
 ////            ]);
 ////
-////            return "ack";
-////            $fname = $inputs['firstname'];
-////            $sname = $inputs['surname'];
 ////
-////            $msg = "" . $fname . " " . $sname . " created a new account.";
-////            $log->insert($msg, $inputs['email'], 'client');
-////
-//////            For Mail
-////            $body = "You have successfully created an account with Jireh Microfinance Limited.";
-////            $sal = " ";
-////
-////            $data = ["firstname" => $inputs['firstname'],
-////                "surname" => $inputs['surname'],
-////                "body" => $body,
-////                "salutation" => $sal
-////            ];
-////
-////            $this->mail($data, $inputs['email'], 'WELCOME TO JIREH MICROFINANCE LTD');
-////
-////
-////            return response()->json([
-////                "code" => 0,
-////                "msg"=>"Client created"
-////            ]);
-////
-//////            return redirect('login')->with('status', 'Your account has been created successfully !');
-////        } else {
-//////            return redirect('client/create')->with('status', 'You must agree with the terms and conditions !');
-////            return response()->json([
-////                "code" => 0,
-////                "msg"=>"Client not created"
-////            ]);
+                $fname = $inputs['firstname'];
+                $sname = $inputs['surname'];
+//
+                $msg = "" . $fname . " " . $sname . " created a new account.";
+                $log->insert($msg, $inputs['email'], 'client');
+//
+//            For Mail
+                $body = "You have successfully created an account with Jireh Microfinance Limited.";
+                $sal = " ";
+
+                $data = ["firstname" => $inputs['firstname'],
+                    "surname" => $inputs['surname'],
+                    "body" => $body,
+                    "salutation" => $sal
+                ];
+
+                $this->mail($data, $inputs['email'], 'WELCOME TO JIREH MICROFINANCE LTD');
+
+                return response()->json([
+                    "code" => 0,
+                    "msg" => "Client created"
+                ]);
+
+            } else {
+
+                return response()->json([
+                    "code" => 0,
+                    "msg" => "Client not created"
+                ]);
+
+            }
         }
     }
 }
