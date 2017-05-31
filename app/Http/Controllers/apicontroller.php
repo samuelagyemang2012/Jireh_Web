@@ -3,9 +3,9 @@
 //header('Access-Control-Allow-Origin: *');
 
 
-
 namespace App\Http\Controllers;
 
+use App\Client;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -20,7 +20,7 @@ class apicontroller extends Controller
         if ($response == 1) {
 
             return response()->json([
-                "code"=>1
+                "code" => 1
             ]);
 
         } else {
@@ -31,4 +31,16 @@ class apicontroller extends Controller
 
         }
     }
+
+    public function sign_up(Request $request)
+    {
+//        $c = new Client;
+//
+//        $c->insert();
+        $input = $request->all();
+
+        return $input;
+    }
+
+//    public function
 }
