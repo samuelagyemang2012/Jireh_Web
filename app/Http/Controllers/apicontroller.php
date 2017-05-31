@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 
 use App\Client;
 use App\Employer;
+use App\Loan;
 use App\Log;
 use App\Spouse;
 use App\User;
@@ -236,5 +237,16 @@ class apicontroller extends Controller
             $m->to($email);
             $m->subject($subject);
         });
+    }
+
+    public function get_loans($email)
+    {
+        $l = new Loan;
+
+        $data = $l->get_client_all_loans($email);
+
+        return response()->json([
+            "data" => $data
+        ]);
     }
 }

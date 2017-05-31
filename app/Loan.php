@@ -65,6 +65,16 @@ class Loan extends Model
             ->get();
     }
 
+    public function get_client_all_loans($email)
+    {
+
+        return DB::table('loans')
+            ->join('statuss', 'loans.status_id', '=', 'statuss.id')
+            ->select('loans.amount_requested', 'statuss.name')
+            ->where('loans.client_email', '=', $email)
+            ->get();
+    }
+
     public function get_all_loans()
     {
         return DB::table('loans')
