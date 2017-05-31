@@ -183,9 +183,10 @@ class apicontroller extends Controller
 
 //            return $uniques;
 
-            if ($uniques == null) {
+            if ($uniques->email == null && $uniques->social_security) {
 //
-//                return "ack";
+                return "ack";
+            }
 //
 ////                $npass = bcrypt($inputs['password']);
 ////
