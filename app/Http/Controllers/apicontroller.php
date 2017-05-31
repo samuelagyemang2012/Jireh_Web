@@ -180,7 +180,7 @@ class apicontroller extends Controller
 
         if ($inputs['agree'] == 1) {
 
-            return "ack";
+            return '{"msg":"ack"}';
 
 //            $npass = bcrypt($inputs['password']);
 //
