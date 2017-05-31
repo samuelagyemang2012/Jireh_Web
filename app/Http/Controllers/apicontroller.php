@@ -323,7 +323,7 @@ class apicontroller extends Controller
             $loan->insert($inputs['client_email'], $inputs['num_monthly'], $inputs['other_source'], $inputs['bank'], $inputs['salary_date'], $inputs['numloans'], $inputs['total_monthly_payments'], $inputs['name_insti'], $inputs['amount'], $inputs['loan_period'], $inputs['purpose'], $inputs['collateral'], $inputs['cash_service'], $inputs['wname'], $inputs['wemployer'], $inputs['wtel'], $date, 1);
 
             $msg = $inputs['client_email'] . " requested for a loan";
-            $log->insert($msg, $email, "client");
+            $log->insert($msg, $inputs['client_email'], "client");
 
             return response()->json([
                 "code" => 1,
