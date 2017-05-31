@@ -246,6 +246,7 @@ class apicontroller extends Controller
         $data = $l->get_client_all_loans($email);
 
         return response()->json([
+            "code" => 1,
             "data" => $data
         ]);
     }
