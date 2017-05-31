@@ -195,6 +195,8 @@ class apicontroller extends Controller
 //
 //                $client->insert($inputs['email'], $inputs['title'], $inputs['gender'], $inputs['num_children'], $inputs['residential_address'], $inputs['mailing_address'], $inputs['telephone_mobile'], $inputs['telephone_official'], $inputs['date_of_birth'], $inputs['occupation'], $inputs['position'], $inputs['nationality'], $inputs['numyears'], $inputs['marital_status'], $inputs['source_of_funds'], $inputs['monthly_income'], $inputs['identification'], $inputs['identification_number'], $inputs['issuedate'], $inputs['expirydate'], $inputs['literacy'], $inputs['hometown'], $inputs['social_security'], $inputs['numhousehold'], $inputs['numdependants'], $inputs['father'], $inputs['mother'], $inputs['kname'], $inputs['kaddress'], $inputs['ktel'], $inputs['krel']);
 
+            } else {
+                return "nack";
             }
 
 //            if (Input::hasFile('pic')) {
@@ -202,9 +204,9 @@ class apicontroller extends Controller
 //                $file->move('uploads', $file->getClientOriginalName());
 //            }
 
-            return response()->json([
-                "code" => 0
-            ]);
+//            return response()->json([
+//                "code" => 0
+//            ]);
 //
 //            return "ack";
 //            $fname = $inputs['firstname'];
