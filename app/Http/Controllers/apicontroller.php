@@ -181,14 +181,14 @@ class apicontroller extends Controller
 
             $uniques = $user->get_uniques($inputs['email'], $inputs['social_security']);
 
-//            return $uniques;
+            return $uniques;
 
-            if ($uniques == null) {
-//
-                return "ack";
-            } else {
-                return "nack";
-            }
+//            if ($uniques == null) {
+////
+//                return "ack";
+//            } else {
+//                return "nack";
+//            }
 //
 ////                $npass = bcrypt($inputs['password']);
 ////

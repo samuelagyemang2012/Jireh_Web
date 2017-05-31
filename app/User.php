@@ -104,7 +104,7 @@ class User extends Authenticatable
 
     public function get_uniques($email, $soc)
     {
-        return DB::table('clients')
+        return DB::table('clients')->count()
             ->where('email', '=', $email)
             ->where('social_security', '=', $soc)
             ->select('clients.email','clients.social_security')
