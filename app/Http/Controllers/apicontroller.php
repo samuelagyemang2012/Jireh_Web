@@ -183,7 +183,7 @@ class apicontroller extends Controller
 
 //            return $uniques;
 
-            if ($uniques[0]->email == null && $uniques[0]->social_security) {
+            if ($uniques == null) {
 //
                 return "ack";
             }
