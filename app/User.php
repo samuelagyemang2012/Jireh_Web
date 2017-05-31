@@ -107,7 +107,8 @@ class User extends Authenticatable
         return DB::table('clients')->count()
             ->where('email', '=', $email)
             ->where('social_security', '=', $soc)
-            ->select('clients.email','clients.social_security');
+            ->select('clients.email','clients.social_security')
+            ->count();
 //            ->get();
     }
 }
