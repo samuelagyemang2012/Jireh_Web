@@ -38,9 +38,8 @@ class apicontroller extends Controller
 //
 //        $c->insert();
         $input = $request->all();
-
-        echo "oh yh ";
         return $input;
+
     }
 
 //    public function
