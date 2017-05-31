@@ -181,7 +181,7 @@ class apicontroller extends Controller
 
             $uniques = $user->get_uniques($inputs['email'], $inputs['social_security']);
 
-            return $uniques;
+            return "das";
 
 //            if ($uniques == null) {
 //
