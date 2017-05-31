@@ -265,7 +265,6 @@ class apicontroller extends Controller
 //return $inputs;
         $date = date("l jS \of F Y h:i:s A");
         $email = Session::get('memail');
-
 //        $rules = [
 //            'num_monthly' => 'required|min:1',
 //            'bank' => 'required|min:2',
@@ -321,7 +320,6 @@ class apicontroller extends Controller
 //        ];
 //
 //        $this->validate($request, $rules, $messages);
-
         if ($inputs['agree'] == 1) {
 //            return $request->all();
             $loan->insert($email, $inputs['num_monthly'], $inputs['other_source'], $inputs['bank'], $inputs['salary_date'], $inputs['numloans'], $inputs['total_monthly_payments'], $inputs['name_insti'], $inputs['amount'], $inputs['loan_period'], $inputs['purpose'], $inputs['collateral'], $inputs['cash_service'], $inputs['wname'], $inputs['wemployer'], $inputs['wtel'], $date, 1);
