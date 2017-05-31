@@ -211,6 +211,7 @@ class apicontroller extends Controller
 
             $this->mail($data, $inputs['email'], 'WELCOME TO JIREH MICROFINANCE LTD');
 
+
             return response()->json([
                 "code" => 0,
                 "msg"=>"Client created"
