@@ -181,7 +181,7 @@ class apicontroller extends Controller
 
             $uniques = $user->get_uniques($inputs['email'], $inputs['social_security']);
 
-            return "das";
+            return $uniques;
 
 //            if ($uniques == null) {
 //
@@ -242,6 +242,6 @@ class apicontroller extends Controller
 ////                "code" => 0,
 ////                "msg"=>"Client not created"
 ////            ]);
-//        }
+        }
     }
 }
