@@ -218,8 +218,12 @@ class clientcontroller extends Controller
 
             $this->mail($data, $inputs['email'], 'WELCOME TO JIREH MICROFINANCE LTD');
 
+//            For sms
+            $msg2 = "Hello " . $fname . " " . $sname . "," . "\n" . "You have successfully created an account with Jireh Microfinance Limited.";
+            $this->send_sms($inputs['telephone_mobile'], $msg2);
 
             return redirect('login')->with('status', 'Your account has been created successfully !');
+
         } else {
             return redirect('client/create')->with('status', 'You must agree with the terms and conditions !');
         }
@@ -232,6 +236,18 @@ class clientcontroller extends Controller
             $m->to($email);
             $m->subject($subject);
         });
+    }
+
+    private function send_sms($number, $msg)
+    {
+        $message = urlencode($msg);
+        $num = urlencode($number);
+
+        $url = "http://deywuro.com:12111/api/sms?username=jireh&password=pssjireh&source=Jireh&destination=" . $num . "&message=" . $message;
+
+        $curl = curl_init($url);
+        curl_exec($curl);
+        curl_close($curl);
     }
 
 

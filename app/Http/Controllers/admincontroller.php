@@ -181,7 +181,11 @@ class admincontroller extends Controller
         $msg = $email . " approved a loan by" . $client[0]->client_email;
         $log->insert($msg, $email, 'admin');
 
-        $this->mail($data, $client[0]->client_email,"LOAN APPROVAL");
+        $this->mail($data, $client[0]->client_email, "LOAN APPROVAL");
+
+//        For SMS
+        $msg2 = "Hello " . $userdata[0]->firstname . " " . $userdata[0]->surname . "," . "\n" . "Your loan request for" . $client[0]->amount_requested . " has been approved.";
+        $this->send_sms($userdata[0]->telephone_mobile, $msg2);
 
         return redirect('/admin/dashboard');
     }
@@ -216,7 +220,11 @@ class admincontroller extends Controller
         $msg = $email . " refused a loan by" . $client[0]->client_email;
         $log->insert($msg, $email, 'admin');
 
-        $this->mail($data, $client[0]->client_email,"LOAN REFUSAL");
+        $this->mail($data, $client[0]->client_email, "LOAN REFUSAL");
+
+//    For SMS
+        $msg2 = "Hello " . $userdata[0]->firstname . " " . $userdata[0]->surname . "," . "\n" . "Your loan request for " . $client[0]->amount_requested . " has been refused.";
+        $this->send_sms($userdata[0]->telephone_mobile, $msg2);
 
         return redirect('/admin/dashboard');
     }
@@ -710,7 +718,7 @@ class admincontroller extends Controller
         $spouses = $s->get_spouse($inputs['email']);
 //        return $users;
         return view('admin_views.single-client', [
-            'pic'=>$users[0]->pic,
+            'pic' => $users[0]->pic,
             'title' => $clients[0]->title,
             'gender' => $clients[0]->gender,
             'surname' => $users[0]->surname,
@@ -765,10 +773,22 @@ class admincontroller extends Controller
 
     private function mail($data, $email, $subject)
     {
-            Mail::send('email_views.email', $data, function ($m) use ($email, $subject) {
-                $m->from('info@jirehmfl.com.gh', 'Jireh Microfinance Ltd');
-                $m->to($email);
-                $m->subject($subject);
-            });
+        Mail::send('email_views.email', $data, function ($m) use ($email, $subject) {
+            $m->from('info@jirehmfl.com.gh', 'Jireh Microfinance Ltd');
+            $m->to($email);
+            $m->subject($subject);
+        });
+    }
+
+    private function send_sms($number, $msg)
+    {
+        $message = urlencode($msg);
+        $num = urlencode($number);
+
+        $url = "http://deywuro.com:12111/api/sms?username=jireh&password=pssjireh&source=Jireh&destination=" . $num . "&message=" . $message;
+
+        $curl = curl_init($url);
+        curl_exec($curl);
+        curl_close($curl);
     }
 }
