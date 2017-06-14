@@ -155,6 +155,7 @@ class admincontroller extends Controller
         $l = new Loan;
         $log = new Log;
         $u = new User;
+        $c = new Client();
 
         $input = $request->all();
 
@@ -164,6 +165,7 @@ class admincontroller extends Controller
 
         $client = $l->get_loan_details_by_id($input['id']);
         $userdata = $u->get_user($client[0]->client_email);
+        $clientdata = $c->get_clients($client[0]->client_email);
 
         $date = explode(" ", $client[0]->created_at);
 
@@ -185,7 +187,7 @@ class admincontroller extends Controller
 
 //        For SMS
         $msg2 = "Hello " . $userdata[0]->firstname . " " . $userdata[0]->surname . "," . "\n" . "Your loan request for" . $client[0]->amount_requested . " has been approved.";
-        $this->send_sms($userdata[0]->telephone_mobile, $msg2);
+        $this->send_sms($clientdata[0]->telephone_mobile, $msg2);
 
         return redirect('/admin/dashboard');
     }
