@@ -180,7 +180,7 @@ class admincontroller extends Controller
         ];
 
 
-        $msg = $email . " approved a loan by" . $client[0]->client_email;
+        $msg = $email . " approved a loan by " . $client[0]->client_email;
         $log->insert($msg, $email, 'admin');
 
         $this->mail($data, $client[0]->client_email, "LOAN APPROVAL");
@@ -197,6 +197,7 @@ class admincontroller extends Controller
         $l = new Loan;
         $log = new Log;
         $u = new User;
+        $c = new Client;
 
         $input = $request->all();
 
@@ -206,6 +207,7 @@ class admincontroller extends Controller
 
         $client = $l->get_loan_details_by_id($input['id']);
         $userdata = $u->get_user($client[0]->client_email);
+        $clientdata = $c->get_clients($client[0]->client_email);
 
         $date = explode(" ", $client[0]->created_at);
 
@@ -219,14 +221,14 @@ class admincontroller extends Controller
             "salutation" => $sal
         ];
 
-        $msg = $email . " refused a loan by" . $client[0]->client_email;
+        $msg = $email . " refused a loan by " . $client[0]->client_email;
         $log->insert($msg, $email, 'admin');
 
         $this->mail($data, $client[0]->client_email, "LOAN REFUSAL");
 
 //    For SMS
-        $msg2 = "Hello " . $userdata[0]->firstname . " " . $userdata[0]->surname . "," . "\n" . "Your loan request for " . $client[0]->amount_requested . " has been refused.";
-        $this->send_sms($userdata[0]->telephone_mobile, $msg2);
+        $msg2 = "Hello " . $userdata[0]->firstname . " " . $userdata[0]->surname . "," . "\n" . "Your loan request for GHC" . $client[0]->amount_requested . " has been refused.";
+        $this->send_sms($clientdata[0]->telephone_mobile, $msg2);
 
         return redirect('/admin/dashboard');
     }
