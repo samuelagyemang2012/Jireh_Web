@@ -186,7 +186,7 @@ class admincontroller extends Controller
         $this->mail($data, $client[0]->client_email, "LOAN APPROVAL");
 
 //        For SMS
-        $msg2 = "Hello " . $userdata[0]->firstname . " " . $userdata[0]->surname . "," . "\n" . "Your loan request for" . $client[0]->amount_requested . " has been approved.";
+        $msg2 = "Hello " . $userdata[0]->firstname . " " . $userdata[0]->surname . "," . "\n" . "Your loan request for GHC" . $client[0]->amount_requested . " has been approved.";
         $this->send_sms($clientdata[0]->telephone_mobile, $msg2);
 
         return redirect('/admin/dashboard');
