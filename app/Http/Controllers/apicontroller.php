@@ -29,15 +29,16 @@ class apicontroller extends Controller
             session()->put('memail', $email);
 
             return response()->json([
-                "code" => 1
+                "code" => 1,
+                "msg" => "Login successful"
             ]);
 
         } else {
 
             return response()->json([
-                "code" => 0
+                "code" => 9,
+                "msg" => "Login failed"
             ]);
-
         }
     }
 
@@ -57,7 +58,6 @@ class apicontroller extends Controller
         if ($uniques == 0) {
 
             $dob = preg_replace('/\s+/', '-', $inputs['date_of_birth']);
-//                $d = $dob[2]+"-"+$dob[1]+"-"+$dob[0];
 
             $npass = bcrypt($inputs['password']);
 
@@ -89,6 +89,7 @@ class apicontroller extends Controller
 //            For SMS
             $msg2 = "Hello " . $fname . " " . $sname . "," . "\n" . "You have successfully created an account with Jireh Microfinance Limited.";
             $this->send_sms($inputs['telephone_mobile'], $msg2);
+
 
             return response()->json([
                 "code" => 0,
