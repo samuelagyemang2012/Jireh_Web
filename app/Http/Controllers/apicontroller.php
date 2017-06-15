@@ -119,6 +119,7 @@ class apicontroller extends Controller
         $url = "http://deywuro.com:12111/api/sms?username=jireh&password=pssjireh&source=Jireh&destination=" . $num . "&message=" . $message;
 
         $curl = curl_init($url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, FALSE);
         $var = curl_exec($curl);
         curl_close($curl);
 
