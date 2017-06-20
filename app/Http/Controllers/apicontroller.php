@@ -172,22 +172,22 @@ class apicontroller extends Controller
 
     public function upload(Request $request)
     {
-//        $input = $request->all();
+        $input = $request->all();
 
-//        $picture = Input::file('pic')->getClientOriginalName();
+        $file = $input['testpic'];
 
-        if (Input::hasFile('testpic')) {
-            $file = Input::file('testpic');
-            $file->move('uploads', $file->getClientOriginalName());
+        if ($file == null) {
+
+//            $file->move('uploads', $file->getClientOriginalName());
 
             return response()->json([
-                "file_name" => $file->getClientOriginalName()
-//                "msg" => "Loan not added"
+                "data" => "null"
             ]);
         } else {
             return response()->json([
-                "msg" => "Error"
+                "data" => $file
             ]);
         }
     }
+
 }
