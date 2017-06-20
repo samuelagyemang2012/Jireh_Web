@@ -172,27 +172,37 @@ class apicontroller extends Controller
 
     public function upload(Request $request)
     {
+        if ($request->hasFile('userImage')) {
 
-        if (is_array($_FILES)) {
-
-            if (is_uploaded_file($_FILES['userImage']['tmp_name'])) {
-                $sourcePath = $_FILES['userImage']['tmp_name'];
-                $targetPath = "uploads/" . $_FILES['userImage']['name'];
-                move_uploaded_file($sourcePath, $targetPath);
-
-                return response()->json([
-                    "msg" => "done"
-                ]);
-            }
-
+            return response()->json([
+                "msg" => "has file"
+            ]);
         } else {
             return response()->json([
-                "msg" => "null"
+               "msg" => "no file"
             ]);
         }
-    }
 
-}
+//        if (is_array($_FILES)) {
+//
+//            if (is_uploaded_file($_FILES['userImage']['tmp_name'])) {
+//
+//                $sourcePath = $_FILES['userImage']['tmp_name'];
+//                $targetPath = "uploads/" . $_FILES['userImage']['name'];
+//                move_uploaded_file($sourcePath, $targetPath);
+//
+//                return response()->json([
+//                    "msg" => "done"
+//                ]);
+//            }
+//        } else {
+//            return response()->json([
+//                "msg" => "null"
+//            ]);
+//        }
+//    }
+
+//}
 
 
 //        if (isset($_FILES["file"]["type"])) {
@@ -240,4 +250,5 @@ class apicontroller extends Controller
 //                "msg" => "null"
 //            ]);
 //        }
-
+    }
+}
