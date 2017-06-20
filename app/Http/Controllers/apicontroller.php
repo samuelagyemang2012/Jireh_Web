@@ -184,9 +184,11 @@ class apicontroller extends Controller
                 "data" => "null"
             ]);
         } else {
+
             return response()->json([
                 "data" => $file
             ]);
+
         }
     }
 
