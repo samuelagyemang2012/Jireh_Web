@@ -172,28 +172,9 @@ class apicontroller extends Controller
 
     public function upload(Request $request)
     {
-//        $input = $request->all();
-//
-//        $file = $input['testpic'];
-//
-//        if ($file == null) {
-//
-////            $file->move('uploads', $file->getClientOriginalName());
-//
-//            return response()->json([
-//                "data" => "null"
-//            ]);
-//        } else {
-//
-//
-//
-//            return response()->json([
-//                "data" => $file
-//            ]);
-//
-//        }
 
         if (isset($_FILES["file"]["type"])) {
+
             $validextensions = array("jpeg", "jpg", "png");
 
             $temporary = explode(".", $_FILES["file"]["name"]);
@@ -231,6 +212,11 @@ class apicontroller extends Controller
 //                    echo "<b>Temp file:</b> " . $_FILES["file"]["tmp_name"] . "<br>";
                 }
             }
+        }else{
+            return response()->json([
+//                "code" => 1,
+                "msg" => "null"
+            ]);
         }
     }
 }
