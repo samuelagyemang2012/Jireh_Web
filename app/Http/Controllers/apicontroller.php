@@ -172,12 +172,18 @@ class apicontroller extends Controller
 
     public function upload(Request $request)
     {
+        if ($request->hasFile('pic')) {
 
-        foreach ($_FILES["images"]["error"] as $key => $error) {
-            if ($error == UPLOAD_ERR_OK) {
-                $name = $_FILES["images"]["name"][$key];
-                move_uploaded_file( $_FILES["images"]["tmp_name"][$key], "uploads/" . $_FILES['images']['name'][$key]);
-            }
+            return response()->json([
+                "msg" => "true"
+            ]);
+
+        } else {
+
+            return response()->json([
+                "msg" => "false"
+            ]);
+
         }
     }
 }
