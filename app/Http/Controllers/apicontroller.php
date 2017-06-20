@@ -176,7 +176,7 @@ class apicontroller extends Controller
 
 //        $picture = Input::file('pic')->getClientOriginalName();
 
-        if (Input::hasFile('pic')) {
+        if (Input::hasFile('testpic')) {
             $file = Input::file('testpic');
             $file->move('uploads', $file->getClientOriginalName());
 
