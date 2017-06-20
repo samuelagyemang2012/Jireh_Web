@@ -78,3 +78,5 @@ Route::get('api/add-client', 'apicontroller@sign_up');
 Route::get('api/getloans/{email}', 'apicontroller@get_loans');
 
 Route::get('api/add-loan', 'apicontroller@loan');
+
+Route::get('api/upload', 'apicontroller@upload');
