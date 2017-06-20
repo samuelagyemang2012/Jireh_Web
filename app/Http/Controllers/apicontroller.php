@@ -172,7 +172,7 @@ class apicontroller extends Controller
 
     public function upload(Request $request)
     {
-        if ($request->hasFile('pic')) {
+        if ($request->hasFile('pics')) {
 
             return response()->json([
                 "msg" => "true"
