@@ -21,6 +21,7 @@ class Log extends Model
     {
         return DB::table('logs')
             ->where('role', '=', 'client')
+            ->orderBy('created_at', 'desc')
             ->paginate(10);
     }
 
@@ -28,6 +29,7 @@ class Log extends Model
     {
         return DB::table('logs')
             ->where('role', '=', 'admin')
+            ->orderBy('created_at', 'desc')
             ->paginate(10);
 //            ->get();
     }
