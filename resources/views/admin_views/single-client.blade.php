@@ -25,7 +25,7 @@
                 <div class="col-4">
                     <form method="post" action="{{route('update')}}">
                         {{csrf_field()}}
-                        
+
                         <div>
                             <img src="/uploads/{{$pic}}" height="200px" width="200px">
                         </div>
@@ -188,8 +188,9 @@
 
                         <label>Number of Years in Current Employment</label>
                         <div>
-                        <input type="number" class="form-control" name="numyears" id="numyears" required
-                        value="{{$numyears}}" value="{{old('numyears')}}" min="1" onblur="validate('numyears')" style="width: 300px">
+                            <input type="number" class="form-control" name="numyears" id="numyears" required
+                                   value="{{$numyears}}" value="{{old('numyears')}}" min="1"
+                                   onblur="validate('numyears')" style="width: 300px">
                         </div>
                         <br>
 
@@ -350,7 +351,8 @@
                         <label>Next of Kin's Address</label>
                         <div>
                             <input type="text" class="form-control" name="kaddress" id="kaddress" required
-                             value="{{$kaddress}}"      value="{{old('kaddress')}}" min="5" onblur="validate('kaddress')"
+                                   value="{{$kaddress}}" value="{{old('kaddress')}}" min="5"
+                                   onblur="validate('kaddress')"
                                    style="width: 300px">
                         </div>
                         <br>
@@ -358,14 +360,15 @@
                         <label>Next of Kin's Mobile Number</label>
                         <div>
                             <input type="tel" class="form-control" name="ktel" id="ktel" min="10" required
-                              value="{{$ktel}}"     value="{{old('ktel')}}" min="10" onblur="validate('ktel')" style="width: 300px">
+                                   value="{{$ktel}}" value="{{old('ktel')}}" min="10" onblur="validate('ktel')"
+                                   style="width: 300px">
                         </div>
                         <br>
 
                         <label>Relationship to Kin's Name</label>
                         <div>
                             <input type="text" class="form-control" name="krel" id="krel" required
-                               value="{{$krel}}"    value="{{old('krel')}}"
+                                   value="{{$krel}}" value="{{old('krel')}}"
                                    min="3" onblur="validate('krel')" style="width: 300px">
                         </div>
                         <br>

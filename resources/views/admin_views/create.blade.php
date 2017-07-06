@@ -12,6 +12,12 @@
         </div>
     @endif
 
+    @if (session('status'))
+        <div class="alert alert-success">
+            <p>{{ session('status') }}</p>
+        </div>
+    @endif
+
     <section class="col-lg-4 connectedSortable">
 
         <form method="post" action="{{route('add_admin')}}">

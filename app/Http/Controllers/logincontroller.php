@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\User;
 use App\Log;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 //session_start();
@@ -41,22 +42,21 @@ class logincontroller extends Controller
             $msg = $inputs['email'] . " logged in successfully";
             $log->insert($msg, $inputs['email'], 'client');
 
-            return redirect('profile');
+            return redirect('/jireh/profile');
         } else {
 
             $msg = $inputs['email'] . " failed to log in successfully";
             $log->insert($msg, $inputs['email'], 'client');
 
-            return redirect('login')->with('log', 'Invalid Login Details !');
+            return redirect('/jireh/login')->with('log', 'Invalid Login Details !');
         }
     }
 
     public function logout()
     {
-        $u = new User;
+        Auth::logout();
+        Session::flush();
 
-        $u->logout();
-
-        return redirect('login');
+        return redirect('/jireh/login');
     }
 }

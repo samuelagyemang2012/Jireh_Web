@@ -21,6 +21,17 @@ class Spouse extends Model
         );
     }
 
+    public function update_spouse($cemail, $name, $address, $number)
+    {
+        DB::table('spouses')
+            ->where('client_email', '=', $cemail)
+            ->update([
+                'name' => $name,
+                'address' => $address,
+                'number' => $number
+            ]);
+    }
+
     public function get_spouse($email)
     {
         return DB::table('spouses')

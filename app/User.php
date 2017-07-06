@@ -29,6 +29,17 @@ class User extends Authenticatable
         );
     }
 
+    public function update_user($email, $surname, $firstname, $othernames)
+    {
+        DB::table('users')
+            ->where('email', '=', $email)
+            ->update([
+                'surname' => $surname,
+                'firstname' => $firstname,
+                'othernames' => $othernames,
+            ]);
+    }
+
     private function get_role($email)
     {
         return DB::table('users')
@@ -41,8 +52,11 @@ class User extends Authenticatable
     public function login($email, $password)
     {
         if (Auth::attempt(['email' => $email, 'password' => $password])) {
-//            echo 'true';
+
+//            return Auth::user();
+
             session()->put('email', $email);
+            session()->put('logged_in', 'true');
 
             $role = $this->get_role($email);
 
@@ -60,15 +74,17 @@ class User extends Authenticatable
     {
         if (Auth::attempt(['email' => $email, 'password' => $password])) {
 
+            $data = Auth::user();
+
+            $email = $data['email'];
+            $role = $data['role'];
+
             session()->put('aemail', $email);
-//
-            $role = $this->get_role($email);
 
-            $nrole = $role[0]->role;
+            session()->put('role', $role);
 
-            session()->put('role', $nrole);
-//
             return 1;
+//            return $data;
         } else {
             return 0;
         }
@@ -94,12 +110,6 @@ class User extends Authenticatable
         return DB::table('users')
             ->where('role', '=', 'user')
             ->paginate(10);
-    }
-
-    public function logout()
-    {
-        Auth::logout();
-
     }
 
     public function get_uniques($email, $soc)

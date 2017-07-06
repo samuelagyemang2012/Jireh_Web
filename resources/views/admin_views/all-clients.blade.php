@@ -3,7 +3,7 @@
 @section('content')
     <div class="box-footer clearfix">
         <h3>All Clients</h3>
-        <table class="table">
+        <table class="table" id="mytable">
             <thead>
             <th>Surname</th>
             <th>Firstname</th>

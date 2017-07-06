@@ -38,7 +38,7 @@
                     <div class="tab-content">
                         <div id="login" class="tab-pane active">
 
-                            <form action="\admin" method="post">
+                            <form action="{{route('admin_login')}}" method="post">
                                 {{csrf_field()}}
                                 <p class="text-muted text-center">
                                     Enter your email and password

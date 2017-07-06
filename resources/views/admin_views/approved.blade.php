@@ -87,7 +87,7 @@
 
             @foreach($aploans as $a)
                 <tr>
-                    <form method="post" action="{{route('details')}}">
+                    <form method="get" action="{{route('details')}}">
                         {{csrf_field()}}
                         <td>{{$a->surname}}</td>
                         <td>{{$a->firstname}}</td>

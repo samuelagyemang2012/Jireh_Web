@@ -7,6 +7,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+
 //use Maatwebsite\Excel\Facades\Excel;
 
 class Admin extends Model
@@ -28,6 +29,7 @@ class Admin extends Model
     public function add_admin($surname, $firstname, $password, $email, $role)
     {
         $date = date("l jS \of F Y h:i:s A");
+        $api = uniqid();
 
         DB::table('users')
             ->insert(['surname' => $surname,
@@ -36,7 +38,8 @@ class Admin extends Model
                     'pic' => '',
                     'last_logged_in' => $date,
                     'password' => $password,
-                    'role' => $role
+                    'role' => $role,
+                    'api_token' => $api
                 ]
             );
     }

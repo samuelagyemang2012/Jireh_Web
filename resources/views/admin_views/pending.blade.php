@@ -96,7 +96,7 @@
 
             @foreach($all_pend as $pend)
                 <tr>
-                    <form method="post" action="{{route('details')}}">
+                    <form method="get" action="{{route('pending_details')}}">
                         {{csrf_field()}}
                         <td>{{$pend->surname}}</td>
                         <td>{{$pend->firstname}}</td>

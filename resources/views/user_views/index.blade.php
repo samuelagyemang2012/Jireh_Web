@@ -45,7 +45,7 @@
             <div class="col-4"></div>
 
             <div class="col-4">
-                <form class="form-horizontal" method="post" action="/login">
+                <form class="form-horizontal" method="post" action="/jireh/login">
                     {{csrf_field()}}
                     <label>Email</label>
                     <div>

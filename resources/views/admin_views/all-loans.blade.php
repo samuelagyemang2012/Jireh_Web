@@ -17,17 +17,16 @@
         </div>
     </div>
 
-    <!-- ./col -->
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-green">
             <div class="inner">
-                <h3>{{$approved}}<sup style="font-size: 20px"></sup></h3>
+                <h3>{{$approved}}</h3>
 
                 <p>Approved Loans</p>
             </div>
             <div class="icon">
-                <i class="ion ion-stats-bars"></i>
+                <i class="ion ion-bag"></i>
             </div>
             <a href="#" class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></a>
         </div>
@@ -68,26 +67,25 @@
 @stop
 
 @section('content')
-    <div class="box-footer clearfix">
+
+    <div class="col-2">
         <h3>All Loans</h3>
-        <table class="table">
+        <table class="table" id="mytable">
             <thead>
-            <tr>
-                <th>Surname</th>
-                <th>Firstname</th>
-                <th>Email</th>
-                <th>Telephone (Mobile)</th>
-                <th>Amount Requested</th>
-                <th></th>
-                <th></th>
-                {{--<th></th>--}}
-            </tr>
+            <th>Surname</th>
+            <th>Firstname</th>
+            <th>Email</th>
+            <th>Telephone (Mobile)</th>
+            <th>Amount Requested</th>
+            {{--<th></th>--}}
+            {{--<th></th>--}}
+            {{--<th></th>--}}
             </thead>
             <tbody>
 
             @foreach($all_loans as $a)
                 <tr>
-                    <form method="post" action="{{route('details')}}">
+                    <form method="get" action="{{route('details')}}">
                         {{csrf_field()}}
                         <td>{{$a->surname}}</td>
                         <td>{{$a->firstname}}</td>
@@ -138,5 +136,10 @@
             </thead>
         </table>
     </div>
-    {{--<hr>--}}
 @stop
+
+@section('footer')
+
+@stop
+
+

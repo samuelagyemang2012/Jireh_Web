@@ -8,8 +8,8 @@
                 <a class="navbar-brand" href="#">Jireh Microfinance Ltd</a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="\profile"><b class="thead">My Loans</b></a></li>
-                <li><a href="\loan"><b class="thead">Request A Loan</b></a></li>
+                {{--<li><a href="/jireh/profile"><b class="thead">My Loans</b></a></li>--}}
+                <li><a href="/jireh/loans"><b class="thead">Request A Loan</b></a></li>
 
 
                 <li><a href="{{route('user_logout')}}"><b class="thead" style="padding-left: 700px">Logout</b></a></li>

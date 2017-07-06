@@ -30,12 +30,15 @@
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="{{asset('css/bootstrap3-wysihtml5.min.css')}}">
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.15/datatables.min.css"/>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
 
     @yield('header')
 </head>
@@ -143,8 +146,8 @@
                     <!-- Notifications: style can be found in dropdown.less -->
                     <li class="dropdown notifications-menu">
                         {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown">--}}
-                            {{--<i class="fa fa-bell-o"></i>--}}
-                            {{--<span class="label label-warning">10</span>--}}
+                        {{--<i class="fa fa-bell-o"></i>--}}
+                        {{--<span class="label label-warning">10</span>--}}
                         {{--</a>--}}
                         <ul class="dropdown-menu">
                             <li class="header">You have 10 notifications</li>
@@ -186,8 +189,8 @@
                     <!-- Tasks: style can be found in dropdown.less -->
                     <li class="dropdown tasks-menu">
                         {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown">--}}
-                            {{--<i class="fa fa-flag-o"></i>--}}
-                            {{--<span class="label label-danger">9</span>--}}
+                        {{--<i class="fa fa-flag-o"></i>--}}
+                        {{--<span class="label label-danger">9</span>--}}
                         {{--</a>--}}
                         <ul class="dropdown-menu">
                             <li class="header">You have 9 tasks</li>
@@ -308,7 +311,7 @@
                     </li>
                     <!-- Control Sidebar Toggle Button -->
                     <li>
-                        <a href="{{route('logout')}}"><i class="fa fa-power-off"></i></a>
+                        <a href="{{ route('admin_logout') }}"><i class="fa fa-power-off"></i></a>
                     </li>
                 </ul>
             </div>
@@ -342,7 +345,7 @@
             <ul class="sidebar-menu">
 
                 <li class="header"></li>
-                <li><a href=""><i class="fa fa-book"></i> <span>Dashboard</span></a></li>
+                {{--<li><a href=""><i class="fa fa-book"></i> <span>Dashboard</span></a></li>--}}
 
                 <li class="active treeview">
                     <a href="#">
@@ -403,18 +406,18 @@
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="content-wrapper" style="background-color: #fff">
         <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                Dashboard
-                <small>Control panel</small>
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li class="active">Dashboard</li>
-            </ol>
-        </section>
+        {{--<section class="content-header">--}}
+        {{--<h1>--}}
+        {{--Dashboard--}}
+        {{--<small>Control panel</small>--}}
+        {{--</h1>--}}
+        {{--<ol class="breadcrumb">--}}
+        {{--<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>--}}
+        {{--<li class="active">Dashboard</li>--}}
+        {{--</ol>--}}
+        {{--</section>--}}
 
         {{--kmdsmdmsmdsmdmssmmdmsfsdfkdskfdskjfdsfjdlskfljsdljsdjkdjfahjhjhjhaskksdjlkfsjalkjfkslfdsflhshfsjhflshjsklhdjfhsfhsjsdkhfjsdkf--}}
                 <!-- Main content -->
@@ -425,7 +428,7 @@
 
                 @yield('dashboard')
 
-                <!-- ./col -->
+                        <!-- ./col -->
             </div>
             <!-- /.row -->
             <!-- Main row -->
@@ -447,14 +450,14 @@
 
 <!-- /.content-wrapper -->
 {{--<footer class="main-footer">--}}
-    {{--<div class="pull-right hidden-xs">--}}
-        {{--<b>Version</b> 2.3.8--}}
-    {{--</div>--}}
-    {{--<strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights--}}
-    {{--reserved.--}}
+{{--<div class="pull-right hidden-xs">--}}
+{{--<b>Version</b> 2.3.8--}}
+{{--</div>--}}
+{{--<strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights--}}
+{{--reserved.--}}
 {{--</footer>--}}
 
-<!-- Control Sidebar -->
+        <!-- Control Sidebar -->
 <aside class="control-sidebar control-sidebar-dark">
     <!-- Create the tabs -->
     <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
@@ -565,74 +568,74 @@
         <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
         <!-- /.tab-pane -->
         <!-- Settings tab content -->
-        <div class="tab-pane" id="control-sidebar-settings-tab">
-            <form method="post">
-                <h3 class="control-sidebar-heading">General Settings</h3>
+        {{--<div class="tab-pane" id="control-sidebar-settings-tab">--}}
+        {{--<form method="post">--}}
+        {{--<h3 class="control-sidebar-heading">General Settings</h3>--}}
 
-                <div class="form-group">
-                    <label class="control-sidebar-subheading">
-                        Report panel usage
-                        <input type="checkbox" class="pull-right" checked>
-                    </label>
+        {{--<div class="form-group">--}}
+        {{--<label class="control-sidebar-subheading">--}}
+        {{--Report panel usage--}}
+        {{--<input type="checkbox" class="pull-right" checked>--}}
+        {{--</label>--}}
 
-                    <p>
-                        Some information about this general settings option
-                    </p>
-                </div>
-                <!-- /.form-group -->
+        {{--<p>--}}
+        {{--Some information about this general settings option--}}
+        {{--</p>--}}
+        {{--</div>--}}
+        {{--<!-- /.form-group -->--}}
 
-                <div class="form-group">
-                    <label class="control-sidebar-subheading">
-                        Allow mail redirect
-                        <input type="checkbox" class="pull-right" checked>
-                    </label>
+        {{--<div class="form-group">--}}
+        {{--<label class="control-sidebar-subheading">--}}
+        {{--Allow mail redirect--}}
+        {{--<input type="checkbox" class="pull-right" checked>--}}
+        {{--</label>--}}
 
-                    <p>
-                        Other sets of options are available
-                    </p>
-                </div>
-                <!-- /.form-group -->
+        {{--<p>--}}
+        {{--Other sets of options are available--}}
+        {{--</p>--}}
+        {{--</div>--}}
+        {{--<!-- /.form-group -->--}}
 
-                <div class="form-group">
-                    <label class="control-sidebar-subheading">
-                        Expose author name in posts
-                        <input type="checkbox" class="pull-right" checked>
-                    </label>
+        {{--<div class="form-group">--}}
+        {{--<label class="control-sidebar-subheading">--}}
+        {{--Expose author name in posts--}}
+        {{--<input type="checkbox" class="pull-right" checked>--}}
+        {{--</label>--}}
 
-                    <p>
-                        Allow the user to show his name in blog posts
-                    </p>
-                </div>
-                <!-- /.form-group -->
+        {{--<p>--}}
+        {{--Allow the user to show his name in blog posts--}}
+        {{--</p>--}}
+        {{--</div>--}}
+        {{--<!-- /.form-group -->--}}
 
-                <h3 class="control-sidebar-heading">Chat Settings</h3>
+        {{--<h3 class="control-sidebar-heading">Chat Settings</h3>--}}
 
-                <div class="form-group">
-                    <label class="control-sidebar-subheading">
-                        Show me as online
-                        <input type="checkbox" class="pull-right" checked>
-                    </label>
-                </div>
-                <!-- /.form-group -->
+        {{--<div class="form-group">--}}
+        {{--<label class="control-sidebar-subheading">--}}
+        {{--Show me as online--}}
+        {{--<input type="checkbox" class="pull-right" checked>--}}
+        {{--</label>--}}
+        {{--</div>--}}
+        {{--<!-- /.form-group -->--}}
 
-                <div class="form-group">
-                    <label class="control-sidebar-subheading">
-                        Turn off notifications
-                        <input type="checkbox" class="pull-right">
-                    </label>
-                </div>
-                <!-- /.form-group -->
+        {{--<div class="form-group">--}}
+        {{--<label class="control-sidebar-subheading">--}}
+        {{--Turn off notifications--}}
+        {{--<input type="checkbox" class="pull-right">--}}
+        {{--</label>--}}
+        {{--</div>--}}
+        {{--<!-- /.form-group -->--}}
 
-                <div class="form-group">
-                    <label class="control-sidebar-subheading">
-                        Delete chat history
-                        <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
-                    </label>
-                </div>
-                <!-- /.form-group -->
-            </form>
-        </div>
-        <!-- /.tab-pane -->
+        {{--<div class="form-group">--}}
+        {{--<label class="control-sidebar-subheading">--}}
+        {{--Delete chat history--}}
+        {{--<a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>--}}
+        {{--</label>--}}
+        {{--</div>--}}
+        {{--<!-- /.form-group -->--}}
+        {{--</form>--}}
+        {{--</div>--}}
+                <!-- /.tab-pane -->
     </div>
 </aside>
 <!-- /.control-sidebar -->
@@ -643,11 +646,11 @@
 <!-- ./wrapper -->
 
 @yield('footer')
-        <!-- jQuery 2.2.3 -->
-<script src="{{asset('js/jquery-2.2.3.min.js')}}"></script>
-<!-- jQuery UI 1.11.4 -->
+
+        <!-- jQuery UI 1.11.4 -->
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script src="{{asset('js/help.js')}}"></script>
 <script>
     $.widget.bridge('uibutton', $.ui.button);
 </script>

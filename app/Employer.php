@@ -18,6 +18,16 @@ class Employer extends Model
         );
     }
 
+    public function update_employer($cemail, $name, $address)
+    {
+        DB::table('employers')
+            ->where('client_email', '=', $cemail)
+            ->update([
+                'name' => $name,
+                'address' => $address
+            ]);
+    }
+
     public function get_employer($email)
     {
         return DB::table('employers')
