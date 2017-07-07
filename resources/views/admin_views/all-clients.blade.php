@@ -1,6 +1,14 @@
 @extends('master3')
 
 @section('content')
+    <div>
+        @if (session('status'))
+            <div class="alert alert-success">
+                <p>{{ session('status') }}</p>
+            </div>
+        @endif
+    </div>
+
     <div class="box-footer clearfix">
         <h3>All Clients</h3>
         <table class="table" id="mytable">
