@@ -320,7 +320,7 @@
 
                         <label>Number of Dependants</label>
                         <div>
-                            <input type="number" class="form-control" name="numdependants" id="numdependants" required
+                            <input type="number" class="form-control" name="numdependants" id="numdependants"
                                    value="{{$numdep}}" value="{{old('numdependants')}}" min="1"
                                    onblur="validate('numdependants')"
                                    style="width: 300px">
