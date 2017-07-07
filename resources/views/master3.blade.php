@@ -639,6 +639,12 @@
     $(document).ready(function () {
         $("#mytable").DataTable();
     });
+
+    $(document).ready(function(){
+        $("#logs").DataTable({
+            "order": [[ 2, "desc" ]]
+        });
+    });
 </script>
 {{--<script src="{{asset('js/jquery-2.2.3.min.js')}}"></script>--}}
 

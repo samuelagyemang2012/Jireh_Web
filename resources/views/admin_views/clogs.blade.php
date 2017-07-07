@@ -5,7 +5,7 @@
 
     <div class="box-footer clearfix">
         {{--<h3>All Loans</h3>--}}
-        <table class="table" id="mytable">
+        <table class="table" id="logs">
             <thead>
             <tr>
                 <th>By</th>
