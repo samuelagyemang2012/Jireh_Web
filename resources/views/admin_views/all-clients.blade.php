@@ -31,6 +31,7 @@
 
                         <td>
                             <button class="btn btn-sm btn-primary" type="submit">Edit</button>
+
                             <a href="{{route('view_client_details',['email'=>$u->email])}}"
                                class="btn btn-sm btn-primary">More Details</a>
                         </td>
@@ -39,9 +40,5 @@
             @endforeach
             </tbody>
         </table>
-
-        <div class="container">
-{{--            {{$users->links()}}--}}
-        </div>
     </div>
 @stop
