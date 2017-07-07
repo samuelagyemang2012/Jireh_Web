@@ -32,33 +32,24 @@
                         <br>
 
                         <div>
-                            <input  name="title" id="i-title" type="text" value="{{$title}}" value="{{old('title')}}">
-                            <input id="fake_title" class="form-control" type="text" style="width: 300px" readonly>
-                        </div>
-                        <br>
-
-                        <div>
                             <label>Title</label>
-                            <select name="title" id="fortitle" class="form-control" onchange="for_title()" style="width: 300px">
-                                <option value="1">MR</option>
-                                <option value="2">MISS</option>
-                                <option value="3">MRS</option>
-                                <option value="4">DR</option>
-                                <option value="5">REV</option>
-                                {{--<option value="6">OTHER</option>--}}
+                            <select name="title" id="fortitle" class="form-control" onchange="for_title()"
+                                    style="width: 300px">
+                                {{--<option value="1" >MARRIED</option>--}}
+                                <option value="1" {{$title==1 ? 'selected="selected"':''}}>MR</option>
+                                <option value="2"{{$title==2 ? 'selected="selected"':''}}>MISS</option>
+                                <option value="3" {{$title==3 ? 'selected="selected"':''}}>MRS</option>
+                                <option value="4" {{$title==4 ? 'selected="selected"':''}}>DR</option>
+                                <option value="5" {{$title==5 ? 'selected="selected"':''}}>REV</option>
+                                {{--                                <option value="6" {{$title==1 ? 'selected="selected"':''}}>OTHER</option>--}}
                             </select>
                         </div>
                         <br>
 
-                        <div>
-                            <input  name="gender" id="i-gender" type="text" value="{{$gender}}" value="{{old('gender')}}">
-                            <input id="fake_gender" class="form-control" type="text" style="width: 300px" readonly>
-                        </div>
-
                         <label>Gender</label>
-                        <select name="gender" id="forgender" class="form-control" style="width: 300px">
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
+                        <select name="gender" id="gender" class="form-control" style="width: 300px">
+                            <option value="Male" {{$gender=='Male' ? 'selected="selected"':''}}>Male</option>
+                            <option value="Female" {{$gender=='Female' ? 'selected="selected"':''}}>Female</option>
                         </select>
                         <br>
 
@@ -227,40 +218,39 @@
                         <label>Marital Status</label>
                         <select name="marital_status" id="mstatus" class="form-control" style="width: 300px"
                                 value="{{$mstatus}}">
-                            <option value="1">MARRIED</option>
-                            <option value="2">DIVORCED</option>
-                            <option value="3">SINGLE</option>
-                            <option value="4">OTHER</option>
+                            <option value="1" {{$mstatus==1 ? 'selected="selected"':''}}>MARRIED</option>
+                            <option value="2" {{$mstatus==2 ? 'selected="selected"':''}}>DIVORCED</option>
+                            <option value="3" {{$mstatus==3 ? 'selected="selected"':''}}>SINGLE</option>
+                            <option value="4" {{$mstatus==4 ? 'selected="selected"':''}}>OTHER</option>
                         </select>
                         <br>
 
                         <label>Source of Funds</label>
-                        <select name="source_of_funds" id="sof" class="form-control" style="width: 300px"
-                                value="{{$sof}}">
-                            <option value="1">SALARY</option>
-                            <option value="2">TRADING</option>
-                            <option value="3">INVESTMENT</option>
-                            <option value="4">OTHER</option>
+                        <select name="source_of_funds" id="sof" class="form-control" style="width: 300px">
+                            <option value="1" {{$sof==1 ? 'selected="selected"':''}}>SALARY</option>
+                            <option value="2"{{$sof==2 ? 'selected="selected"':''}}>TRADING</option>
+                            <option value="3"{{$sof==3 ? 'selected="selected"':''}}>INVESTMENT</option>
+                            <option value="4"{{$sof==4 ? 'selected="selected"':''}}>OTHER</option>
                         </select>
                         <br>
 
                         <label>Monthly Income (GHS)</label>
                         <select name="monthly_income" id="mincome" class="form-control" style="width: 300px"
                                 value="{{$mincome}}">
-                            <option value="1">1---1000</option>
-                            <option value="2">1001---2000</option>
-                            <option value="3">2001---5001</option>
-                            <option value="4">5001 Plus</option>
+                            <option value="1" {{$mincome==1 ? 'selected="selected"':''}}>1---1000</option>
+                            <option value="2"{{$mincome==2 ? 'selected="selected"':''}}>1001---2000</option>
+                            <option value="3"{{$mincome==3 ? 'selected="selected"':''}}>2001---5001</option>
+                            <option value="4" {{$mincome==4 ? 'selected="selected"':''}}>5001 Plus</option>
                         </select>
                         <br>
 
                         <label>Identification</label>
-                        <select name="identification" id="iden" class="form-control" style="width: 300px"
-                                value="{{$identification}}">
-                            <option value="1">PASSPORT</option>
-                            <option value="2">VOTER</option>
-                            <option value="3">DRIVER'S LICENSE</option>
-                            <option value="4">OTHER</option>
+                        <select name="identification" id="iden" class="form-control" style="width: 300px">
+                            <option value="1" {{$identification==1 ? 'selected="selected"':''}}>PASSPORT</option>
+                            <option value="2" {{$identification==2 ? 'selected="selected"':''}}>VOTER</option>
+                            <option value="3" {{$identification==3 ? 'selected="selected"':''}}>DRIVER'S LICENSE
+                            </option>
+                            <option value="4" {{$identification==4 ? 'selected="selected"':''}}>OTHER</option>
                         </select>
                         <br>
 
@@ -292,12 +282,12 @@
                         <label>Literacy</label>
                         <select name="literacy" id="lit" class="form-control" style="width: 300px"
                                 value="{{$literacy}}">
-                            <option value="1">UNIVERSITY</option>
-                            <option value="2">COLLEGE/POLYTECHNIC</option>
-                            <option value="3">SECONDARY</option>
-                            <option value="4">PRIMARY</option>
-                            <option value="5">NO FORMAL EDUCATION</option>
-                            <option value="6">PRIMARY</option>
+                            <option value="1" {{$literacy==1 ? 'selected="selected"':''}}>UNIVERSITY</option>
+                            <option value="2" {{$literacy==2 ? 'selected="selected"':''}}>COLLEGE/POLYTECHNIC</option>
+                            <option value="3" {{$literacy==3 ? 'selected="selected"':''}}>SECONDARY</option>
+                            <option value="4" {{$literacy==4 ? 'selected="selected"':''}}>PRIMARY</option>
+                            <option value="5" {{$literacy==5 ? 'selected="selected"':''}}>NO FORMAL EDUCATION</option>
+                            <option value="6" {{$literacy==6 ? 'selected="selected"':''}}>PRIMARY</option>
                         </select>
                         <br>
 

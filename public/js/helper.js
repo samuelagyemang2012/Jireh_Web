@@ -28,5 +28,17 @@ function for_title() {
 }
 
 function for_gender() {
+    var select_data = document.getElementById('forgender').value;
 
+    document.getElementById('i-gender').value = select_data;
+
+    //var fake = document.getElementById('fake_gender');
+
+    //if (select_data == '1') {
+    //    fake.value = ''
+    //}
+    //
+    //if (select_data == '2') {
+    //
+    //}
 }
