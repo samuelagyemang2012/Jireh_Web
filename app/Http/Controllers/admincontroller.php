@@ -189,7 +189,8 @@ class admincontroller extends Controller
 
     }
 
-    public function pending_client_details(Request $request){
+    public function pending_client_details(Request $request)
+    {
         $c = new Client;
         $l = new Loan;
 
@@ -356,14 +357,24 @@ class admincontroller extends Controller
 
     public function show_admin_view()
     {
-        return view('admin_views.create');
+        $data = Auth::user();
+
+        if ($data['email'] != null) {
+            return view('admin_views.create');
+        } else {
+            return redirect('/jireh/admin');
+        }
     }
 
     public function show_edit_details()
     {
         $data = Auth::user();
 
-        return view('admin_views.edit_admin')->with('aemail', $data['email']);
+        if ($data['email']) {
+            return view('admin_views.edit_admin')->with('aemail', $data['email']);
+        } else {
+            return redirect('/jireh/admin');
+        }
     }
 
     public function add_admin(Request $request)
@@ -937,6 +948,7 @@ class admincontroller extends Controller
 //        return 'ad';
 
         $u = new User;
+        $log = new Log;
 
         $input = $request->all();
 
@@ -945,8 +957,16 @@ class admincontroller extends Controller
 //        return $response;
 
         if ($response == 1) {
+
+            $msg = $input['email'] . " logged in as admin successfully";
+            $log->insert($msg, $input['email'], 'admin');
+
             return redirect('/jireh/admin/loans/all_loans');
         } else {
+
+            $msg = $input['email'] . " logged in as admin but failed";
+            $log->insert($msg, $input['email'], 'admin');
+
             return redirect('/jireh/admin')->with('status', 'Invalid Login Details');
         }
     }
