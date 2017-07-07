@@ -4,7 +4,7 @@
     <div class="box-footer clearfix">
         {{--<h3>Client Details</h3>--}}
 
-        <table class="table table-bordered" id="mytable">
+        <table class="table table-bordered">
 
             <thead style="background-color: #222D32; color: #ffffff">
             <th>Client Details</th>

@@ -68,17 +68,19 @@
 @section('content')
     <div class="box-footer clearfix">
         <h3>Refused Loans</h3>
-        <table class="table">
+        <table class="table" id="mytable">
             <thead>
             <tr>
                 <th>Surname</th>
                 <th>Firstname</th>
                 <th>Email</th>
+
                 <th>Telephone (Mobile)</th>
                 <th>Amount Requested</th>
                 <th></th>
+
                 <th></th>
-                {{--<th></th>--}}
+                <th></th>
             </tr>
             </thead>
             <tbody>

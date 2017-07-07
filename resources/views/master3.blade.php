@@ -32,17 +32,8 @@
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.15/datatables.min.css"/>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-
     @yield('header')
 </head>
-
 
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -448,16 +439,7 @@
     </section>
 </div>
 
-<!-- /.content-wrapper -->
-{{--<footer class="main-footer">--}}
-{{--<div class="pull-right hidden-xs">--}}
-{{--<b>Version</b> 2.3.8--}}
-{{--</div>--}}
-{{--<strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights--}}
-{{--reserved.--}}
-{{--</footer>--}}
-
-        <!-- Control Sidebar -->
+<!-- Control Sidebar -->
 <aside class="control-sidebar control-sidebar-dark">
     <!-- Create the tabs -->
     <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
@@ -647,10 +629,25 @@
 
 @yield('footer')
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+{{--<script src="{{asset('js/jquery-2.2.3.min.js')}}"></script>--}}
+
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.15/datatables.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#mytable").DataTable();
+    });
+</script>
+{{--<script src="{{asset('js/jquery-2.2.3.min.js')}}"></script>--}}
+
+{{--Data tables--}}
         <!-- jQuery UI 1.11.4 -->
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
+<script src="{{asset('js/help.js')}}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script src="{{asset('js/jquery.js')}}"></script>
 <script>
     $.widget.bridge('uibutton', $.ui.button);
 </script>
@@ -659,8 +656,6 @@
 <!-- Morris.js charts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="{{asset('js/morris.min.js')}}"></script>
-
-<script src="{{asset('js/helper.js')}}"></script>
 <!-- Sparkline -->
 <script src="{{asset('js/jquery.sparkline.min.js')}}"></script>
 <!-- jvectormap -->

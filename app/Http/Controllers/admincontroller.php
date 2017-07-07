@@ -1020,4 +1020,5 @@ class admincontroller extends Controller
             return redirect('/jireh/admin');
         }
     }
+
 }

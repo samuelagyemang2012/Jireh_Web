@@ -75,11 +75,12 @@
             <th>Surname</th>
             <th>Firstname</th>
             <th>Email</th>
+
             <th>Telephone (Mobile)</th>
             <th>Amount Requested</th>
-            {{--<th></th>--}}
-            {{--<th></th>--}}
-            {{--<th></th>--}}
+            <th></th>
+            <th></th>
+            <th></th>
             </thead>
             <tbody>
 
@@ -90,9 +91,11 @@
                         <td>{{$a->surname}}</td>
                         <td>{{$a->firstname}}</td>
                         <td>{{$a->email}}</td>
+
                         <td>{{$a->telephone_mobile}}</td>
                         <td><span>GHC </span>{{$a->amount_requested}}</td>
                         <td><input name="email" value="{{$a->email}}" hidden></td>
+
                         <td><input name="id" value="{{$a->id}}" hidden></td>
                         <td>
                             <button type="submit" class="btn btn-sm btn-primary">More Details</button>
