@@ -108,7 +108,7 @@
         </table>
 
         <div class="container">
-            {{$all_loans->links()}}
+{{--            {{$all_loans->links()}}--}}
         </div>
 
         <table>

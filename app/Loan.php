@@ -81,7 +81,7 @@ class Loan extends Model
             ->join('users', 'users.email', '=', 'loans.client_email')
             ->join('clients', 'users.email', '=', 'clients.email')
             ->select('users.firstname', 'users.surname', 'users.email', 'clients.telephone_mobile', 'loans.id', 'loans.date_applied', 'loans.amount_requested')
-            ->paginate(10);
+            ->get();
     }
 
     public function get_all_pending_loans()
@@ -91,7 +91,7 @@ class Loan extends Model
             ->join('clients', 'users.email', '=', 'clients.email')
             ->select('users.firstname', 'users.surname', 'users.email', 'clients.telephone_mobile', 'loans.id', 'loans.date_applied', 'loans.amount_requested')
             ->where('loans.status_id', '=', '1')
-            ->paginate(10);
+            ->get();
     }
 
     public function get_all_approved_loans()
@@ -101,7 +101,7 @@ class Loan extends Model
             ->join('clients', 'users.email', '=', 'clients.email')
             ->select('users.firstname', 'users.surname', 'users.email', 'clients.telephone_mobile', 'loans.id', 'loans.date_applied', 'loans.amount_requested')
             ->where('loans.status_id', '=', '2')
-            ->paginate(10);
+            ->get();
     }
 
     public function get_all_refused_loans()
@@ -111,7 +111,7 @@ class Loan extends Model
             ->join('clients', 'users.email', '=', 'clients.email')
             ->select('users.firstname', 'users.surname', 'users.email', 'clients.telephone_mobile', 'loans.id', 'loans.date_applied', 'loans.amount_requested')
             ->where('loans.status_id', '=', '3')
-            ->paginate(10);
+            ->get();
     }
 
     public function get_num_loans()

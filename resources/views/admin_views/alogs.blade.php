@@ -27,7 +27,7 @@
     </div>
 
     <div class="container">
-        {{$alogs->links()}}
+{{--        {{$alogs->links()}}--}}
     </div>
 
 @stop

@@ -107,7 +107,7 @@
         </table>
 
         <div class="container">
-            {{$rloans->links()}}
+{{--            {{$rloans->links()}}--}}
         </div>
 
         <table>

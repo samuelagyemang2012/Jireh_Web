@@ -118,7 +118,7 @@
         </table>
 
         <div class="container">
-            {{$all_pend->links()}}
+{{--            {{$all_pend->links()}}--}}
         </div>
 
         <table>

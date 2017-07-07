@@ -109,7 +109,7 @@ class User extends Authenticatable
     {
         return DB::table('users')
             ->where('role', '=', 'user')
-            ->paginate(10);
+            ->get();
     }
 
     public function get_uniques($email, $soc)

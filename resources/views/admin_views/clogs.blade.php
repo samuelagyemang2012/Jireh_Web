@@ -29,6 +29,6 @@
     </div>
 
     <div class="container">
-        {{$clogs->links()}}
+{{--        {{$clogs->links()}}--}}
     </div>
 @stop

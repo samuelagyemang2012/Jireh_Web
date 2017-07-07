@@ -112,7 +112,7 @@
         </table>
 
         <div class="container">
-            {{$aploans->links()}}
+{{--            {{$aploans->links()}}--}}
         </div>
 
         <table>
