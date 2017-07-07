@@ -30,21 +30,33 @@
                             <img src="/uploads/{{$pic}}" height="200px" width="200px">
                         </div>
                         <br>
+
+                        <div>
+                            <input  name="title" id="i-title" type="text" value="{{$title}}" value="{{old('title')}}">
+                            <input id="fake_title" class="form-control" type="text" style="width: 300px" readonly>
+                        </div>
+                        <br>
+
                         <div>
                             <label>Title</label>
-                            <select name="title" id="title" class="form-control" style="width: 300px">
+                            <select name="title" id="fortitle" class="form-control" onchange="for_title()" style="width: 300px">
                                 <option value="1">MR</option>
                                 <option value="2">MISS</option>
                                 <option value="3">MRS</option>
                                 <option value="4">DR</option>
                                 <option value="5">REV</option>
-                                <option value="6">OTHER</option>
+                                {{--<option value="6">OTHER</option>--}}
                             </select>
                         </div>
                         <br>
 
+                        <div>
+                            <input  name="gender" id="i-gender" type="text" value="{{$gender}}" value="{{old('gender')}}">
+                            <input id="fake_gender" class="form-control" type="text" style="width: 300px" readonly>
+                        </div>
+
                         <label>Gender</label>
-                        <select name="gender" id="gender" class="form-control" style="width: 300px">
+                        <select name="gender" id="forgender" class="form-control" style="width: 300px">
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                         </select>
@@ -243,7 +255,7 @@
                         <br>
 
                         <label>Identification</label>
-                        <select name="identification" id="identification" class="form-control" style="width: 300px"
+                        <select name="identification" id="iden" class="form-control" style="width: 300px"
                                 value="{{$identification}}">
                             <option value="1">PASSPORT</option>
                             <option value="2">VOTER</option>
@@ -278,7 +290,7 @@
                         <br>
 
                         <label>Literacy</label>
-                        <select name="literacy" id="literacy" class="form-control" style="width: 300px"
+                        <select name="literacy" id="lit" class="form-control" style="width: 300px"
                                 value="{{$literacy}}">
                             <option value="1">UNIVERSITY</option>
                             <option value="2">COLLEGE/POLYTECHNIC</option>
