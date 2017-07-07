@@ -991,4 +991,33 @@ class admincontroller extends Controller
         curl_exec($curl);
         curl_close($curl);
     }
+
+    public function view_client_details()
+    {
+        $email = request()->route('email');
+
+//        return $email;
+        $c = new Client;
+        $e = new Employer;
+        $u = new User;
+        $s = new Spouse();
+
+        $data = Auth::user();
+
+        if ($data['email'] != null) {
+
+            $clients = $c->get_clients($email);
+            $emps = $e->get_employer($email);
+            $users = $u->get_user($email);
+            $spouses = $s->get_spouse($email);
+
+            return view('admin_views.view_clients')
+                ->with('clients', $clients[0])
+                ->with('emps', $emps[0])
+                ->with('users', $users[0])
+                ->with('spouses', $spouses[0]);
+        } else {
+            return redirect('/jireh/admin');
+        }
+    }
 }

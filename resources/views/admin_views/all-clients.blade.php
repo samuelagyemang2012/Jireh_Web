@@ -24,7 +24,9 @@
                         <td><input name="email" value="{{$u->email}}" hidden></td>
                         <td><input name="id" value="{{$u->id}}" hidden></td>
                         <td>
-                            <button class="btn btn-sm btn-primary" type="submit">More Details</button>
+                            <button class="btn btn-sm btn-primary" type="submit">Edit</button>
+                            <a href="{{route('view_client_details',['email'=>$u->email])}}"
+                               class="btn btn-sm btn-primary">More Details</a>
                         </td>
                     </form>
                 </tr>

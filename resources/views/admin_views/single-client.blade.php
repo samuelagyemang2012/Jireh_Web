@@ -287,7 +287,7 @@
                             <option value="3" {{$literacy==3 ? 'selected="selected"':''}}>SECONDARY</option>
                             <option value="4" {{$literacy==4 ? 'selected="selected"':''}}>PRIMARY</option>
                             <option value="5" {{$literacy==5 ? 'selected="selected"':''}}>NO FORMAL EDUCATION</option>
-                            <option value="6" {{$literacy==6 ? 'selected="selected"':''}}>PRIMARY</option>
+                            <option value="6" {{$literacy==6 ? 'selected="selected"':''}}>OTHER</option>
                         </select>
                         <br>
 

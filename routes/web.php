@@ -35,6 +35,8 @@ Route::get('/jireh/admin/loans/all_loans', 'admincontroller@all')->name('all');
 
 Route::get('/jireh/client/client-loan-details', 'admincontroller@client_details')->name('details');
 
+Route::get('/jireh/client/details/{email}', 'admincontroller@view_client_details')->name('view_client_details');
+
 Route::get('/jireh/client/pending_client', 'admincontroller@pending_client_details')->name('pending_details');
 
 Route::post('/approve', 'admincontroller@approve_loan')->name('approve');
