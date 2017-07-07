@@ -99,10 +99,10 @@ class loancontroller extends Controller
                 $msg = $email . " requested for a loan";
                 $log->insert($msg, $email, $role);
 
-                return redirect('profile')->with('loan', 'Your loan application was successful !');
+                return redirect('/jireh/profile')->with('loan', 'Your loan application was successful !');
             } else {
 //            echo 'false';
-                return redirect('loan')->with('loan', 'You must agree with the terms and conditions');
+                return redirect('/jireh/loans')->with('loan', 'You must agree with the terms and conditions');
             }
         } else {
             return redirect('/jireh/login');

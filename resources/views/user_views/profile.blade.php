@@ -5,7 +5,7 @@
     <nav class="navbar-default" style=" background-color: #8A5241;border: none">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Jireh Microfinance Ltd</a>
+                <a class="navbar-brand" href="#"style="color: #fff">Jireh Microfinance Ltd</a>
             </div>
             <ul class="nav navbar-nav">
                 {{--<li><a href="/jireh/profile"><b class="thead">My Loans</b></a></li>--}}

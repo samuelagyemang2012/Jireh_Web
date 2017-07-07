@@ -41,7 +41,7 @@
             <div class="col-4">
                 <br>
                 @if (session('loan'))
-                    <div class="alert alert-success">
+                    <div class="alert alert-danger">
                         <p>{{ session('loan') }}</p>
                     </div>
                 @endif
@@ -60,7 +60,7 @@
             <div class="col-4"></div>
 
             <div class="col-4">
-                <form class="form-horizontal" method="post" action="/loan">
+                <form class="form-horizontal" method="post" action="/jireh/loans">
 
                     {{csrf_field()}}
                     <br>
