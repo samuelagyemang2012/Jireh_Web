@@ -163,41 +163,7 @@
             <th>Witness Telephone:</th>
             <th>{{$data->witness_tel}}</th>
             </thead>
-
-            {{--<thead>--}}
-            {{--<th>Status_id</th>--}}
-            {{--<th>{{$data->status_id}}</th>--}}
-            {{--</thead>--}}
-
-            {{--            @if(session('status') == 1)--}}
-
         </table>
 
-        {{--<div>--}}
-        {{--<table>--}}
-        {{--<thead>--}}
-        {{--<th>--}}
-        {{--<form method="post" action="{{route('approve')}}">--}}
-        {{--{{csrf_field()}}--}}
-        {{--<input value="{{$data->id}}" name="id" hidden>--}}
-        {{--<input value="{{$data->email}}" name="email" hidden>--}}
-        {{--<button type="submit" class="btn btn-sm btn-success">Approve</button>--}}
-        {{--</form>--}}
-        {{--</th>--}}
-
-        {{--<th>--}}
-        {{--<form method="post" action="{{route('refuse')}}">--}}
-        {{--{{csrf_field()}}--}}
-        {{--&nbsp;--}}
-        {{--<input value="{{$data->id}}" name="id" hidden>--}}
-        {{--<input value="{{$data->email}}" name="email" hidden>--}}
-        {{--<button type="submit" class="btn btn-sm btn-danger">Refuse</button>--}}
-        {{--</form>--}}
-        {{--</th>--}}
-        {{--</thead>--}}
-        {{--</table>--}}
-        {{--</div>--}}
     </div>
-    {{--@endif--}}
-
 @stop
