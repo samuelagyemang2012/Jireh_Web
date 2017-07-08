@@ -42,6 +42,7 @@ class Loan extends Model
             ->select('loans.purpose_of_loan', 'loans.date_applied', 'loans.amount_requested', 'statuss.name')
             ->where('loans.client_email', '=', $email)
             ->where('loans.status_id', '=', '1')
+            ->orderBy('created_at','desc')
             ->get();
     }
 
@@ -52,6 +53,7 @@ class Loan extends Model
             ->select('loans.purpose_of_loan', 'loans.date_applied', 'loans.amount_requested', 'statuss.name')
             ->where('loans.client_email', '=', $email)
             ->where('loans.status_id', '=', '2')
+            ->orderBy('created_at','desc')
             ->get();
     }
 
@@ -62,6 +64,7 @@ class Loan extends Model
             ->select('loans.purpose_of_loan', 'loans.date_applied', 'loans.amount_requested', 'statuss.name')
             ->where('loans.client_email', '=', $email)
             ->where('loans.status_id', '=', '3')
+            ->orderBy('created_at','desc')
             ->get();
     }
 
@@ -140,7 +143,6 @@ class Loan extends Model
             ->where('status_id', '=', '3')
             ->count();
     }
-
 
     public function get_num_client_pending_loans($email)
     {
