@@ -96,7 +96,7 @@
             </thead>
 
             <thead>
-            <th>Posiiton Held</th>
+            <th>Positon Held</th>
             <td>{{$clients->position_held}}</td>
             </thead>
 
@@ -222,8 +222,6 @@
             <th>Relationship to Kin's Name</th>
             <td>{{$clients->kin_relationship}}</td>
             </thead>
-
-
         </table>
     </div>
 @stop
