@@ -38,8 +38,8 @@ class Admin extends Model
                     'pic' => '',
                     'last_logged_in' => $date,
                     'password' => $password,
-                    'role' => $role,
-//                    'apitoken' => $api
+                    'role' => 'admin',
+                    'apitoken' => $api
                 ]
             );
     }

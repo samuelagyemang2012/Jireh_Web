@@ -16,6 +16,7 @@ class User extends Authenticatable
 
     public function insert($surname, $firstname, $othernames, $password, $email, $pic, $last)
     {
+        $api = uniqid();
 
         DB::table('users')->insert(
             ['surname' => $surname,
@@ -24,9 +25,10 @@ class User extends Authenticatable
                 'password' => $password,
                 'email' => $email,
                 'pic' => $pic,
-                'last_logged_in' => $last
-            ]
-        );
+                'last_logged_in' => $last,
+                'role' => 'user',
+                'api_token' => $api
+            ]);
     }
 
     public function update_user($email, $surname, $firstname, $othernames)
