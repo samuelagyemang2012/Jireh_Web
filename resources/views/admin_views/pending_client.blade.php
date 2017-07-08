@@ -164,14 +164,8 @@
             <th>{{$data->witness_tel}}</th>
             </thead>
 
-            <thead>
-            <th>Status_id</th>
-            <th>{{$data->status_id}}</th>
-            </thead>
-
-
         </table>
-
+        <hr>
         <div>
             <table>
                 <thead>
