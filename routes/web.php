@@ -87,7 +87,7 @@ Route::get('api/add-loan', 'apicontroller@loan');
 
 Route::get('api/upload', 'apicontroller@upload');
 
-Route::get('api/test', 'apicontroller@test');
+Route::post('api/test', 'apicontroller@test');
 
 //Auth::routes();
 
