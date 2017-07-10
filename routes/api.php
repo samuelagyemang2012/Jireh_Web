@@ -19,3 +19,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/test', 'apicontroller@test');
+
+Route::post('/login/{email}/{password}', 'apicontroller@login');
+
+Route::post('/add-client', 'apicontroller@sign_up');
+
+Route::post('/getloans/{email}', 'apicontroller@get_loans');
+
+Route::post('/add-loan', 'apicontroller@loan');
+
+Route::post('/upload', 'apicontroller@upload');
