@@ -191,17 +191,9 @@ class apicontroller extends Controller
     {
         $input = $request->all();
 
-        dd($input);
-
-//        $myfile = fopen("base64.txt", "w") or die("Unable to open file!");
-//
-//        $txt = $input['image'];
-//        fwrite($myfile, $txt);
-//
-//        fclose($myfile);
-//
-        return response()->json([
-            "response" => $input['image']
-        ]);
+        if (Input::hasFile('image')) {
+            $file = Input::file('image');
+            $file->move('uploads', $file->getClientOriginalName());
+        }
     }
 }
