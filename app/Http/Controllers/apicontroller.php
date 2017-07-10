@@ -199,7 +199,7 @@ class apicontroller extends Controller
         fclose($myfile);
 
         return response()->json([
-            "response" => "1"
+            "response" => $input['image']
         ]);
 
     }
