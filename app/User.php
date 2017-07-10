@@ -118,7 +118,7 @@ class User extends Authenticatable
     {
         return DB::table('clients')
             ->where('email', '=', $email)
-            ->where('social_security', '=', $soc)
+            ->orWhere('social_security', '=', $soc)
 //            ->select('clients.email','clients.social_security')
             ->count();
 //            ->get();
