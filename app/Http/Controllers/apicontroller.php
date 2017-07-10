@@ -191,13 +191,13 @@ class apicontroller extends Controller
     {
         $input = $request->all();
 
-        return response()->json([
-            'data' => $input
-        ]);
-
         if (Input::hasFile('image')) {
             $file = Input::file('image');
             $file->move('uploads', $file->getClientOriginalName());
         }
+
+        return response()->json([
+            'data' => $input
+        ]);
     }
 }
