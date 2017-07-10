@@ -75,6 +75,7 @@ class Loan extends Model
             ->join('statuss', 'loans.status_id', '=', 'statuss.id')
             ->select('loans.amount_requested', 'statuss.name')
             ->where('loans.client_email', '=', $email)
+            ->orderBy('created_at','desc')
             ->get();
     }
 
