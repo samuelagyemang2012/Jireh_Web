@@ -39,7 +39,7 @@ class Admin extends Model
                     'last_logged_in' => $date,
                     'password' => $password,
                     'role' => 'admin',
-                    'apitoken' => $api
+//                    'apitoken' => $api
                 ]
             );
     }
