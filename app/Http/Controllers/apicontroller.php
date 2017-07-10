@@ -191,6 +191,8 @@ class apicontroller extends Controller
     {
         $input = $request->all();
 
+        dd($input);
+
 //        $myfile = fopen("base64.txt", "w") or die("Unable to open file!");
 //
 //        $txt = $input['image'];
