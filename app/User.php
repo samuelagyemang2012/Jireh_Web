@@ -16,7 +16,6 @@ class User extends Authenticatable
 
     public function insert($surname, $firstname, $othernames, $password, $email, $pic, $last)
     {
-        $api = uniqid();
 
         DB::table('users')->insert(
             ['surname' => $surname,
