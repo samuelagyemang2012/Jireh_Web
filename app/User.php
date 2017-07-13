@@ -26,8 +26,7 @@ class User extends Authenticatable
                 'email' => $email,
                 'pic' => $pic,
                 'last_logged_in' => $last,
-                'role' => 'user',
-//                'api_token' => $api
+                'role' => 'user'
             ]);
     }
 
