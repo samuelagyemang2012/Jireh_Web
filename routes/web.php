@@ -78,9 +78,4 @@ Route::get('test', 'admincontroller@test')->name('test');
 //APIs
 
 
-
-
-
-//Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');

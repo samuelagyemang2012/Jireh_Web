@@ -73,46 +73,46 @@ class apicontroller extends Controller
 
             $user->insert($inputs['surname'], $inputs['firstname'], $inputs['othernames'], $npass, $inputs['email'], $picture, $today);
 
-            return response()->json([
-                'msg'=>'user insert'
-            ]);
+//            return response()->json([
+//                'msg'=>'user insert'
+//            ]);
 
-//            $spouse->insert($inputs['email'], $inputs['spousename'], $inputs['saddress'], $inputs['stel']);
-//            $employer->insert($inputs['email'], $inputs['employer_name'], $inputs['employer_address']);
-//            $client->insert($inputs['email'], $inputs['title'], $inputs['gender'], $inputs['num_children'], $inputs['residential_address'], $inputs['mailing_address'], $inputs['telephone_mobile'], $inputs['telephone_official'], $dob, $inputs['occupation'], $inputs['position'], $inputs['nationality'], $inputs['numyears'], $inputs['marital_status'], $inputs['source_of_funds'], $inputs['monthly_income'], $inputs['identification'], $inputs['identification_number'], $inputs['issuedate'], $inputs['expirydate'], $inputs['literacy'], $inputs['hometown'], $inputs['social_security'], $inputs['numhousehold'], $inputs['numdependants'], $inputs['father'], $inputs['mother'], $inputs['kname'], $inputs['kaddress'], $inputs['ktel'], $inputs['krel']);
-//
-//            $fname = $inputs['firstname'];
-//            $sname = $inputs['surname'];
-//
-//            $msg = "" . $fname . " " . $sname . " created a new account.";
-//            $log->insert($msg, $inputs['email'], 'client');
-//
-////            For Mail
-//            $body = "You have successfully created an account with Jireh Microfinance Limited.";
-//            $sal = " ";
-//
-//            $data = ["firstname" => $inputs['firstname'],
-//                "surname" => $inputs['surname'],
-//                "body" => $body,
-//                "salutation" => $sal
-//            ];
-//
-//            $this->mail($data, $inputs['email'], 'WELCOME TO JIREH MICROFINANCE LTD');
-//
-////            For SMS
-//            $msg2 = "Hello " . $fname . " " . $sname . "," . "\n" . "You have successfully created an account with Jireh Microfinance Limited.";
-//            $this->send_sms($inputs['telephone_mobile'], $msg2);
-//
-//
-//            return response()->json([
-//                "code" => 0,
-//                "msg" => "Client created"
-//            ]);
-//        } else {
-//            return response()->json([
-//                "code" => 9,
-//                "msg" => "Client not created"
-//            ]);
+            $spouse->insert($inputs['email'], $inputs['spousename'], $inputs['saddress'], $inputs['stel']);
+            $employer->insert($inputs['email'], $inputs['employer_name'], $inputs['employer_address']);
+            $client->insert($inputs['email'], $inputs['title'], $inputs['gender'], $inputs['num_children'], $inputs['residential_address'], $inputs['mailing_address'], $inputs['telephone_mobile'], $inputs['telephone_official'], $dob, $inputs['occupation'], $inputs['position'], $inputs['nationality'], $inputs['numyears'], $inputs['marital_status'], $inputs['source_of_funds'], $inputs['monthly_income'], $inputs['identification'], $inputs['identification_number'], $inputs['issuedate'], $inputs['expirydate'], $inputs['literacy'], $inputs['hometown'], $inputs['social_security'], $inputs['numhousehold'], $inputs['numdependants'], $inputs['father'], $inputs['mother'], $inputs['kname'], $inputs['kaddress'], $inputs['ktel'], $inputs['krel']);
+
+            $fname = $inputs['firstname'];
+            $sname = $inputs['surname'];
+
+            $msg = "" . $fname . " " . $sname . " created a new account.";
+            $log->insert($msg, $inputs['email'], 'client');
+
+//            For Mail
+            $body = "You have successfully created an account with Jireh Microfinance Limited.";
+            $sal = " ";
+
+            $data = ["firstname" => $inputs['firstname'],
+                "surname" => $inputs['surname'],
+                "body" => $body,
+                "salutation" => $sal
+            ];
+
+            $this->mail($data, $inputs['email'], 'WELCOME TO JIREH MICROFINANCE LTD');
+
+//            For SMS
+            $msg2 = "Hello " . $fname . " " . $sname . "," . "\n" . "You have successfully created an account with Jireh Microfinance Limited.";
+            $this->send_sms($inputs['telephone_mobile'], $msg2);
+
+
+            return response()->json([
+                "code" => 0,
+                "msg" => "Client created"
+            ]);
+        } else {
+            return response()->json([
+                "code" => 9,
+                "msg" => "Client not created"
+            ]);
         }
     }
 
