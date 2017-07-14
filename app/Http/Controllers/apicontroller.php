@@ -59,7 +59,7 @@ class apicontroller extends Controller
         if ($uniques != 0) {
             return response()->json([
                 'code' => '12',
-                'msg' => 'Your email or social security number is already taken'
+                'msg' => 'This email or social security number is already taken'
             ]);
         }
 
@@ -115,7 +115,7 @@ class apicontroller extends Controller
 
                 return response()->json([
                     "code" => '11',
-                    "msg" => $validator->errors()
+                    "msg" => "Please fill all required fields"
                 ]);
 
             }
