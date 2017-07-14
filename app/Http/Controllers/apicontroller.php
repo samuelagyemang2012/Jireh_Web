@@ -77,11 +77,7 @@ class apicontroller extends Controller
                 'surname' => 'required|min:2',
                 'firstname' => 'required|min:2',
                 'othername' => 'min:2',
-//            'spousename' => 'min:2',
-//            'saddress' => 'min:5',
-//            'stel' => 'min:10',
-//            'soccup' => 'min:2',
-//                'num_children' => 'required|min:0',
+
                 'residential_address' => 'required|min:6',
                 'mailing_address' => 'required|min:6',
                 'telephone_mobile' => 'required|min:10',
@@ -113,10 +109,12 @@ class apicontroller extends Controller
             ]);
 
             if ($validator->fails()) {
+
                 return response()->json([
                     "code" => '11',
                     "msg" => 'Please fill all required fields'
                 ]);
+
             }
 
             $dob = preg_replace('/\s+/', '-', $inputs['date_of_birth']);
