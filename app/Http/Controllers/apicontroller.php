@@ -112,7 +112,7 @@ class apicontroller extends Controller
 
                 return response()->json([
                     "code" => '11',
-                    "msg" => 'Please fill all required fields'
+                    "msg" => $validator->errors()
                 ]);
 
             }
