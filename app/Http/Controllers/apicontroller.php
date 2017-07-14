@@ -76,7 +76,7 @@ class apicontroller extends Controller
             $validator = Validator::make($request->all(), [
                 'surname' => 'required|min:2',
                 'firstname' => 'required|min:2',
-                'othername' => 'min:2',
+//                'othername' => 'min:2',
 
                 'residential_address' => 'required|min:6',
                 'mailing_address' => 'required|min:6',
