@@ -70,7 +70,10 @@ class apicontroller extends Controller
                 $file = Input::file('pic');
                 $file->move('uploads', $file->getClientOriginalName());
             } else {
-                $picture = 'test';
+                return response()->json([
+                    'code' => '14',
+                    'msg' => 'Picure failed to upload'
+                ]);
             }
 
             $validator = Validator::make($request->all(), [
@@ -105,7 +108,7 @@ class apicontroller extends Controller
 //            'username' => 'required|min:6|unique:users',
                 'password' => 'required|min:6',
                 'cpassword' => 'required|same:password',
-                'pic' => 'required'
+//                'pic' => 'required'
             ]);
 
             if ($validator->fails()) {
