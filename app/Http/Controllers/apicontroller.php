@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class apicontroller extends Controller
 {
@@ -53,7 +54,14 @@ class apicontroller extends Controller
 
         $inputs = $request->all();
 
-        $uniques = 0;// $user->get_uniques($inputs['email'], $inputs['social_security']);
+        $uniques = $user->get_uniques($inputs['email'], $inputs['social_security']);
+
+        if ($uniques != 0) {
+            return response()->json([
+                'code' => '12',
+                'msg' => 'Your email or social security number is already taken'
+            ]);
+        }
 
         if ($uniques == 0) {
 
@@ -63,6 +71,52 @@ class apicontroller extends Controller
                 $file->move('uploads', $file->getClientOriginalName());
             } else {
                 $picture = 'test';
+            }
+
+            $validator = Validator::make($request->all(), [
+                'surname' => 'required|min:2',
+                'firstname' => 'required|min:2',
+                'othername' => 'min:2',
+//            'spousename' => 'min:2',
+//            'saddress' => 'min:5',
+//            'stel' => 'min:10',
+//            'soccup' => 'min:2',
+//                'num_children' => 'required|min:0',
+                'residential_address' => 'required|min:6',
+                'mailing_address' => 'required|min:6',
+                'telephone_mobile' => 'required|min:10',
+                'telephone_official' => 'required|min:10',
+                'email' => 'required|min:6|unique:users',
+                'occupation' => 'required|min:5',
+                'position' => 'required|min:2',
+                'nationality' => 'required|min:5',
+                'numyears' => 'required|min:1',
+                'employer_name' => 'required|min:5',
+                'employer_address' => 'required|min:5',
+                'identification_number' => 'required|min:5',
+                'issuedate' => 'required',
+                'expirydate' => 'required',
+                'hometown' => 'required|min:5',
+                'social_security' => 'required|min:5|unique:clients',
+                'numhousehold' => 'required|min:0',
+                'numdependants' => 'required|min:0',
+                'father' => 'required|min:2',
+                'mother' => 'required|min:2',
+                'kname' => 'required|min:2',
+                'kaddress' => 'required|min:2',
+                'ktel' => 'required|min:10',
+                'krel' => 'required|min:3',
+//            'username' => 'required|min:6|unique:users',
+                'password' => 'required|min:6',
+                'cpassword' => 'required|same:password',
+                'pic' => 'required'
+            ]);
+
+            if ($validator->fails()) {
+                return response()->json([
+                    "code" => '11',
+                    "msg" => 'Please fill all required fields'
+                ]);
             }
 
             $dob = preg_replace('/\s+/', '-', $inputs['date_of_birth']);
@@ -114,6 +168,7 @@ class apicontroller extends Controller
                 "msg" => "Client not created"
             ]);
         }
+
     }
 
     private function mail($data, $email, $subject)
