@@ -218,6 +218,29 @@ class apicontroller extends Controller
 
         $email = Session::get('memail');
 
+        $validator = Validator::make($request->all(), [
+            'num_monthly' => 'required|min:1',
+            'bank' => 'required|min:2',
+            'salary_date' => 'required',
+            'numloans' => 'required|min:0',
+            'total_monthly_payments' => 'required|min:0',
+            'name_insti' => 'required|min:2',
+            'amount' => 'required|min:1',
+            'loan_period' => 'required|min:1',
+            'purpose' => 'required|min:5',
+            'collateral' => 'required|min:5',
+            'wname' => 'required|min:2',
+            'wemployer' => 'required|min:2',
+            'wtel' => 'required|min:10'
+        ]);
+
+        if ($validator->fails()) {
+
+            return response()->json([
+                "code" => '11',
+                "msg" => "Invalid Data Provided"
+            ]);
+        }
 
         if ($inputs['agree'] == 1) {
 
