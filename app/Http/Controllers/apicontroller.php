@@ -227,8 +227,8 @@ class apicontroller extends Controller
             'name_insti' => 'required|min:2',
             'amount' => 'required|min:1',
             'loan_period' => 'required|min:1',
-            'purpose' => 'required|min:5',
-            'collateral' => 'required|min:5',
+            'purpose' => 'required|min:2',
+            'collateral' => 'required|min:2',
             'wname' => 'required|min:2',
             'wemployer' => 'required|min:2',
             'wtel' => 'required|min:10'
