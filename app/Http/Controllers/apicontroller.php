@@ -275,7 +275,6 @@ class apicontroller extends Controller
             return response()->json([
                 "msg" => "false"
             ]);
-
         }
     }
 
