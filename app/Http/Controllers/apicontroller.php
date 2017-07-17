@@ -81,21 +81,21 @@ class apicontroller extends Controller
                 'firstname' => 'required|min:2',
 //                'othername' => 'min:2',
 
-                'residential_address' => 'required|min:6',
-                'mailing_address' => 'required|min:6',
+                'residential_address' => 'required|min:2',
+                'mailing_address' => 'required|min:2',
                 'telephone_mobile' => 'required|min:10',
                 'telephone_official' => 'required|min:10',
-                'email' => 'required|min:6|unique:users',
-                'occupation' => 'required|min:5',
+                'email' => 'required|min:6|unique:users|e-mail',
+                'occupation' => 'required|min:2',
                 'position' => 'required|min:2',
-                'nationality' => 'required|min:5',
+                'nationality' => 'required|min:2',
                 'numyears' => 'required|min:1',
-                'employer_name' => 'required|min:5',
-                'employer_address' => 'required|min:5',
-                'identification_number' => 'required|min:5',
+                'employer_name' => 'required|min:2',
+                'employer_address' => 'required|min:2',
+                'identification_number' => 'required|min:2',
                 'issuedate' => 'required',
                 'expirydate' => 'required',
-                'hometown' => 'required|min:5',
+                'hometown' => 'required|min:2',
                 'social_security' => 'required|min:5|unique:clients',
                 'numhousehold' => 'required|min:0',
                 'numdependants' => 'required|min:0',
@@ -115,7 +115,7 @@ class apicontroller extends Controller
 
                 return response()->json([
                     "code" => '11',
-                    "msg" => "Please fill all required fields"
+                    "msg" => "Invalid Data Provided"
                 ]);
 
             }
