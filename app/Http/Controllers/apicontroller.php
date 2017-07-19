@@ -282,19 +282,20 @@ class apicontroller extends Controller
     {
 //        $input = $request->all();
 
-        $input = $request->all();
+//        $input = $request->all();
 
-        $validator = Validator::make($input, [
+        $validator = Validator::make($request->all(), [
             'usernamet' => 'required',
             'password' => 'required|min:6'
         ]);
 
         if ($validator->fails()) {
 
-            return response()->json([
-                'code' => 9,
-                'msg' => $validator->errors()
-            ]);
+            return $request->all();
+//            return response()->json([
+//                'code' => 9,
+//                'msg' => $validator->errors()
+//            ]);
         }
     }
 }
