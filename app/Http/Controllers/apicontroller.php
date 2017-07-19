@@ -291,7 +291,10 @@ class apicontroller extends Controller
 
         if ($validator->fails()) {
 
-            return $request->all();
+            return response()->json([
+                'code' => 9,
+                'msg' => $validator->errors()
+            ]);
 //            return response()->json([
 //                'code' => 9,
 //                'msg' => $validator->errors()
