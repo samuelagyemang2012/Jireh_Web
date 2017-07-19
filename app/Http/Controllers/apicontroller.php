@@ -186,7 +186,7 @@ class apicontroller extends Controller
         if ($validator->fails()) {
 
             foreach ($validator->errors()->all() as $messages) {
-                array_push($somearray, $messages . "\r\n");
+                array_push($somearray, $messages . "\n");
             }
 
             return response()->json([
