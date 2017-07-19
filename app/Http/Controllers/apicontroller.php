@@ -293,16 +293,16 @@ class apicontroller extends Controller
 //            ]);
 //        }
 
-        $rules = [
-            "usernamet" => "required",
-            "password" => "required"
-        ];
-
-        $val = $this->validate($request);
+//        $rules = [
+//            "usernamet" => "required",
+//            "password" => "required"
+//        ];
+//
+//        $val = $this->validate($request);
 
         return response()->json([
             'code' => 9,
-            'msg' => $val->errors()
+//            'msg' => $val->errors()
         ]);
     }
 }
