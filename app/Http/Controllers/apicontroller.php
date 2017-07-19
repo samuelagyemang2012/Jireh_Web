@@ -280,10 +280,6 @@ class apicontroller extends Controller
 
     public function test(Request $request)
     {
-//        $input = $request->all();
-
-//        $input = $request->all();
-
         $validator = Validator::make($request->all(), [
             'usernamet' => 'required',
             'password' => 'required|min:6'
@@ -295,10 +291,6 @@ class apicontroller extends Controller
                 'code' => 9,
                 'msg' => $validator->errors()
             ]);
-//            return response()->json([
-//                'code' => 9,
-//                'msg' => $validator->errors()
-//            ]);
         }
     }
 }
