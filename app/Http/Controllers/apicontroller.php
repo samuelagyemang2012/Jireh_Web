@@ -283,7 +283,7 @@ class apicontroller extends Controller
         $validator = Validator::make($request->all(), [
             'usernamet' => 'required',
             'password' => 'required|min:6'
-        ]);
+        ])->validate();
 
         if ($validator->fails()) {
 
