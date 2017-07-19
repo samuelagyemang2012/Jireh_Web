@@ -285,15 +285,18 @@ class apicontroller extends Controller
             'password' => 'required|min:6'
         ]);
 
+        $array = array();
+
         if ($validator->fails()) {
 
-            foreach ($validator->errors() as $message) {
+            foreach ($validator->errors() as $messages) {
+                array_push($array, $messages);
+            }
 
-                return response()->json([
-                    'code' => 9,
-                    'msg' => $message
-                ]);
-            };
+            return response()->json([
+                "code" => "9",
+                "msg" => $array
+            ]);
         }
     }
 }
