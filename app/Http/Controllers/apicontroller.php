@@ -285,7 +285,7 @@ class apicontroller extends Controller
         $input = $request->all();
 
         $validator = Validator::make($input, [
-            'username' => 'required',
+            'usernamet' => 'required',
             'password' => 'required|min:6|alpha'
         ]);
 
