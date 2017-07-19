@@ -298,7 +298,7 @@ class apicontroller extends Controller
             "password" => "required"
         ];
 
-        $val = $this->validate($request->all(), $rules);
+        $val = $this->validate($request);
 
         return response()->json([
             'code' => 9,
