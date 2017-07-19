@@ -122,7 +122,7 @@ class apicontroller extends Controller
             'email.required' => 'The Email field is required',
             'email.min' => 'The Email field must be at least 6 characters',
             'email.unique' => 'This email already exists !',
-            'email.email' => 'This is not a valid email',
+            'email.email' => 'This is not a valid email.',
 
             'occupation.required' => 'The Occupation field is required',
             'occupation.min' => 'The Occupation field must be at least 5 characters',
