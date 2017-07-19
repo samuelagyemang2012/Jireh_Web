@@ -298,12 +298,11 @@ class apicontroller extends Controller
             "password" => "required"
         ];
 
-        $val = $this->validate($request);
+        $val = $this->validate($request->all(), $rules);
 
         return response()->json([
             'code' => 9,
             'msg' => $val->errors()
         ]);
-
     }
 }
