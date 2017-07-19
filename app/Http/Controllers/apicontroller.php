@@ -287,22 +287,12 @@ class apicontroller extends Controller
 
         if ($validator->fails()) {
 
-            return response()->json([
-                'code' => 9,
-                'msg' => $validator->errors()
-            ]);
+            foreach ($validator->errors() as $message) {
+
+                return response()->json([
+                    'code' => 9,
+                    'msg' => $message
+                ]);
+            };
         }
-
-//        $rules = [
-//            "usernamet" => "required",
-//            "password" => "required"
-//        ];
-//
-//        $val = $this->validate($request);
-
-        return response()->json([
-            'code' => 9,
-            'msg' => $validator->errors()
-        ]);
     }
-}
