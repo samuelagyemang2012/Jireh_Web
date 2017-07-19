@@ -280,18 +280,18 @@ class apicontroller extends Controller
 
     public function test(Request $request)
     {
-//        $validator = Validator::make($request->all(), [
-//            'usernamet' => 'required',
-//            'password' => 'required|min:6'
-//        ])->validate();
-//
-//        if ($validator->fails()) {
-//
-//            return response()->json([
-//                'code' => 9,
-//                'msg' => $validator->errors()
-//            ]);
-//        }
+        $validator = Validator::make($request->all(), [
+            'usernamet' => 'required',
+            'password' => 'required|min:6'
+        ])->validate();
+
+        if ($validator->fails()) {
+
+            return response()->json([
+                'code' => 9,
+                'msg' => $validator->errors()
+            ]);
+        }
 
 //        $rules = [
 //            "usernamet" => "required",
@@ -302,7 +302,7 @@ class apicontroller extends Controller
 
         return response()->json([
             'code' => 9,
-//            'msg' => $val->errors()
+            'msg' => $validator->errors()
         ]);
     }
 }
