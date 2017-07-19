@@ -289,7 +289,8 @@ class apicontroller extends Controller
 
         if ($validator->fails()) {
 
-            foreach ($validator->errors() as $messages) {
+            foreach ($validator->errors()->all() as $messages) {
+
                 array_push($array, $messages);
             }
 
