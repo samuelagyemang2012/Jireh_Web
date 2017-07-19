@@ -54,71 +54,146 @@ class apicontroller extends Controller
 
         $inputs = $request->all();
 
-        $uniques = $user->get_uniques($inputs['email'], $inputs['social_security']);
+        if (Input::hasFile('pic')) {
 
-        if ($uniques != 0) {
+            $picture = Input::file('pic')->getClientOriginalName();
+            $file = Input::file('pic');
+            $file->move('uploads', $file->getClientOriginalName());
+
+        } else {
             return response()->json([
-                'code' => '12',
-                'msg' => 'This email or social security number is already taken'
+                'code' => '14',
+                'msg' => 'Picure failed to upload'
             ]);
         }
 
-        if ($uniques == 0) {
+        $somearray = array();
 
-            if (Input::hasFile('pic')) {
-                $picture = Input::file('pic')->getClientOriginalName();
-                $file = Input::file('pic');
-                $file->move('uploads', $file->getClientOriginalName());
-            } else {
-                return response()->json([
-                    'code' => '14',
-                    'msg' => 'Picure failed to upload'
-                ]);
+        $rules = [
+            'surname' => 'required|min:2',
+            'firstname' => 'required|min:2',
+            'residential_address' => 'required|min:2',
+            'mailing_address' => 'required|min:2',
+            'telephone_mobile' => 'required|min:10',
+            'telephone_official' => 'required|min:10',
+            'email' => 'required|min:6|unique:users|e-mail',
+            'occupation' => 'required|min:2',
+            'position' => 'required|min:2',
+            'nationality' => 'required|min:2',
+            'numyears' => 'required|min:1',
+            'employer_name' => 'required|min:2',
+            'employer_address' => 'required|min:2',
+            'identification_number' => 'required|min:2',
+            'issuedate' => 'required',
+            'expirydate' => 'required',
+            'hometown' => 'required|min:2',
+            'social_security' => 'required|min:5|unique:clients',
+            'numhousehold' => 'required|min:0',
+            'numdependants' => 'required|min:0',
+            'father' => 'required|min:2',
+            'mother' => 'required|min:2',
+            'kname' => 'required|min:2',
+            'kaddress' => 'required|min:2',
+            'ktel' => 'required|min:10',
+            'krel' => 'required|min:3',
+            'password' => 'required|min:6',
+            'cpassword' => 'required|same:password',
+        ];
+
+        $messages = [
+            'surname.required' => 'The Surname field is required',
+            'surname.min' => 'The Surname field must be at least 2 characters.',
+
+            'firstname.required' => 'The First Name field is required',
+            'firstname.min' => 'The First Name field must be at least 2 characters.',
+
+            'residential_address.required' => 'The Residential Address field is required',
+            'residential_address.min' => 'The Residential Address field must be at least 6 characters',
+
+            'mailing_address.required' => 'The Mailing Address field is required',
+            'mailing_address.min' => 'The Mailing Address field must be at least 6 characters',
+
+            'telephone_mobile.required' => 'The Telephone (Mobile) field is required',
+            'telephone_mobile.min' => 'A telephone number must be at least 10 characters',
+
+            'telephone_official.required' => 'The Telephone (Official) field is required',
+            'telephone_official.min' => 'A telephone number must be at least 10 characters',
+
+            'email.required' => 'The Email field is required',
+            'email.min' => 'The Email field must be at least 6 characters',
+            'email.unique' => 'This email already exists !',
+            'email.e-mail' => 'This is not a valid email',
+
+            'occupation.required' => 'The Occupation field is required',
+            'occupation.min' => 'The Occupation field must be at least 5 characters',
+
+            'nationality.required' => 'The Nationality field is required',
+            'nationality.min' => 'The Nationality field must be at least 5 characters',
+
+            'employer_name.required' => 'The Employer Name is required',
+            'employer_name.min' => 'The Employer Name field must be at least 5 characters',
+
+            'employer_address.required' => 'The Employer Address is required',
+            'employer_address.min' => 'The Employer Adress field must be at least 5 characters',
+
+            'identification_number.required' => 'The Identification number field is required',
+            'identification_number.min' => 'The Identification Number field must be at least 5 characters',
+
+            'issuedate.required' => 'The Date of Issue is required',
+
+            'expirydate.required' => 'The Expiry date field is required',
+
+            'hometown.required' => 'The Hometown field is required',
+            'hometown.min' => 'The Hometown field must be at least 5 characters',
+
+            'social_security.required' => 'The Social Security Number field is required',
+            'social_security.min' => 'The Social Security field must be at least 5 characters',
+            'social_security.unique' => 'This Social Security Number already exist',
+
+            'numhousehold.required' => 'The Number of Members in Household is required ',
+            'numhousehold.min' => 'Number of Members in Household cannot be negative',
+
+            'numdependants.required' => 'The Number of Dependants is required',
+            'numdependants.min' => 'Number of Dependants field cannot be negative',
+
+            'father.required' => 'The Father field is required',
+            'father.min' => 'The Father field must be at least 2 charatcters',
+
+            'mother.required' => 'The Mother field is required',
+            'mother.min' => 'The Mother field must be at least 2 charatcters',
+
+            'kname.required' => 'The Next of Kin\'s Name field is required',
+            'kname.min' => 'The Next of Kin\'s Name field must be at least 2 characters',
+
+            'kaddress.required' => 'The Next of Kin\'s Address field is required',
+            'kaddress.min' => 'The Next of Kin\'s Address field must be at least 2 characters',
+
+            'ktel.required' => 'The Next of Kin\'s Telephone Number field is required',
+            'ktel.min' => 'A telephone number must be at least 10 characters',
+
+            'krel.required' => 'The Relationship with Next of Kin field is required',
+            'krel.min' => 'The Relationship with Next of Kin field must be at least 3 characters',
+
+            'password.required' => 'The Password field is required',
+            'password.min' => 'The Password field should be at least 6 characters',
+
+            'cpassword.required' => 'The Confirm Password field is required',
+            'cpassword.same' => 'Both passwords must match.',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if ($validator->fails()) {
+
+            foreach ($validator->errors()->all() as $messages) {
+                array_push($somearray, $messages . "\r\n");
             }
 
-            $validator = Validator::make($request->all(), [
-                'surname' => 'required|min:2',
-                'firstname' => 'required|min:2',
-//                'othername' => 'min:2',
-
-                'residential_address' => 'required|min:2',
-                'mailing_address' => 'required|min:2',
-                'telephone_mobile' => 'required|min:10',
-                'telephone_official' => 'required|min:10',
-                'email' => 'required|min:6|unique:users|e-mail',
-                'occupation' => 'required|min:2',
-                'position' => 'required|min:2',
-                'nationality' => 'required|min:2',
-                'numyears' => 'required|min:1',
-                'employer_name' => 'required|min:2',
-                'employer_address' => 'required|min:2',
-                'identification_number' => 'required|min:2',
-                'issuedate' => 'required',
-                'expirydate' => 'required',
-                'hometown' => 'required|min:2',
-                'social_security' => 'required|min:5|unique:clients',
-                'numhousehold' => 'required|min:0',
-                'numdependants' => 'required|min:0',
-                'father' => 'required|min:2',
-                'mother' => 'required|min:2',
-                'kname' => 'required|min:2',
-                'kaddress' => 'required|min:2',
-                'ktel' => 'required|min:10',
-                'krel' => 'required|min:3',
-//            'username' => 'required|min:6|unique:users',
-                'password' => 'required|min:6',
-                'cpassword' => 'required|same:password',
-//                'pic' => 'required'
+            return response()->json([
+                "code" => "12",
+                "msg" => $somearray
             ]);
-
-            if ($validator->fails()) {
-
-                return response()->json([
-                    "code" => '11',
-                    "msg" => "Invalid Data Provided"
-                ]);
-
-            }
+        } else {
 
             $dob = preg_replace('/\s+/', '-', $inputs['date_of_birth']);
 
@@ -127,10 +202,6 @@ class apicontroller extends Controller
             $today = date("l jS \of F Y h:i:s A");
 
             $user->insert($inputs['surname'], $inputs['firstname'], $inputs['othernames'], $npass, $inputs['email'], $picture, $today);
-
-//            return response()->json([
-//                'msg'=>'user insert'
-//            ]);
 
             $spouse->insert($inputs['email'], $inputs['spousename'], $inputs['saddress'], $inputs['stel']);
             $employer->insert($inputs['email'], $inputs['employer_name'], $inputs['employer_address']);
@@ -163,13 +234,7 @@ class apicontroller extends Controller
                 "code" => 0,
                 "msg" => "Client created"
             ]);
-        } else {
-            return response()->json([
-                "code" => 9,
-                "msg" => "Client not created"
-            ]);
         }
-
     }
 
     private function mail($data, $email, $subject)
@@ -218,7 +283,7 @@ class apicontroller extends Controller
 
         $email = Session::get('memail');
 
-        $validator = Validator::make($request->all(), [
+        $rules = [
             'num_monthly' => 'required|min:1',
             'bank' => 'required|min:2',
             'salary_date' => 'required',
@@ -232,13 +297,58 @@ class apicontroller extends Controller
             'wname' => 'required|min:2',
             'wemployer' => 'required|min:2',
             'wtel' => 'required|min:10'
-        ]);
+        ];
+
+        $messages = [
+            'num_monthly.required' => 'The Total Monthly Payments field is required',
+            'num_monthly.min' => 'The Total Monthly Payments field must be at least 1',
+
+            'bank.required' => 'The Bank field is required',
+            'bank.min' => 'The Bank field must be at least 2 characters',
+
+            'salary_date.required' => 'The Salary Date field is required',
+
+            'numloans.required' => 'The Number of Current Loans field is required',
+            'numloans.min' => 'The Number of Current Loans field cannot be negative',
+
+            'total_monthly_payments.required' => 'The Total Monthly Payments field is required',
+            'total_montly_payment.min' => 'The Total Monthly Payments field cannot be negative',
+
+            'name_insti.required' => 'The Name of Institution field is required',
+            'name_insti.min' => 'The Name ofInstitution field must be at least 2 characters',
+
+            'amount.required' => 'The Amount field is required',
+            'amount.min' => 'The amount requested field cannot ne negative',
+
+            'loan_period.required' => 'The Proposed Loan Period field is required',
+            'loan_period.min' => 'The Proposed Loan Period field must be at least 2 characters',
+
+            'collateral.required' => 'The Collateral Details field is required',
+            'collateral.min' => 'The Collateral Details field must be at least 2 charaters',
+
+            'wname.required' => 'The Witness\' Name field is required',
+            'wname.min' => 'The Witness\' Name field must be at least 2 characters',
+
+            'wemployer.required' => 'The Witness\' Employer field is required',
+            'wemployer.min' => 'The Witness\' Employer field must be at least 2 character',
+
+            'wtel.required' => 'The Witness\' Telephone field is required',
+            'wtel.min' => 'The Witness\' Telephone must be at least 10 characters'
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        $somearray = array();
 
         if ($validator->fails()) {
 
+            foreach ($validator->errors()->all() as $messages) {
+                array_push($somearray, $messages . "\r\n");
+            }
+
             return response()->json([
                 "code" => '11',
-                "msg" => "Invalid Data Provided"
+                "msg" => $somearray
             ]);
         }
 
@@ -280,6 +390,7 @@ class apicontroller extends Controller
 
     public function test(Request $request)
     {
+
         $validator = Validator::make($request->all(), [
             'usernamet' => 'required',
             'password' => 'required|min:6'
@@ -291,7 +402,7 @@ class apicontroller extends Controller
 
             foreach ($validator->errors()->all() as $messages) {
 
-                array_push($array, $messages."\r\n");
+                array_push($array, $messages . "\r\n");
             }
 
             return response()->json([
