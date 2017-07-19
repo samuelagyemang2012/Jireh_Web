@@ -280,15 +280,20 @@ class apicontroller extends Controller
 
     public function test(Request $request)
     {
+//        $input = $request->all();
+
         $input = $request->all();
 
-        if (Input::hasFile('image')) {
-            $file = Input::file('image');
-            $file->move('uploads', $file->getClientOriginalName());
-        }
-
-        return response()->json([
-            'data' => $input
+        $validator = Validator::make($input, [
+            'username' => 'required',
+            'password' => 'required|min:6|alpha'
         ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'code' => 9,
+                'msg' => $validator->errors()
+            ]);
+        }
     }
 }
