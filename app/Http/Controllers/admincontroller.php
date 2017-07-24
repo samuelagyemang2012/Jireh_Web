@@ -438,21 +438,21 @@ class admincontroller extends Controller
 //            'stel' => 'min:10',
 //            'soccup' => 'min:2',
                 'num_children' => 'required|min:0',
-                'residential_address' => 'required|min:6',
-                'mailing_address' => 'required|min:6',
+                'residential_address' => 'required|min:2',
+                'mailing_address' => 'required|min:2',
                 'telephone_mobile' => 'required|min:10',
                 'telephone_official' => 'required|min:10',
 //            'email' => 'required|min:6|unique:users',
-                'occupation' => 'required|min:5',
-                'position' => 'required|min:5',
-                'nationality' => 'required|min:5',
+                'occupation' => 'required|min:2',
+                'position' => 'required|min:2',
+                'nationality' => 'required|min:2',
 //            'numyears' => 'required|min:1',
-                'employer_name' => 'required|min:5',
-                'employer_address' => 'required|min:5',
-                'identification_number' => 'required|min:5',
+                'employer_name' => 'required|min:2',
+                'employer_address' => 'required|min:2',
+                'identification_number' => 'required|min:2',
                 'issuedate' => 'required',
                 'expirydate' => 'required',
-                'hometown' => 'required|min:5',
+                'hometown' => 'required|min:2',
 //            'social_security' => 'required|min:5|unique:clients',
                 'numhousehold' => 'required|min:0',
                 'numdependants' => 'required|min:0',
@@ -483,10 +483,10 @@ class admincontroller extends Controller
                 'num_children.min' => 'Number of Children field cannot be negative',
 
                 'residential_address.required' => 'The Residential Address field is required',
-                'residential_address.min' => 'The Residential Address field must be at least 6 characters',
+                'residential_address.min' => 'The Residential Address field must be at least 2 characters',
 
                 'mailing_address.required' => 'The Mailing Address field is required',
-                'mailing_address.min' => 'The Mailing Address field must be at least 6 characters',
+                'mailing_address.min' => 'The Mailing Address field must be at least 2 characters',
 
                 'telephone_mobile.required' => 'The Telephone (Mobile) field is required',
                 'telephone_mobile.min' => 'A telephone number must be at least 10 characters',
@@ -495,23 +495,23 @@ class admincontroller extends Controller
                 'telephone_official.min' => 'A telephone number must be at least 10 characters',
 
                 'email.required' => 'The Email field is required',
-                'email.min' => 'The Email field must be at least 6 characters',
+                'email.min' => 'The Email field must be at least 2 characters',
                 'email.unique' => 'This email already exists !',
 
                 'occupation.required' => 'The Occupation field is required',
-                'occupation.min' => 'The Occupation field must be at least 5 characters',
+                'occupation.min' => 'The Occupation field must be at least 2 characters',
 
                 'nationality.required' => 'The Nationality field is required',
-                'nationality.min' => 'The Nationality field must be at least 5 characters',
+                'nationality.min' => 'The Nationality field must be at least 2 characters',
 
                 'employer_name.required' => 'The Employer Name is required',
-                'employer_name.min' => 'The Employer Name field must be at least 5 characters',
+                'employer_name.min' => 'The Employer Name field must be at least 2 characters',
 
                 'employer_address.required' => 'The Employer Address is required',
-                'employer_address.min' => 'The Employer Adress field must be at least 5 characters',
+                'employer_address.min' => 'The Employer Adress field must be at least 2 characters',
 
                 'identification_number.required' => 'The Identification number field is required',
-                'identification_number.min' => 'The Identification Number field must be at least 5 characters',
+                'identification_number.min' => 'The Identification Number field must be at least 2 characters',
 
                 'issuedate.required' => 'The Date of Issue is required',
 
@@ -519,10 +519,10 @@ class admincontroller extends Controller
 //            'expirydate.min' => 'required|min:2',
 
                 'hometown.required' => 'The Hometown field is required',
-                'hometown.min' => 'The Hometown field must be at least 5 characters',
+                'hometown.min' => 'The Hometown field must be at least 2 characters',
 
                 'social_security.required' => 'The Social Security Number field is required',
-                'social_security.min' => 'The Social Security field must be at least 5 characters',
+                'social_security.min' => 'The Social Security field must be at least 2 characters',
                 'social_security.unique' => 'This Social Security Number already exist',
 
                 'numhousehold.required' => 'The Number of Members in Household is required ',
