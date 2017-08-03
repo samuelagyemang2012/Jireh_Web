@@ -141,8 +141,7 @@
                         <label>Telephone(Official)</label>
                         <div>
                             <input type="tel" name="telephone_official" class="form-control" id="teloff" min="10"
-                                   required
-                                   value="{{$teloff}}" value="{{old('telephone_official')}}" onblur="validate('teloff')"
+                                   value="{{$teloff}}" value="{{old('telephone_official')}}"
                                    style="width: 300px">
                         </div>
                         <br>
@@ -191,9 +190,9 @@
 
                         <label>Number of Years in Current Employment</label>
                         <div>
-                            <input type="number" class="form-control" name="numyears" id="numyears" required
+                            <input type="number" class="form-control" name="numyears" id="numyears"
                                    value="{{$numyears}}" value="{{old('numyears')}}" min="1"
-                                   onblur="validate('numyears')" style="width: 300px">
+                                   onblur="" style="width: 300px">
                         </div>
                         <br>
 
@@ -302,16 +301,16 @@
 
                         <label>Social Security Number</label>
                         <div>
-                            <input type="text" class="form-control" name="social_security" id="scnumber" required
+                            <input type="text" class="form-control" name="social_security" id="scnumber"
                                    value="{{$soc}}" value="{{old('social_security')}}" min="5"
-                                   onblur="validate('scnumber')"
+                                   onblur=""
                                    style="width: 300px">
                         </div>
                         <br>
 
                         <label>Number of Member in Household</label>
                         <div>
-                            <input type="number" class="form-control" name="numhousehold" id="numhousehold" required
+                            <input type="number" class="form-control" name="numhousehold" id="numhousehold"
                                    value="{{$members}}" value="{{old('numhousehold')}}" min="1"
                                    onblur="validate('numhousehold')"
                                    style="width: 300px">
@@ -329,16 +328,16 @@
 
                         <label>Father's Name</label>
                         <div>
-                            <input type="text" class="form-control" name="father" id="father" required
-                                   value="{{$father}}" value="{{old('father')}}" min="2" onblur="validate('father')"
+                            <input type="text" class="form-control" name="father" id="father"
+                                   value="{{$father}}" value="{{old('father')}}" min="2" onblur=""
                                    style="width: 300px">
                         </div>
                         <br>
 
                         <label>Mother's Name</label>
                         <div>
-                            <input type="text" class="form-control" name="mother" id="mother" required
-                                   value="{{$mother}}" value="{{old('mother')}}" min="2" onblur="validate('mother')"
+                            <input type="text" class="form-control" name="mother" id="mother"
+                                   value="{{$mother}}" value="{{old('mother')}}" min="2" onblur=""
                                    style="width: 300px">
                         </div>
                         <br>

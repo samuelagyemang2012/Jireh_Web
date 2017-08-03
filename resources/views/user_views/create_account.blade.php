@@ -146,7 +146,7 @@
 
                     <label>Telephone(Official)</label>
                     <div>
-                        <input type="tel" name="telephone_official" class="form-control" id="teloff" min="10" required
+                        <input type="tel" name="telephone_official" class="form-control" id="teloff" min="10"
                                value="{{old('telephone_official')}}" onblur="validate('teloff','toff','10')">
                     </div>
                     <span id="toff"></span>
@@ -194,7 +194,7 @@
 
                     <label>Number of Years in Current Employment</label>
                     <div>
-                        <input type="number" class="form-control" name="numyears" id="numyears" required
+                        <input type="number" class="form-control" name="numyears" id="numyears"
                                value="{{old('numyears')}}" min="1" onblur="validate('numyears','nyears','1')">
                     </div>
                     <span id="nyears"></span>
@@ -297,7 +297,7 @@
 
                     <label>Social Security Number</label>
                     <div>
-                        <input type="text" class="form-control" name="social_security" id="scnumber" required
+                        <input type="text" class="form-control" name="social_security" id="scnumber"
                                value="{{old('social_security')}}" min="5" onblur="validate('scnumber','soc','5')">
                     </div>
                     <span id="soc"></span>
@@ -305,7 +305,7 @@
 
                     <label>Number of Member in Household</label>
                     <div>
-                        <input type="number" class="form-control" name="numhousehold" id="numhousehold" required
+                        <input type="number" class="form-control" name="numhousehold" id="numhousehold"
                                value="{{old('numhousehold')}}" min="1" onblur="validate('numhousehold','nh','1')">
                     </div>
                     <span id="nh"></span>
@@ -321,7 +321,7 @@
 
                     <label>Father's Name</label>
                     <div>
-                        <input type="text" class="form-control" name="father" id="father" required
+                        <input type="text" class="form-control" name="father" id="father"
                                value="{{old('father')}}" min="2" onblur="validate('father','fa','2')">
                     </div>
                     <span id="fa"></span>
@@ -329,7 +329,7 @@
 
                     <label>Mother's Name</label>
                     <div>
-                        <input type="text" class="form-control" name="mother" id="mother" required
+                        <input type="text" class="form-control" name="mother" id="mother"
                                value="{{old('mother')}}" min="2" onblur="validate('mother','mo','2')">
                     </div>
                     <span id="mo"></span>
