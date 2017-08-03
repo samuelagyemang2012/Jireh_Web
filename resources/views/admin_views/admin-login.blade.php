@@ -30,13 +30,14 @@
             <div class="col-4"></div>
 
             <div class="col-4">
+                <h3>Admin Panel</h3>
                 <div class="form-signin">
                     <div class="text-center">
                         <img src="{{asset('img/jireh.png')}}" alt="Metis Logo" height="100px" width="100px">
                     </div>
                     <hr>
                     <div class="tab-content">
-                        <h2>Admin Panel</h2>
+
                         <div id="login" class="tab-pane active">
 
                             <form action="{{route('admin_login')}}" method="post">
@@ -45,7 +46,8 @@
                                     Enter your email and password
                                 </p>
 
-                                <input type="text" placeholder="Email" class="form-control top" name="email" required><br>
+                                <input type="text" placeholder="Email" class="form-control top" name="email"
+                                       required><br>
 
                                 <input type="password" placeholder="Password" class="form-control bottom"
                                        name="password" required><br>
