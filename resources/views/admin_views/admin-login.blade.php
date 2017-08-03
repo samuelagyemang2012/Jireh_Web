@@ -36,6 +36,7 @@
                     </div>
                     <hr>
                     <div class="tab-content">
+                        <h2>Admin Panel</h2>
                         <div id="login" class="tab-pane active">
 
                             <form action="{{route('admin_login')}}" method="post">
