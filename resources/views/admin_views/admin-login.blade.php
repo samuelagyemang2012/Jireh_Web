@@ -30,10 +30,13 @@
             <div class="col-4"></div>
 
             <div class="col-4">
-                <h3>Admin Panel</h3>
+
                 <div class="form-signin">
                     <div class="text-center">
+
                         <img src="{{asset('img/jireh.png')}}" alt="Metis Logo" height="100px" width="100px">
+
+                        <h3>Admin Panel</h3>
                     </div>
                     <hr>
                     <div class="tab-content">
