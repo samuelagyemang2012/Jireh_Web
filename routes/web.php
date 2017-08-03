@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin_views.admin-login');
 });
 
 Route::resource('client', 'clientcontroller');
