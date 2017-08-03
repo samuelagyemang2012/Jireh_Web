@@ -88,8 +88,9 @@
 
                 <th>Telephone (Mobile)</th>
                 <th>Amount Requested</th>
+                <th>Date</th>
+{{----}}
                 <th></th>
-
                 <th></th>
                 <th></th>
             </tr>
@@ -103,8 +104,11 @@
                         <td>{{$pend->surname}}</td>
                         <td>{{$pend->firstname}}</td>
                         <td>{{$pend->email}}</td>
+
                         <td>{{$pend->telephone_mobile}}</td>
                         <td><span>GHC </span>{{$pend->amount_requested}}</td>
+                        <td>{{$pend->date_applied}}</td>
+
                         <td><input name="email" value="{{$pend->email}}" hidden></td>
                         <td><input name="id" value="{{$pend->id}}" hidden></td>
                         <td>
