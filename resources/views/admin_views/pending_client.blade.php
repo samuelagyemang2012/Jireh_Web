@@ -137,7 +137,8 @@
 
             <thead>
             <th>Cash Collection Service:</th>
-            <th>{{$data->cash_collection_service}}</th>
+            <th>{{$data->cash_collection_service == 4 ? 'YES':''}}
+            <th>{{$data->cash_collection_service == 5 ? 'NO':''}}
             </thead>
         </table>
     </div>
