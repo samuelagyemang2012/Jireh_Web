@@ -43,10 +43,11 @@
                                 <p class="text-muted text-center">
                                     Enter your email and password
                                 </p>
-                                <input type="text" placeholder="Email" class="form-control top" name="email" required>
+
+                                <input type="text" placeholder="Email" class="form-control top" name="email" required><br>
 
                                 <input type="password" placeholder="Password" class="form-control bottom"
-                                       name="password" required>
+                                       name="password" required><br>
 
                                 {{--<div class="checkbox">--}}
                                 {{--<label>--}}
