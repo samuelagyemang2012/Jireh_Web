@@ -84,7 +84,7 @@
             <tr>
                 <th>Surname</th>
                 <th>Firstname</th>
-                <th>Email</th>
+                {{--<th>Email</th>--}}
 
                 <th>Telephone (Mobile)</th>
                 <th>Amount Requested</th>
@@ -103,7 +103,7 @@
                         {{csrf_field()}}
                         <td>{{$pend->surname}}</td>
                         <td>{{$pend->firstname}}</td>
-                        <td>{{$pend->email}}</td>
+{{--                        <td>{{$pend->email}}</td>--}}
 
                         <td>{{$pend->telephone_mobile}}</td>
                         <td><span>GHC </span>{{$pend->amount_requested}}</td>
