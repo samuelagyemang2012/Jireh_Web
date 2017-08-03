@@ -89,7 +89,7 @@
                 <th>Telephone (Mobile)</th>
                 <th>Amount Requested</th>
                 <th>Date</th>
-{{----}}
+                {{----}}
                 <th></th>
                 <th></th>
                 <th></th>
@@ -109,11 +109,11 @@
                         <td><span>GHC </span>{{$pend->amount_requested}}</td>
                         <td>{{$pend->date_applied}}</td>
 
-                        <td><input name="email" value="{{$pend->email}}" hidden></td>
-                        <td><input name="id" value="{{$pend->id}}" hidden></td>
                         <td>
                             <button type="submit" class="btn btn-sm btn-primary">More Details</button>
                         </td>
+                        <td><input name="email" value="{{$pend->email}}" hidden></td>
+                        <td><input name="id" value="{{$pend->id}}" hidden></td>
                     </form>
                 </tr>
             @endforeach
@@ -122,7 +122,7 @@
         </table>
 
         <div class="container">
-{{--            {{$all_pend->links()}}--}}
+            {{--            {{$all_pend->links()}}--}}
         </div>
 
         <table>
