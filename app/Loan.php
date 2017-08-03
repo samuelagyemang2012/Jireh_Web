@@ -96,6 +96,7 @@ class Loan extends Model
             ->join('clients', 'users.email', '=', 'clients.email')
             ->select('users.firstname', 'users.surname', 'users.email', 'clients.telephone_mobile', 'loans.id', 'loans.date_applied', 'loans.amount_requested')
             ->where('loans.status_id', '=', '1')
+            ->orderBy('loans.created_at','asc')
             ->get();
     }
 
