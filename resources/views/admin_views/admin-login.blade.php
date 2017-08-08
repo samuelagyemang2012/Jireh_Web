@@ -35,7 +35,7 @@
                     <div class="text-center">
 
                         <img src="{{asset('img/jireh.png')}}" alt="Metis Logo" height="100px" width="100px">
-
+                        <h5><b style="color: saddlebrown">Jireh Microfinance Loan Application Form</b></h5>
                         <h3>Admin Panel</h3>
                     </div>
                     <hr>

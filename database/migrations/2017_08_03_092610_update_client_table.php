@@ -14,6 +14,7 @@ class UpdateClientTable extends Migration
     public function up()
     {
         Schema::table('clients', function (Blueprint $table) {
+
             $table->string('telephone_official')->nullable();
             $table->integer('number_of_years')->nullable();
             $table->string('social_security')->nullable();

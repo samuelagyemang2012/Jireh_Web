@@ -12,7 +12,7 @@
             <div class="col-4"></div>
 
             <div class="col-4">
-                <h4 style="color: #8A5241">JIREH MICROFINANCE LIMITED</h4>
+                <h5 style="color: #8A5241"><b>JIREH MICROFINANCE LOAN APPLICATION FORM</b></h5>
                 <br>
                 {{--<br>--}}
 
