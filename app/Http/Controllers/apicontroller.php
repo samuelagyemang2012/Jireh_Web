@@ -251,7 +251,7 @@ class apicontroller extends Controller
         $message = urlencode($msg);
         $num = urlencode($number);
 
-        $url = "http://deywuro.com:12111/api/sms?username=jireh&password=pssjireh&source=Jireh&destination=" . $num . "&message=" . $message;
+        $url = "http://deywuro.com/api/sms?username=jireh&password=pssjireh&source=Jireh&destination=" . $num . "&message=" . $message;
 
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
